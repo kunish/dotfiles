@@ -1,7 +1,6 @@
 local M = {}
 
 function M.setup()
-  vim.opt.clipboard = "unnamed"
   vim.opt.completeopt = "menuone,noselect"
   vim.opt.cursorline = true
   vim.opt.expandtab = true
