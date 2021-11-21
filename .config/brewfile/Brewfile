@@ -57,6 +57,7 @@ brew git-flow
 brew glib
 brew gmp
 brew gnu-getopt
+brew gnu-tar
 brew gnupg
 brew gnutls
 brew go
