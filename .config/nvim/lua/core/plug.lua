@@ -1,0 +1,80 @@
+local M = {}
+
+function M.setup()
+  local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+  if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+    vim.fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
+    vim.cmd("packadd packer.nvim")
+  end
+
+  local packer = require("packer")
+  local util = require("packer.util")
+  local use = packer.use
+
+  packer.startup({
+    function()
+      -- essential
+      use("wbthomason/packer.nvim")
+      use("nvim-lua/popup.nvim")
+      use("nvim-lua/plenary.nvim")
+
+      -- interface
+      use("gruvbox-community/gruvbox")
+      use("kyazdani42/nvim-web-devicons")
+      use("lewis6991/gitsigns.nvim")
+      use("romgrk/barbar.nvim")
+      use("kyazdani42/nvim-tree.lua")
+      use("nvim-lualine/lualine.nvim")
+      use("norcalli/nvim-colorizer.lua")
+
+      -- tool
+      use("folke/which-key.nvim")
+      use("tpope/vim-surround")
+      use("haya14busa/incsearch.vim")
+      use("houtsnip/vim-emacscommandline")
+      use("nvim-telescope/telescope.nvim")
+      use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+      use("phaazon/hop.nvim")
+      use("numToStr/Comment.nvim")
+      use("tpope/vim-fugitive")
+      use("tpope/vim-repeat")
+      use("vim-scripts/ReplaceWithRegister")
+      use("vim-scripts/undotree.vim")
+      use("windwp/nvim-autopairs")
+      use({ "iamcco/markdown-preview.nvim", run = "cd app && yarn" })
+      use("williamboman/nvim-lsp-installer")
+      use("numtostr/FTerm.nvim")
+
+      -- ide
+      use("github/copilot.vim")
+      use("neovim/nvim-lspconfig")
+      use("jose-elias-alvarez/null-ls.nvim")
+      use("folke/trouble.nvim")
+      use({
+        "nvim-treesitter/nvim-treesitter",
+        run = ":TSUpdate",
+      })
+      use("nvim-treesitter/nvim-treesitter-refactor")
+      use("nvim-treesitter/playground")
+      use("JoosepAlviste/nvim-ts-context-commentstring")
+      use("onsails/lspkind-nvim")
+      use("hrsh7th/nvim-cmp")
+      use("hrsh7th/cmp-buffer")
+      use("hrsh7th/cmp-path")
+      use("hrsh7th/cmp-nvim-lsp")
+      use("hrsh7th/cmp-nvim-lua")
+      use("hrsh7th/cmp-vsnip")
+      use("hrsh7th/vim-vsnip")
+      use("rafamadriz/friendly-snippets")
+      use("p00f/nvim-ts-rainbow")
+      use("mattn/emmet-vim")
+      use("b0o/schemastore.nvim")
+      use("mhartington/formatter.nvim")
+    end,
+    config = {
+      compile_path = util.join_paths(vim.fn.stdpath("data"), "site", "packer_compiled.lua"),
+    },
+  })
+end
+
+return M

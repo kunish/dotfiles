@@ -1,0 +1,25 @@
+[init]
+  defaultBranch = main
+[core]
+  ignorecase = false
+[user]
+  name = kunish
+  email = kunish.butt@gmail.com
+[interactive]
+  diffFilter = delta --color-only
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+[pager]
+  diff = delta
+  log = delta
+  reflog = delta
+  show = delta
+[delta]
+  syntax-theme = gruvbox-dark
+  side-by-side = true
+  navigate = true
+[pull]
+  rebase = true

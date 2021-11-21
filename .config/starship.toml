@@ -1,0 +1,5 @@
+[cmd_duration]
+disabled = true
+
+[nodejs]
+disabled = true
