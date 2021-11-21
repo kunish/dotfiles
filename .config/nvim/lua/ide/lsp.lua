@@ -1,10 +1,10 @@
 local M = {}
 
-local lsp_installer_servers = require("nvim-lsp-installer.servers")
-local lspconfig = require("lspconfig")
-local cmp_nvim_lsp = require("cmp_nvim_lsp")
-local null_ls = require("null-ls")
-local trouble = require("trouble")
+local lsp_installer_servers = require "nvim-lsp-installer.servers"
+local lspconfig = require "lspconfig"
+local cmp_nvim_lsp = require "cmp_nvim_lsp"
+local null_ls = require "null-ls"
+local trouble = require "trouble"
 
 local setup_trouble = function()
   trouble.setup()
@@ -140,7 +140,7 @@ local setup_lsp_installer = function()
 end
 
 local function setup_null_ls()
-  null_ls.config({
+  null_ls.config {
     sources = {
       null_ls.builtins.formatting.trim_newlines,
       null_ls.builtins.formatting.trim_whitespace,
@@ -151,23 +151,23 @@ local function setup_null_ls()
       null_ls.builtins.formatting.taplo,
       null_ls.builtins.formatting.terraform_fmt,
       null_ls.builtins.formatting.sqlformat,
-      null_ls.builtins.formatting.shfmt.with({
+      null_ls.builtins.formatting.shfmt.with {
         filetypes = { "sh", "zsh" },
         extra_args = { "-i", 2 },
-      }),
+      },
       null_ls.builtins.formatting.fish_indent,
       null_ls.builtins.formatting.nginx_beautifier,
       null_ls.builtins.diagnostics.eslint_d,
     },
-  })
+  }
 
-  lspconfig["null-ls"].setup({
+  lspconfig["null-ls"].setup {
     on_attach = function(client)
       if client.resolved_capabilities.document_formatting then
-        vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
+        vim.cmd "autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()"
       end
     end,
-  })
+  }
 end
 
 function M.setup()

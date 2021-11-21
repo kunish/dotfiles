@@ -1,6 +1,6 @@
 local M = {}
 
-local wk = require("which-key")
+local wk = require "which-key"
 local set_keymap = vim.api.nvim_set_keymap
 
 local noremap_opts = { noremap = true, silent = true }
@@ -9,10 +9,10 @@ function M.setup()
   wk.setup()
 
   -- hop
-  wk.register({
+  wk.register {
     s = { "<cmd>HopLineStart<CR>", "HopLine" },
     S = { "<cmd>HopChar1<CR>", "HopChar" },
-  })
+  }
 
   -- barbar
   wk.register({
@@ -31,10 +31,10 @@ function M.setup()
   }, {
     prefix = "<Leader>",
   })
-  wk.register({
+  wk.register {
     ["<Tab>"] = { "<cmd>BufferNext<CR>", "Buffer Next" },
     ["<S-Tab>"] = { "<cmd>BufferPrevious<CR>", "Buffer Previous" },
-  })
+  }
 
   -- telescope
   wk.register({
@@ -57,9 +57,9 @@ function M.setup()
   })
 
   -- buffer fuzzy finder
-  wk.register({
+  wk.register {
     ["\\"] = { "<cmd>Telescope current_buffer_fuzzy_find<CR>", "Telescope Buffer Search" },
-  })
+  }
 
   -- nvimtree
   wk.register({

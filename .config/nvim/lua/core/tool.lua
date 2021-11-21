@@ -2,15 +2,15 @@ local M = {}
 
 function M.setup()
   require("hop").setup()
-  require("nvim-treesitter.configs").setup({
+  require("nvim-treesitter.configs").setup {
     context_commentstring = {
       enable = true,
       enable_autocmd = false,
     },
-  })
-  require("Comment").setup({
+  }
+  require("Comment").setup {
     pre_hook = function(ctx)
-      local U = require("Comment.utils")
+      local U = require "Comment.utils"
 
       local location = nil
       if ctx.ctype == U.ctype.block then
@@ -19,18 +19,18 @@ function M.setup()
         location = require("ts_context_commentstring.utils").get_visual_start_location()
       end
 
-      return require("ts_context_commentstring.internal").calculate_commentstring({
+      return require("ts_context_commentstring.internal").calculate_commentstring {
         key = ctx.ctype == U.ctype.line and "__default" or "__multiline",
         location = location,
-      })
+      }
     end,
-  })
-  require("nvim-autopairs").setup({
+  }
+  require("nvim-autopairs").setup {
     check_ts = true,
     disable_filetype = { "TelescopePrompt" },
-  })
+  }
 
-  require("telescope").setup({
+  require("telescope").setup {
     defaults = {
       layout_strategy = "vertical",
     },
@@ -42,10 +42,10 @@ function M.setup()
         hidden = true,
       },
     },
-  })
-  require("telescope").load_extension("fzf")
+  }
+  require("telescope").load_extension "fzf"
 
-  require("plenary.filetype").add_file("json")
+  require("plenary.filetype").add_file "json"
 
   -- emmet
   vim.g.user_emmet_leader_key = "<C-z>"

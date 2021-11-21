@@ -1,6 +1,6 @@
 local M = {}
 
-local formatter = require("formatter")
+local formatter = require "formatter"
 
 function M.setup()
   local shfmt = {
@@ -17,9 +17,9 @@ function M.setup()
     zsh = shfmt,
   }
 
-  formatter.setup({
+  formatter.setup {
     filetype = formatter_by_ft,
-  })
+  }
 end
 
 return M

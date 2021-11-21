@@ -1,8 +1,8 @@
 local M = {}
 
-local cmp = require("cmp")
-local lspkind = require("lspkind")
-local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+local cmp = require "cmp"
+local lspkind = require "lspkind"
+local cmp_autopairs = require "nvim-autopairs.completion.cmp"
 
 function M.setup()
   local cmp_snippet_sources = {
@@ -13,9 +13,9 @@ function M.setup()
     { name = "nvim_lua" },
   }
 
-  cmp.setup({
+  cmp.setup {
     formatting = {
-      format = lspkind.cmp_format({
+      format = lspkind.cmp_format {
         with_text = true,
         menu = {
           nvim_lsp = "[LSP]",
@@ -24,7 +24,7 @@ function M.setup()
           path = "[Path]",
           nvim_lua = "[Lua]",
         },
-      }),
+      },
     },
     snippet = {
       expand = function(args)
@@ -36,10 +36,10 @@ function M.setup()
       ["<C-f>"] = cmp.mapping.scroll_docs(4),
       ["<C-j>"] = cmp.mapping.complete(),
       ["<C-d>"] = cmp.mapping.close(),
-      ["<CR>"] = cmp.mapping.confirm({ select = true }),
+      ["<CR>"] = cmp.mapping.confirm { select = true },
     },
     sources = cmp_snippet_sources,
-  })
+  }
 
   cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 end

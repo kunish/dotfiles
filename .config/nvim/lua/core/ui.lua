@@ -8,11 +8,11 @@ function M.setup()
     rgb_fn = true,
     hsl_fn = true,
   })
-  require("lualine").setup({
+  require("lualine").setup {
     options = { disabled_filetypes = { "NvimTree" } },
-  })
+  }
   require("gitsigns").setup()
-  require("nvim-web-devicons").setup({ default = true })
+  require("nvim-web-devicons").setup { default = true }
 
   -- nvimtree
   vim.g.nvim_tree_highlight_opened_files = 1
@@ -33,7 +33,7 @@ function M.setup()
     ["MAKEFILE"] = 1,
   }
 
-  require("nvim-tree").setup({
+  require("nvim-tree").setup {
     view = {
       width = "30%",
     },
@@ -47,13 +47,13 @@ function M.setup()
     filters = {
       custom = { ".git" },
     },
-  })
+  }
 
   -- barbar
   vim.g.bufferline = { animation = false, auto_hide = true }
 
-  vim.cmd("silent! colorscheme gruvbox")
-  vim.cmd("hi CursorlineNr guifg=yellow")
+  vim.cmd "silent! colorscheme gruvbox"
+  vim.cmd "hi CursorlineNr guifg=yellow"
 end
 
 return M

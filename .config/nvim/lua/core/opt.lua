@@ -14,7 +14,7 @@ function M.setup()
   vim.opt.number = true
   vim.opt.relativenumber = true
   vim.opt.shiftwidth = 2
-  vim.opt.shortmess:append("Ic")
+  vim.opt.shortmess:append "Ic"
   vim.opt.showcmd = false
   vim.opt.showmode = false
   vim.opt.signcolumn = "yes"
