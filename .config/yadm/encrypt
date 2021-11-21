@@ -1,2 +1,3 @@
-.ssh
+.kube/kubeconfig.yml
 .npmrc
+.ssh
