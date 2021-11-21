@@ -14,6 +14,7 @@ set -x HOMEBREW_BREWFILE_APPSTORE 0
 
 fish_add_path /usr/local/sbin
 fish_add_path /usr/local/opt/gnu-tar/libexec/gnubin
+fish_add_path /usr/local/opt/openssl/bin
 fish_add_path /opt/homebrew/sbin
 fish_add_path /opt/homebrew/bin
 fish_add_path /opt/homebrew/opt/gnu-tar/libexec/gnubin
