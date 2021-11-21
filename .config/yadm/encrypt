@@ -1,3 +1,4 @@
+.docker/config.json
 .kube/kubeconfig.yml
 .npmrc
 .ssh
