@@ -13,6 +13,7 @@ pip3 install --user --upgrade powerline-status lookatme
 cargo install stylua taplo-cli
 
 # node
+npm install -g npm yarn
 yarn global add eslint eslint_d prettier @fsouza/prettierd
 
 # neovim
