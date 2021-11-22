@@ -1,0 +1,19 @@
+#! /usr/bin/env bash
+
+# homebrew
+brew bundle --global
+
+# python
+pyenv install $(cat $HOME/.pyenv/version)
+pyenv global $(cat $HOME/.pyenv/version)
+python3 -m pip install --user --upgrade pip
+pip3 install --user --upgrade powerline-status lookatme
+
+# rust
+cargo install stylua taplo-cli
+
+# node
+yarn global add eslint eslint_d prettier @fsouza/prettierd
+
+# neovim
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'

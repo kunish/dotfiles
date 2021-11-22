@@ -40,7 +40,15 @@ alias n nvim
 alias v vim
 
 if status is-interactive
-    fnm env | source
-    pyenv init --path | source
-    starship init fish | source
+    if type -q fnm
+        fnm env | source
+    end
+
+    if type -q pyenv
+        pyenv init --path | source
+    end
+
+    if type -q starship
+        starship init fish | source
+    end
 end
