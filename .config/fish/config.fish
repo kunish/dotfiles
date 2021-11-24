@@ -9,7 +9,6 @@ set -x GOPROXY https://goproxy.io,direct
 set -x GOPATH $HOME/.go
 set -x PUB_HOSTED_URL https://pub.flutter-io.cn
 set -x FLUTTER_STORAGE_BASE_URL https://storage.flutter-io.cn
-set -x PEPPA_OUTPUT $HOME/work/peppa-output
 set -x KUBECONFIG $HOME/.kube/kubeconfig.yml
 
 set -x HOMEBREW_BREWFILE_APPSTORE 0
