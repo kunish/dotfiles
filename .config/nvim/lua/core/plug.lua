@@ -44,6 +44,7 @@ function M.setup()
       use { "iamcco/markdown-preview.nvim", run = "cd app && yarn" }
       use "williamboman/nvim-lsp-installer"
       use "numtostr/FTerm.nvim"
+      use "wakatime/vim-wakatime"
 
       -- ide
       use "github/copilot.vim"
