@@ -112,6 +112,11 @@ function M.setup()
     p = { "<cmd>Format<CR>", "Format" },
   }, { prefix = "<Leader>" })
 
+  -- trouble
+  wk.register({
+    x = { "<cmd>Trouble<CR>", "Trouble" },
+  }, { prefix = "<Leader>" })
+
   -- incsearch
   set_keymap("n", "n", "<Plug>(incsearch-nohl-n)", {})
   set_keymap("n", "N", "<Plug>(incsearch-nohl-N)", {})

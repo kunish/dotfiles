@@ -153,7 +153,7 @@ brew "ninja"
 brew "nmap"
 brew "openjdk"
 brew "openssh"
-brew "openssl@3"
+brew "openssl@3", link: true
 brew "perl"
 brew "pnpm"
 brew "pre-commit"
