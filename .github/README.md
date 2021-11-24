@@ -1,4 +1,4 @@
-# Unix environment dotfile configurations
+# OSX environment dotfile configurations
 
 ## How to use it
 
