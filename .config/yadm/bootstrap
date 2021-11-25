@@ -4,8 +4,9 @@
 brew bundle --global
 
 # python
-pyenv install $(cat $HOME/.pyenv/version)
-pyenv global $(cat $HOME/.pyenv/version)
+PYTHON_VERSION=$(cat $HOME/.pyenv/version)
+pyenv install $PYTHON_VERSION
+pyenv global $PYTHON_VERSION
 python3 -m pip install --user --upgrade pip
 pip3 install --user --upgrade powerline-status lookatme
 
@@ -14,8 +15,15 @@ rustup-init
 cargo install stylua taplo-cli
 
 # node
+NODE_VERSION=$(cat $HOME/.nvmrc)
+fnm use $NODE_VERSION
 npm install -g npm yarn
 yarn global add eslint eslint_d prettier @fsouza/prettierd
 
 # neovim
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+
+# shell
+chsh -s $(which fish) $(whoami)
+curl -s https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+curl -sL https://git.io/fisher | fish
