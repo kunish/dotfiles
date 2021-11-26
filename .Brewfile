@@ -232,7 +232,6 @@ cask "visual-studio-code"
 cask "vnc-viewer"
 cask "wechat"
 cask "wireshark"
-cask "youdaodict"
 cask "zerotier-one"
 mas "EasyRes", id: 688211836
 mas "GarageBand", id: 682658836
