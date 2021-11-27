@@ -18,7 +18,6 @@ end
 
 local setup_lsp_installer = function()
   local lsp_servers = {
-    "ansiblels",
     "bashls",
     "clangd",
     "cssls",
