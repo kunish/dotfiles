@@ -134,14 +134,11 @@ local setup_lsp_installer = function()
     local server_available, requested_server = lsp_installer_servers.get_server(lsp_name)
 
     if server_available then
-      --- @diagnostic disable-next-line
       requested_server:on_ready(function()
         on_server_ready(requested_server)
       end)
 
-      --- @diagnostic disable-next-line
       if not requested_server:is_installed() then
-        --- @diagnostic disable-next-line
         requested_server:install()
       end
     end
