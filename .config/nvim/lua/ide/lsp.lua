@@ -20,6 +20,7 @@ local setup_lsp_installer = function()
   local lsp_servers = {
     "ansiblels",
     "bashls",
+    "clangd",
     "cssls",
     "dockerls",
     "emmet_ls",
@@ -158,6 +159,7 @@ local function setup_null_ls()
       null_ls.builtins.formatting.rustfmt,
       null_ls.builtins.formatting.taplo,
       null_ls.builtins.formatting.terraform_fmt,
+      null_ls.builtins.formatting.clang_format,
       null_ls.builtins.formatting.sqlformat,
       null_ls.builtins.formatting.shfmt.with {
         filetypes = { "sh", "zsh" },
