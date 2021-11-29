@@ -24,7 +24,6 @@ local setup_lsp_installer = function()
     "dockerls",
     "emmet_ls",
     "gopls",
-    "graphql",
     "html",
     "jsonls",
     "kotlin_language_server",
