@@ -31,7 +31,7 @@ alias d docker
 alias icat "kitty +kitten icat"
 alias k kubectl
 alias kx kubectx
-alias l la
+alias l 'ls -al'
 alias ld lazydocker
 alias lg lazygit
 alias ls exa
