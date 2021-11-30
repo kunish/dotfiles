@@ -2,7 +2,6 @@ local M = {}
 
 function M.setup()
   vim.opt.completeopt = "menuone,noselect"
-  vim.opt.cursorline = true
   vim.opt.expandtab = true
   vim.opt.fillchars = "eob: "
   vim.opt.hidden = true
@@ -10,8 +9,6 @@ function M.setup()
   vim.opt.inccommand = "nosplit"
   vim.opt.lazyredraw = true
   vim.opt.mouse = "a"
-  vim.opt.number = true
-  vim.opt.relativenumber = true
   vim.opt.shiftwidth = 2
   vim.opt.shortmess:append "Ic"
   vim.opt.showcmd = false

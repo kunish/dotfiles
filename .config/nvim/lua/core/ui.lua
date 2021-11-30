@@ -53,7 +53,6 @@ function M.setup()
   vim.g.bufferline = { animation = false, auto_hide = true }
 
   vim.cmd "silent! colorscheme gruvbox"
-  vim.cmd "hi CursorlineNr guifg=yellow"
 end
 
 return M
