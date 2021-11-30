@@ -11,7 +11,7 @@ set -x PUB_HOSTED_URL https://pub.flutter-io.cn
 set -x FLUTTER_STORAGE_BASE_URL https://storage.flutter-io.cn
 set -x KUBECONFIG $HOME/.kube/kubeconfig.yml
 
-set -x HOMEBREW_BREWFILE_APPSTORE 0
+set -x HOMEBREW_NO_ENV_HINTS 1
 
 fish_add_path /usr/local/sbin
 fish_add_path /usr/local/opt/gnu-tar/libexec/gnubin
