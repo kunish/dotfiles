@@ -130,7 +130,7 @@ function M.setup()
   wk.register({
     ft = {
       function()
-        require("nvim-tree").toggle(true)
+        require("nvim-tree").toggle()
       end,
       "File Tree",
     },

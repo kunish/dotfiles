@@ -2,12 +2,6 @@ local M = {}
 
 function M.setup()
   require("hop").setup()
-  require("nvim-treesitter.configs").setup {
-    context_commentstring = {
-      enable = true,
-      enable_autocmd = false,
-    },
-  }
   require("Comment").setup {
     pre_hook = function(ctx)
       local U = require "Comment.utils"

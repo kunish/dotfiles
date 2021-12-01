@@ -15,15 +15,7 @@ function M.setup()
   require("nvim-web-devicons").setup { default = true }
 
   -- nvimtree
-  vim.g.nvim_tree_highlight_opened_files = 1
-  vim.g.nvim_tree_group_empty = 0
   vim.g.nvim_tree_git_hl = 1
-  vim.g.nvim_tree_show_icons = {
-    folder_arrows = 0,
-    files = 1,
-    folders = 1,
-    git = 1,
-  }
   vim.g.nvim_tree_special_files = {
     ["package.json"] = 1,
     ["Cargo.toml"] = 1,
