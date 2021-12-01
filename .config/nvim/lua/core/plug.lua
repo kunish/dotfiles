@@ -49,6 +49,7 @@ function M.setup()
       use { "iamcco/markdown-preview.nvim", run = "cd app && yarn" }
       use "williamboman/nvim-lsp-installer"
       use "wakatime/vim-wakatime"
+      use "mattn/emmet-vim"
 
       -- ide
       use "github/copilot.vim"
@@ -61,18 +62,19 @@ function M.setup()
       use "nvim-treesitter/nvim-treesitter-refactor"
       use "nvim-treesitter/playground"
       use "JoosepAlviste/nvim-ts-context-commentstring"
+      use "p00f/nvim-ts-rainbow"
+      use "b0o/schemastore.nvim"
+
+      -- cmp
       use "onsails/lspkind-nvim"
       use "hrsh7th/nvim-cmp"
       use "hrsh7th/cmp-buffer"
       use "hrsh7th/cmp-path"
       use "hrsh7th/cmp-nvim-lsp"
       use "hrsh7th/cmp-nvim-lua"
-      use "hrsh7th/cmp-vsnip"
-      use "hrsh7th/vim-vsnip"
+      use "L3MON4D3/LuaSnip"
+      use "saadparwaiz1/cmp_luasnip"
       use "rafamadriz/friendly-snippets"
-      use "p00f/nvim-ts-rainbow"
-      use "mattn/emmet-vim"
-      use "b0o/schemastore.nvim"
 
       if M.packer_bootstrap then
         require("packer").sync()
