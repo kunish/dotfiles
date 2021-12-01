@@ -1,15 +1,26 @@
 local M = {}
 
 local wk = require "which-key"
-local set_keymap = vim.api.nvim_set_keymap
+local hop = require "hop"
+local telescope_builtin = require "telescope.builtin"
 
 function M.setup()
   wk.setup()
 
   -- hop
   wk.register {
-    s = { "<cmd>HopLineStart<CR>", "HopLine" },
-    S = { "<cmd>HopChar1<CR>", "HopChar" },
+    s = {
+      function()
+        hop.hint_lines_skip_whitespace()
+      end,
+      "HopLine",
+    },
+    S = {
+      function()
+        hop.hint_char1()
+      end,
+      "HopChar",
+    },
   }
 
   -- barbar
@@ -40,16 +51,66 @@ function M.setup()
     f = {
       name = "Find",
 
-      a = { "<cmd>Telescope builtin<CR>", "Telescope Builtin" },
-      b = { "<cmd>Telescope buffers<CR>", "Telescope Buffers" },
-      f = { "<cmd>Telescope find_files<CR>", "Telescope Find Files" },
-      g = { "<cmd>Telescope git_commits<CR>", "Telescope Git Commits" },
-      h = { "<cmd>Telescope help_tags<CR>", "Telescope Help" },
-      j = { "<cmd>Telescope jumplist<CR>", "Telescope Jump List" },
-      k = { "<cmd>Telescope keymaps<CR>", "Telescope Keymaps" },
-      l = { "<cmd>Telescope file_browser<CR>", "Telescope File Browser" },
-      m = { "<cmd>Telescope man_pages<CR>", "Telescope Man Pages" },
-      s = { "<cmd>Telescope live_grep<CR>", "Telescope Live Grep" },
+      a = {
+        function()
+          telescope_builtin.builtin()
+        end,
+        "Telescope Builtin",
+      },
+      b = {
+        function()
+          telescope_builtin.buffers()
+        end,
+        "Telescope Buffers",
+      },
+      f = {
+        function()
+          telescope_builtin.find_files()
+        end,
+        "Telescope Find Files",
+      },
+      g = {
+        function()
+          telescope_builtin.git_commits()
+        end,
+        "Telescope Git Commits",
+      },
+      h = {
+        function()
+          telescope_builtin.help_tags()
+        end,
+        "Telescope Help",
+      },
+      j = {
+        function()
+          telescope_builtin.jumplist()
+        end,
+        "Telescope Jump List",
+      },
+      k = {
+        function()
+          telescope_builtin.keymaps()
+        end,
+        "Telescope Keymaps",
+      },
+      l = {
+        function()
+          telescope_builtin.file_browser()
+        end,
+        "Telescope File Browser",
+      },
+      m = {
+        function()
+          telescope_builtin.man_pages()
+        end,
+        "Telescope Man Pages",
+      },
+      s = {
+        function()
+          telescope_builtin.live_grep()
+        end,
+        "Telescope Live Grep",
+      },
     },
   }, {
     prefix = "<Leader>",
@@ -57,12 +118,22 @@ function M.setup()
 
   -- buffer fuzzy finder
   wk.register {
-    ["\\"] = { "<cmd>Telescope current_buffer_fuzzy_find<CR>", "Telescope Buffer Search" },
+    ["\\"] = {
+      function()
+        telescope_builtin.current_buffer_fuzzy_find()
+      end,
+      "Telescope Buffer Search",
+    },
   }
 
   -- nvimtree
   wk.register({
-    ft = { "<cmd>NvimTreeToggle<CR>", "File Tree" },
+    ft = {
+      function()
+        require("nvim-tree").toggle(true)
+      end,
+      "File Tree",
+    },
   }, { prefix = "<Leader>" })
 
   -- fugitive
@@ -71,7 +142,6 @@ function M.setup()
       name = "Git",
 
       g = { "<cmd>Git<CR>", "Git Status" },
-      d = { "<cmd>Gvdiffsplit!<CR>", "Git Diff" },
       p = { "<cmd>Git pull<CR>", "Git Pull" },
       P = { "<cmd>Git push<CR>", "Git Push" },
     },
@@ -82,7 +152,9 @@ function M.setup()
   -- packer
   wk.register({
     P = {
-      "<cmd>PackerSync<CR>",
+      function()
+        require("packer").sync()
+      end,
       "Package Sync",
     },
   }, {
@@ -91,24 +163,16 @@ function M.setup()
 
   -- undotree
   wk.register({
-    U = { "<cmd>UndotreeToggle<CR>", "UndoTree" },
+    U = { "<cmd>UndotreeToggle<CR>", "UndoTree Toggle" },
   }, { prefix = "<Leader>" })
-
-  -- incsearch
-  set_keymap("n", "n", "<Plug>(incsearch-nohl-n)", {})
-  set_keymap("n", "N", "<Plug>(incsearch-nohl-N)", {})
-  set_keymap("n", "*", "<Plug>(incsearch-nohl-*)", {})
-  set_keymap("n", "#", "<Plug>(incsearch-nohl-#)", {})
-  set_keymap("n", "g*", "<Plug>(incsearch-nohl-g*)", {})
-  set_keymap("n", "g#", "<Plug>(incsearch-nohl-g#)", {})
 
   -- custom
   wk.register {
-    ["<C-s>"] = { "<cmd>write<CR>", "Save" },
+    ["<C-s>"] = { "<cmd>write<CR>", "Buffer Save" },
     ["<C-h>"] = { "<cmd>wincmd h<CR>", "Window Left" },
     ["<C-l>"] = { "<cmd>wincmd l<CR>", "Window Right" },
     ["<C-k>"] = { "<cmd>wincmd k<CR>", "Window Top" },
-    ["<C-j>"] = { "<cmd>wincmd k<CR>", "Window Bottom" },
+    ["<C-j>"] = { "<cmd>wincmd j<CR>", "Window Bottom" },
   }
 end
 
@@ -117,28 +181,75 @@ function M.buf_register(bufnr)
     l = {
       name = "LSP",
 
-      a = "Code Actions",
-      aa = { "<cmd>Telescope lsp_code_actions<CR>", "LSP Code Actions" },
-      ar = { "<cmd>lua vim.lsp.buf.rename()<CR>", "LSP Rename" },
+      a = {
+        function()
+          vim.lsp.buf.code_action()
+        end,
+        "LSP Code Actions",
+      },
 
-      g = "Navigation",
-      gr = { "<cmd>Telescope lsp_references<CR>", "LSP References" },
-      gi = { "<cmd>Telescope lsp_implementations<CR>", "LSP Implementations" },
-      gt = { "<cmd>Telescope lsp_type_definitions<CR>", "LSP Type Definitions" },
-      gs = { "<cmd>Telescope lsp_document_symbols<CR>", "LSP Document Symbols" },
+      r = {
+        function()
+          vim.lsp.buf.rename()
+        end,
+        "LSP Rename",
+      },
 
-      e = "Diagnostics",
-      ee = { "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", "Diagnostics Show Line" },
-      el = { "<cmd>Telescope lsp_document_diagnostics<CR>", "Diagnostics Show Document" },
-      ew = { "<cmd>Telescope lsp_workspace_diagnostics<CR>", "Diagnostics Show Workspace" },
+      R = {
+        function()
+          vim.lsp.buf.references()
+        end,
+        "LSP References",
+      },
 
-      w = "Workspace",
-      wa = { "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", "LSP Add Workspace Folder" },
-      wr = { "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", "LSP Remove Workspace Folder" },
-      ws = { "<cmd>Telescope lsp_workspace_symbols<CR>", "LSP Workspace Symbols" },
-      wl = { "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", "LSP Workspace Folders" },
+      i = {
+        function()
+          vim.lsp.buf.implementation()
+        end,
+        "LSP Implementations",
+      },
 
-      f = { "<cmd>lua vim.lsp.buf.formatting()<CR>", "LSP Format" },
+      t = {
+        function()
+          vim.lsp.buf.type_definition()
+        end,
+        "LSP Type Definitions",
+      },
+
+      s = {
+        function()
+          vim.lsp.buf.document_symbol()
+        end,
+        "LSP Document Symbols",
+      },
+
+      S = {
+        function()
+          vim.lsp.buf.workspace_symbol()
+        end,
+        "LSP Workspace Symbols",
+      },
+
+      e = {
+        function()
+          vim.lsp.diagnostic.show_line_diagnostics()
+        end,
+        "Diagnostics Show Line",
+      },
+
+      E = {
+        function()
+          vim.lsp.diagnostic.set_loclist()
+        end,
+        "Diagnostics Show Document",
+      },
+
+      f = {
+        function()
+          vim.lsp.buf.formatting()
+        end,
+        "LSP Format",
+      },
     },
   }, {
     prefix = "<Leader>",
@@ -146,11 +257,36 @@ function M.buf_register(bufnr)
   })
 
   wk.register({
-    gd = { "<cmd>Telescope lsp_definitions<CR>", "LSP Definitions" },
-    gD = { "<cmd>lua vim.lsp.buf.declaration()<CR>", "LSP Declaration" },
-    K = { "<cmd>lua vim.lsp.buf.hover()<CR>", "LSP Hover" },
-    ["[e"] = { "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", "LSP Diagnostic Prev" },
-    ["]e"] = { "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", "LSP Diagnostic Next" },
+    gd = {
+      function()
+        vim.lsp.buf.definition()
+      end,
+      "LSP Definitions",
+    },
+    gD = {
+      function()
+        vim.lsp.buf.declaration()
+      end,
+      "LSP Declaration",
+    },
+    K = {
+      function()
+        vim.lsp.buf.hover()
+      end,
+      "LSP Hover",
+    },
+    ["[e"] = {
+      function()
+        vim.lsp.diagnostic.goto_prev()
+      end,
+      "LSP Diagnostic Prev",
+    },
+    ["]e"] = {
+      function()
+        vim.lsp.diagnostic.goto_next()
+      end,
+      "LSP Diagnostic Next",
+    },
   }, {
     buffer = bufnr,
   })

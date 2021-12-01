@@ -2,8 +2,16 @@ local M = {}
 
 local cmp = require "cmp"
 local lspkind = require "lspkind"
-local luasnip = require "luasnip"
 local cmp_autopairs = require "nvim-autopairs.completion.cmp"
+local luasnip = require "luasnip"
+local luasnip_loader_from_vscode = require "luasnip.loaders.from_vscode"
+
+local setup_copilot = function()
+  vim.g.copilot_filetypes = {
+    TelescopePrompt = false,
+  }
+  vim.g.copilot_no_tab_map = true
+end
 
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -11,6 +19,8 @@ local has_words_before = function()
 end
 
 function M.setup()
+  setup_copilot()
+
   local cmp_snippet_sources = {
     { name = "nvim_lsp" },
     { name = "luasnip" },
@@ -48,7 +58,7 @@ function M.setup()
         else
           fallback()
         end
-      end),
+      end, { "i", "s" }),
       ["<S-Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_prev_item()
@@ -57,11 +67,14 @@ function M.setup()
         else
           fallback()
         end
-      end),
-      ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-      ["<C-f>"] = cmp.mapping.scroll_docs(4),
-      ["<C-j>"] = cmp.mapping.complete(),
-      ["<C-d>"] = cmp.mapping.close(),
+      end, { "i", "s" }),
+      ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
+      ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
+      ["<C-j>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+      ["<C-e>"] = cmp.mapping {
+        i = cmp.mapping.abort(),
+        c = cmp.mapping.close(),
+      },
       ["<CR>"] = cmp.mapping.confirm { select = true },
     },
     sources = cmp_snippet_sources,
@@ -69,7 +82,7 @@ function M.setup()
 
   cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
-  require("luasnip.loaders.from_vscode").lazy_load()
+  luasnip_loader_from_vscode.lazy_load()
 end
 
 return M

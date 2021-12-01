@@ -5,12 +5,6 @@ local lspconfig = require "lspconfig"
 local cmp_nvim_lsp = require "cmp_nvim_lsp"
 local null_ls = require "null-ls"
 
-local setup_copilot = function()
-  vim.g.copilot_filetypes = {
-    TelescopePrompt = false,
-  }
-end
-
 local setup_lsp_installer = function()
   local lsp_servers = {
     "bashls",
@@ -172,7 +166,6 @@ end
 function M.setup()
   setup_lsp_installer()
   setup_null_ls()
-  setup_copilot()
 
   vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
     update_in_insert = true,

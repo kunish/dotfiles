@@ -50,9 +50,6 @@ function M.setup()
   -- emmet
   vim.g.user_emmet_leader_key = "<C-z>"
 
-  -- incsearch
-  vim.g["incsearch#auto_nohlsearch"] = 1
-
   -- markdown preview
   vim.g.mkdp_auto_close = 0
 end

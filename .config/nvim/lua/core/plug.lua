@@ -35,7 +35,6 @@ function M.setup()
       -- tool
       use "folke/which-key.nvim"
       use "tpope/vim-surround"
-      use "haya14busa/incsearch.vim"
       use "houtsnip/vim-emacscommandline"
       use "nvim-telescope/telescope.nvim"
       use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
