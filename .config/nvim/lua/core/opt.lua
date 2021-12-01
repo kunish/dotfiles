@@ -4,9 +4,7 @@ function M.setup()
   vim.opt.completeopt = "menuone,noselect"
   vim.opt.expandtab = true
   vim.opt.fillchars = "eob: "
-  vim.opt.hidden = true
   vim.opt.ignorecase = true
-  vim.opt.inccommand = "nosplit"
   vim.opt.lazyredraw = true
   vim.opt.mouse = "a"
   vim.opt.shiftwidth = 2

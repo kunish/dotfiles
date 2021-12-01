@@ -9,13 +9,6 @@ function M.setup()
   ]]
 
   vim.cmd [[
-    augroup fmt
-      autocmd!
-      autocmd BufWritePost * silent! FormatWrite
-    augroup end
-  ]]
-
-  vim.cmd [[
     augroup cmp
       autocmd!
       autocmd FileType TelescopePrompt lua require('cmp').setup.buffer { enabled = false }

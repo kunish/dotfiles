@@ -4,16 +4,11 @@ local lsp_installer_servers = require "nvim-lsp-installer.servers"
 local lspconfig = require "lspconfig"
 local cmp_nvim_lsp = require "cmp_nvim_lsp"
 local null_ls = require "null-ls"
-local trouble = require "trouble"
 
 local setup_copilot = function()
   vim.g.copilot_filetypes = {
     TelescopePrompt = false,
   }
-end
-
-local setup_trouble = function()
-  trouble.setup()
 end
 
 local setup_lsp_installer = function()
@@ -30,7 +25,6 @@ local setup_lsp_installer = function()
     "pyright",
     "rust_analyzer",
     "sorbet",
-    "stylelint_lsp",
     "sumneko_lua",
     "svelte",
     "tailwindcss",
@@ -177,14 +171,12 @@ end
 
 function M.setup()
   setup_lsp_installer()
+  setup_null_ls()
   setup_copilot()
-  setup_trouble()
 
   vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
     update_in_insert = true,
   })
-
-  setup_null_ls()
 end
 
 return M

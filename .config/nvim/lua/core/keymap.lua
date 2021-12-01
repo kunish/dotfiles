@@ -3,8 +3,6 @@ local M = {}
 local wk = require "which-key"
 local set_keymap = vim.api.nvim_set_keymap
 
-local noremap_opts = { noremap = true, silent = true }
-
 function M.setup()
   wk.setup()
 
@@ -31,6 +29,7 @@ function M.setup()
   }, {
     prefix = "<Leader>",
   })
+
   wk.register {
     ["<Tab>"] = { "<cmd>BufferNext<CR>", "Buffer Next" },
     ["<S-Tab>"] = { "<cmd>BufferPrevious<CR>", "Buffer Previous" },
@@ -90,31 +89,9 @@ function M.setup()
     prefix = "<Leader>",
   })
 
-  -- fterm
-  wk.register({
-    T = {
-      function()
-        require("FTerm").open()
-      end,
-      "Float Term",
-    },
-  }, {
-    prefix = "<Leader>",
-  })
-
   -- undotree
   wk.register({
     U = { "<cmd>UndotreeToggle<CR>", "UndoTree" },
-  }, { prefix = "<Leader>" })
-
-  -- format
-  wk.register({
-    p = { "<cmd>Format<CR>", "Format" },
-  }, { prefix = "<Leader>" })
-
-  -- trouble
-  wk.register({
-    x = { "<cmd>Trouble<CR>", "Trouble" },
   }, { prefix = "<Leader>" })
 
   -- incsearch
@@ -126,20 +103,16 @@ function M.setup()
   set_keymap("n", "g#", "<Plug>(incsearch-nohl-g#)", {})
 
   -- custom
-  set_keymap("n", "<C-s>", "<cmd>write<CR>", noremap_opts)
-  set_keymap("n", "<C-h>", "<cmd>wincmd h<CR>", noremap_opts)
-  set_keymap("n", "<C-j>", "<cmd>wincmd j<CR>", noremap_opts)
-  set_keymap("n", "<C-k>", "<cmd>wincmd k<CR>", noremap_opts)
-  set_keymap("n", "<C-l>", "<cmd>wincmd l<CR>", noremap_opts)
-  set_keymap("i", "<M-a>", "<Home>", noremap_opts)
-  set_keymap("i", "<M-e>", "<End>", noremap_opts)
+  wk.register {
+    ["<C-s>"] = { "<cmd>write<CR>", "Save" },
+    ["<C-h>"] = { "<cmd>wincmd h<CR>", "Window Left" },
+    ["<C-l>"] = { "<cmd>wincmd l<CR>", "Window Right" },
+    ["<C-k>"] = { "<cmd>wincmd k<CR>", "Window Top" },
+    ["<C-j>"] = { "<cmd>wincmd k<CR>", "Window Bottom" },
+  }
 end
 
 function M.buf_register(bufnr)
-  local function buf_set_keymap(...)
-    vim.api.nvim_buf_set_keymap(bufnr, ...)
-  end
-
   wk.register({
     l = {
       name = "LSP",
@@ -169,13 +142,18 @@ function M.buf_register(bufnr)
     },
   }, {
     prefix = "<Leader>",
+    buffer = bufnr,
   })
 
-  buf_set_keymap("n", "gd", "<cmd>Telescope lsp_definitions<CR>", noremap_opts)
-  buf_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", noremap_opts)
-  buf_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", noremap_opts)
-  buf_set_keymap("n", "[e", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", noremap_opts)
-  buf_set_keymap("n", "]e", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", noremap_opts)
+  wk.register({
+    gd = { "<cmd>Telescope lsp_definitions<CR>", "LSP Definitions" },
+    gD = { "<cmd>lua vim.lsp.buf.declaration()<CR>", "LSP Declaration" },
+    K = { "<cmd>lua vim.lsp.buf.hover()<CR>", "LSP Hover" },
+    ["[e"] = { "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", "LSP Diagnostic Prev" },
+    ["]e"] = { "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", "LSP Diagnostic Next" },
+  }, {
+    buffer = bufnr,
+  })
 end
 
 return M

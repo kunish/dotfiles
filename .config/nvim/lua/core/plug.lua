@@ -3,16 +3,21 @@ local M = {}
 function M.setup()
   local install_path = vim.fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
   if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-    vim.fn.system { "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path }
-    vim.cmd "packadd packer.nvim"
+    M.packer_bootstrap = vim.fn.system {
+      "git",
+      "clone",
+      "--depth",
+      "1",
+      "https://github.com/wbthomason/packer.nvim",
+      install_path,
+    }
   end
 
   local packer = require "packer"
   local util = require "packer.util"
-  local use = packer.use
 
   packer.startup {
-    function()
+    function(use)
       -- essential
       use "wbthomason/packer.nvim"
       use "nvim-lua/popup.nvim"
@@ -43,14 +48,12 @@ function M.setup()
       use "windwp/nvim-autopairs"
       use { "iamcco/markdown-preview.nvim", run = "cd app && yarn" }
       use "williamboman/nvim-lsp-installer"
-      use "numtostr/FTerm.nvim"
       use "wakatime/vim-wakatime"
 
       -- ide
       use "github/copilot.vim"
       use "neovim/nvim-lspconfig"
       use "jose-elias-alvarez/null-ls.nvim"
-      use "folke/trouble.nvim"
       use {
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
@@ -70,7 +73,10 @@ function M.setup()
       use "p00f/nvim-ts-rainbow"
       use "mattn/emmet-vim"
       use "b0o/schemastore.nvim"
-      use "mhartington/formatter.nvim"
+
+      if M.packer_bootstrap then
+        require("packer").sync()
+      end
     end,
     config = {
       compile_path = util.join_paths(vim.fn.stdpath "data", "site", "packer_compiled.lua"),
