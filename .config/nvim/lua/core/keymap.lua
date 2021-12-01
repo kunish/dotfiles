@@ -111,7 +111,7 @@ function M.setup()
       },
       l = {
         function()
-          telescope_builtin.file_browser()
+          require("telescope").extensions.file_browser.file_browser()
         end,
         "Telescope File Browser",
       },

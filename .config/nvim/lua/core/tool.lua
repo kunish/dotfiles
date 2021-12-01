@@ -2,6 +2,7 @@ local M = {}
 
 function M.setup()
   require("hop").setup()
+
   require("Comment").setup {
     pre_hook = function(ctx)
       local U = require "Comment.utils"
@@ -19,24 +20,26 @@ function M.setup()
       }
     end,
   }
+
   require("nvim-autopairs").setup {
     check_ts = true,
     disable_filetype = { "TelescopePrompt" },
   }
 
   require("telescope").setup {
-    defaults = {
-      layout_strategy = "vertical",
-    },
+    defaults = require("telescope.themes").get_ivy(),
     pickers = {
       find_files = {
         hidden = true,
       },
+    },
+    extensions = {
       file_browser = {
         hidden = true,
       },
     },
   }
+  require("telescope").load_extension "file_browser"
   require("telescope").load_extension "fzf"
 
   require("plenary.filetype").add_file "json"
