@@ -5,7 +5,4 @@ return {
     [".lintstagedrc"] = "json",
     [".commitlintrc"] = "json",
   },
-  shebang = {
-    ["/usr/bin/env/node"] = "javascript",
-  },
 }

@@ -40,6 +40,7 @@ function M.setup()
   require("telescope").load_extension "fzf"
 
   require("plenary.filetype").add_file "json"
+  require("plenary.filetype").add_file "javascript"
 
   -- emmet
   vim.g.user_emmet_leader_key = "<C-z>"
