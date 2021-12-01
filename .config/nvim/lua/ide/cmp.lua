@@ -11,6 +11,8 @@ local setup_copilot = function()
     TelescopePrompt = false,
   }
   vim.g.copilot_no_tab_map = true
+  vim.g.copilot_assume_mapped = true
+  vim.g.copilot_tab_fallback = ""
 end
 
 local has_words_before = function()
@@ -56,7 +58,12 @@ function M.setup()
         elseif has_words_before() then
           cmp.complete()
         else
-          fallback()
+          local copilot_keys = vim.fn["copilot#Accept"]()
+          if copilot_keys ~= "" then
+            vim.api.nvim_feedkeys(copilot_keys, "i", true)
+          else
+            fallback()
+          end
         end
       end, { "i", "s" }),
       ["<S-Tab>"] = cmp.mapping(function(fallback)
