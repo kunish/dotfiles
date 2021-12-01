@@ -9,7 +9,22 @@ function M.setup()
     hsl_fn = true,
   })
   require("lualine").setup {
-    options = { disabled_filetypes = { "NvimTree" } },
+    options = {
+      disabled_filetypes = { "NvimTree" },
+    },
+  }
+  require("bufferline").setup {
+    options = {
+      always_show_bufferline = false,
+      offsets = {
+        {
+          filetype = "NvimTree",
+          text = "File Explorer",
+          highlight = "Directory",
+          text_align = "left",
+        },
+      },
+    },
   }
   require("gitsigns").setup()
   require("nvim-web-devicons").setup { default = true }
@@ -27,7 +42,8 @@ function M.setup()
 
   require("nvim-tree").setup {
     view = {
-      width = "30%",
+      width = 40,
+      auto_resize = true,
     },
     hijack_cursor = true,
     diagnostics = {
@@ -40,9 +56,6 @@ function M.setup()
       custom = { ".git", "node_modules" },
     },
   }
-
-  -- barbar
-  vim.g.bufferline = { animation = false, auto_hide = true }
 
   vim.cmd "silent! colorscheme gruvbox"
 end

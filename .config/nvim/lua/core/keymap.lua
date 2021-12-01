@@ -23,27 +23,26 @@ function M.setup()
     },
   }
 
-  -- barbar
+  -- bufferline
   wk.register({
     b = {
       name = "Buffer",
 
-      b = { "<cmd>BufferPick<CR>", "BufferPick" },
-      C = { "<cmd>BufferClose<CR>", "BufferClose" },
-      o = { "<cmd>BufferOrderByBufferNumber<CR>", "BufferOrder ByNumber" },
-      O = { "<cmd>BufferCloseAllButCurrent<CR>", "BufferCloseAll ButCurrent" },
-      h = { "<cmd>BufferMovePrevious<CR>", "BufferMove Previous" },
-      l = { "<cmd>BufferMoveNext<CR>", "BufferMove Next" },
-      H = { "<cmd>BufferCloseBuffersLeft<CR>", "BufferClose Left" },
-      L = { "<cmd>BufferCloseBuffersRight<CR>", "BufferClose Right" },
+      b = { "<cmd>BufferLinePick<CR>", "BufferPick" },
+      O = { "<cmd>BufOnly<CR>", "BufferOnly" },
+      C = { "<cmd>BufferLinePickClose<CR>", "BufferClose" },
+      h = { "<cmd>BufferLineMovePrev<CR>", "BufferMove Previous" },
+      l = { "<cmd>BufferLineMoveNext<CR>", "BufferMove Next" },
+      H = { "<cmd>BufferLineCloseLeft<CR>", "BufferClose Left" },
+      L = { "<cmd>BufferLineCloseRight<CR>", "BufferClose Right" },
     },
   }, {
     prefix = "<Leader>",
   })
 
   wk.register {
-    ["<Tab>"] = { "<cmd>BufferNext<CR>", "Buffer Next" },
-    ["<S-Tab>"] = { "<cmd>BufferPrevious<CR>", "Buffer Previous" },
+    ["<Tab>"] = { "<cmd>BufferLineCycleNext<CR>", "Buffer Next" },
+    ["<S-Tab>"] = { "<cmd>BufferLineCyclePrev<CR>", "Buffer Previous" },
   }
 
   -- telescope
