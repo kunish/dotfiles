@@ -64,6 +64,8 @@ function M.setup()
       use "JoosepAlviste/nvim-ts-context-commentstring"
       use "p00f/nvim-ts-rainbow"
       use "b0o/schemastore.nvim"
+      use "mfussenegger/nvim-dap"
+      use "Pocco81/DAPInstall.nvim"
 
       -- cmp
       use "onsails/lspkind-nvim"

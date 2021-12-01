@@ -30,7 +30,25 @@ function M.setup()
 
       b = { "<cmd>BufferLinePick<CR>", "BufferPick" },
       O = { "<cmd>BufOnly<CR>", "BufferOnly" },
-      C = { "<cmd>BufferLinePickClose<CR>", "BufferClose" },
+      c = {
+        function()
+          local treeView = require "nvim-tree.view"
+          local bufferline = require "bufferline"
+
+          local explorerWindow = treeView.get_winnr()
+          local wasExplorerOpen = vim.api.nvim_win_is_valid(explorerWindow)
+
+          local bufferToDelete = vim.api.nvim_get_current_buf()
+
+          if wasExplorerOpen then
+            bufferline.cycle(-1)
+          end
+
+          vim.cmd("bdelete! " .. bufferToDelete)
+        end,
+        "BufferClose",
+      },
+      C = { "<cmd>BufferLinePickClose<CR>", "BufferPickClose" },
       h = { "<cmd>BufferLineMovePrev<CR>", "BufferMove Previous" },
       l = { "<cmd>BufferLineMoveNext<CR>", "BufferMove Next" },
       H = { "<cmd>BufferLineCloseLeft<CR>", "BufferClose Left" },
