@@ -210,6 +210,10 @@ cask "electron-fiddle"
 cask "feishu"
 cask "firefox"
 cask "flutter"
+cask "font-hack-nerd-font"
+cask "font-iosevka-nerd-font"
+cask "font-jetbrains-mono-nerd-font"
+cask "font-terminess-ttf-nerd-font"
 cask "font-ubuntu-mono-nerd-font"
 cask "google-chrome"
 cask "hyper"
@@ -244,5 +248,7 @@ mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Paste", id: 967805235
+mas "Tailscale", id: 1475387142
 mas "VMware Remote Console", id: 1230249825
+mas "WireGuard", id: 1451685025
 mas "Xcode", id: 497799835
