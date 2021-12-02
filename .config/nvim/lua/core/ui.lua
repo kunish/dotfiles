@@ -1,6 +1,14 @@
 local M = {}
 
 function M.setup()
+  vim.cmd "silent! colorscheme gruvbox"
+
+  require("lualine").setup {
+    options = {
+      disabled_filetypes = { "NvimTree" },
+    },
+  }
+
   require("colorizer").setup(nil, {
     RRGGBBAA = true,
     css = true,
@@ -8,11 +16,7 @@ function M.setup()
     rgb_fn = true,
     hsl_fn = true,
   })
-  require("lualine").setup {
-    options = {
-      disabled_filetypes = { "NvimTree" },
-    },
-  }
+
   require("bufferline").setup {
     options = {
       always_show_bufferline = false,
@@ -26,7 +30,9 @@ function M.setup()
       },
     },
   }
+
   require("gitsigns").setup()
+
   require("nvim-web-devicons").setup { default = true }
 
   -- nvimtree
@@ -56,8 +62,6 @@ function M.setup()
       custom = { ".git", "node_modules" },
     },
   }
-
-  vim.cmd "silent! colorscheme gruvbox"
 end
 
 return M
