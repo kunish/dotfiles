@@ -51,6 +51,7 @@ function M.setup()
       use "williamboman/nvim-lsp-installer"
       use "wakatime/vim-wakatime"
       use "mattn/emmet-vim"
+      use "max397574/better-escape.nvim"
 
       -- ide
       use "github/copilot.vim"

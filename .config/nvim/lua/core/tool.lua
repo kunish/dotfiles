@@ -45,6 +45,10 @@ function M.setup()
   require("plenary.filetype").add_file "json"
   require("plenary.filetype").add_file "javascript"
 
+  require("better_escape").setup {
+    timeout = 250,
+  }
+
   -- emmet
   vim.g.user_emmet_leader_key = "<C-z>"
 
