@@ -1,7 +1,17 @@
 local M = {}
 
 function M.setup()
-  vim.cmd "silent! colorscheme gruvbox"
+  require("onedarkpro").setup {
+    theme = "onedark",
+    colors = {
+      bg = "#000000",
+      red = "#ef596f",
+      green = "#89ca78",
+      cyan = "#2bbac5",
+      purple = "#d55fde",
+    },
+  }
+  require("onedarkpro").load()
 
   require("lualine").setup {
     options = {

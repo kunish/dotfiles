@@ -1,7 +1,7 @@
 local M = {}
 
 function M.setup()
-  vim.opt.completeopt = "menuone,noselect"
+  vim.opt.completeopt = "menu,menuone,noselect"
   vim.opt.expandtab = true
   vim.opt.fillchars = "eob: "
   vim.opt.ignorecase = true

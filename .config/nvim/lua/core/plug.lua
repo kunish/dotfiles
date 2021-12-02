@@ -24,6 +24,7 @@ function M.setup()
       use "nvim-lua/plenary.nvim"
 
       -- interface
+      use "olimorris/onedarkpro.nvim"
       use "gruvbox-community/gruvbox"
       use "kyazdani42/nvim-web-devicons"
       use "lewis6991/gitsigns.nvim"

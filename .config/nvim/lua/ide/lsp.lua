@@ -11,7 +11,6 @@ local setup_lsp_installer = function()
     "clangd",
     "cssls",
     "dockerls",
-    "emmet_ls",
     "gopls",
     "html",
     "jsonls",
