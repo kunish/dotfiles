@@ -22,6 +22,7 @@ end
 
 function M.setup()
   setup_copilot()
+  luasnip_loader_from_vscode.lazy_load()
 
   local cmp_snippet_sources = {
     { name = "nvim_lsp" },
@@ -46,7 +47,7 @@ function M.setup()
     },
     snippet = {
       expand = function(args)
-        require("luasnip").lsp_expand(args.body)
+        luasnip.lsp_expand(args.body)
       end,
     },
     mapping = {
@@ -60,7 +61,7 @@ function M.setup()
         else
           fallback()
         end
-      end, { "i", "s" }),
+      end),
       ["<S-Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_prev_item()
@@ -69,22 +70,17 @@ function M.setup()
         else
           fallback()
         end
-      end, { "i", "s" }),
-      ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
-      ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
-      ["<C-j>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-      ["<C-e>"] = cmp.mapping {
-        i = cmp.mapping.abort(),
-        c = cmp.mapping.close(),
-      },
+      end),
+      ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+      ["<C-f>"] = cmp.mapping.scroll_docs(4),
+      ["<C-j>"] = cmp.mapping.complete(),
+      ["<C-e>"] = cmp.mapping.close(),
       ["<CR>"] = cmp.mapping.confirm { select = true },
     },
     sources = cmp_snippet_sources,
   }
 
   cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
-
-  luasnip_loader_from_vscode.lazy_load()
 end
 
 return M
