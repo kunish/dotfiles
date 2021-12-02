@@ -224,6 +224,7 @@ cask "obs"
 cask "postman"
 cask "qq"
 cask "qqmusic"
+cask "rectangle"
 cask "soundsource"
 cask "squidman"
 cask "syncthing"
@@ -238,17 +239,10 @@ cask "wechat"
 cask "wireshark"
 cask "zerotier-one"
 mas "EasyRes", id: 688211836
-mas "GarageBand", id: 682658836
-mas "iMovie", id: 408981434
 mas "iStatistica Pro", id: 1447778660
 mas "Keynote", id: 409183694
-mas "Magnet", id: 441258766
-mas "Moom", id: 419330170
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Paste", id: 967805235
-mas "Tailscale", id: 1475387142
-mas "Unsplash Wallpapers", id: 1284863847
 mas "VMware Remote Console", id: 1230249825
-mas "WireGuard", id: 1451685025
 mas "Xcode", id: 497799835
