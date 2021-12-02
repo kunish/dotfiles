@@ -58,12 +58,7 @@ function M.setup()
         elseif has_words_before() then
           cmp.complete()
         else
-          local copilot_keys = vim.fn["copilot#Accept"]()
-          if copilot_keys ~= "" then
-            vim.api.nvim_feedkeys(copilot_keys, "i", true)
-          else
-            fallback()
-          end
+          fallback()
         end
       end, { "i", "s" }),
       ["<S-Tab>"] = cmp.mapping(function(fallback)

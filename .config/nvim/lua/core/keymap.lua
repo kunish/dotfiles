@@ -188,6 +188,16 @@ function M.setup()
     U = { "<cmd>UndotreeToggle<CR>", "UndoTree Toggle" },
   }, { prefix = "<Leader>" })
 
+  -- copilot
+  wk.register({
+    ["<C-l>"] = {
+      function()
+        vim.api.nvim_feedkeys(vim.fn["copilot#Accept"](), "i", true)
+      end,
+      "Copilot",
+    },
+  }, { mode = "i" })
+
   -- custom
   wk.register {
     ["<C-s>"] = { "<cmd>write<CR>", "Buffer Save" },
