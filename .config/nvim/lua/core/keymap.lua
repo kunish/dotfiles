@@ -250,7 +250,7 @@ function M.buf_register(bufnr)
 
       s = {
         function()
-          vim.lsp.buf.document_symbol()
+          telescope_builtin.lsp_document_symbols()
         end,
         "LSP Document Symbols",
       },

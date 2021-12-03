@@ -33,6 +33,7 @@ function M.setup()
       use { "kunish/nvim-tree.lua", branch = "fix-place-cursor-on-node" }
       use "nvim-lualine/lualine.nvim"
       use "norcalli/nvim-colorizer.lua"
+      use "folke/todo-comments.nvim"
 
       -- tool
       use "folke/which-key.nvim"
@@ -46,7 +47,7 @@ function M.setup()
       use "tpope/vim-fugitive"
       use "tpope/vim-repeat"
       use "vim-scripts/ReplaceWithRegister"
-      use "vim-scripts/undotree.vim"
+      use "mbbill/undotree"
       use "windwp/nvim-autopairs"
       use { "iamcco/markdown-preview.nvim", run = "cd app && yarn" }
       use "williamboman/nvim-lsp-installer"

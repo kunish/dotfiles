@@ -29,6 +29,8 @@ function M.setup()
     hsl_fn = true,
   })
 
+  require("todo-comments").setup()
+
   require("bufferline").setup {
     options = {
       always_show_bufferline = false,
@@ -49,14 +51,6 @@ function M.setup()
 
   -- nvimtree
   vim.g.nvim_tree_git_hl = 1
-  vim.g.nvim_tree_special_files = {
-    ["package.json"] = 1,
-    ["Cargo.toml"] = 1,
-    ["README.md"] = 1,
-    ["Dockerfile"] = 1,
-    ["Makefile"] = 1,
-    ["MAKEFILE"] = 1,
-  }
 
   require("nvim-tree").setup {
     view = {

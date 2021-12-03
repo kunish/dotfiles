@@ -54,6 +54,10 @@ function M.setup()
 
   -- markdown preview
   vim.g.mkdp_auto_close = 0
+
+  -- undotree
+  vim.g.undotree_SetFocusWhenToggle = 1
+  vim.g.undotree_HelpLine = 0
 end
 
 return M

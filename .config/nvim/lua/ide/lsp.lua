@@ -78,6 +78,7 @@ local setup_lsp_installer = function()
           },
           workspace = {
             library = vim.api.nvim_list_runtime_paths(),
+            preloadFileSize = 1024,
           },
           telemetry = {
             enable = false,
