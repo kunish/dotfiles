@@ -264,14 +264,14 @@ function M.buf_register(bufnr)
 
       e = {
         function()
-          vim.lsp.diagnostic.show_line_diagnostics()
+          vim.diagnostic.open_float()
         end,
         "Diagnostics Show Line",
       },
 
       E = {
         function()
-          vim.lsp.diagnostic.set_loclist()
+          vim.diagnostic.setloclist()
         end,
         "Diagnostics Show Document",
       },
@@ -309,13 +309,13 @@ function M.buf_register(bufnr)
     },
     ["[e"] = {
       function()
-        vim.lsp.diagnostic.goto_prev()
+        vim.diagnostic.goto_prev()
       end,
       "LSP Diagnostic Prev",
     },
     ["]e"] = {
       function()
-        vim.lsp.diagnostic.goto_next()
+        vim.diagnostic.goto_next()
       end,
       "LSP Diagnostic Next",
     },
