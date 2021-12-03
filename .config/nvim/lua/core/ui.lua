@@ -4,11 +4,13 @@ function M.setup()
   require("onedarkpro").setup {
     theme = "onedark",
     colors = {
-      bg = "#000000",
       red = "#ef596f",
       green = "#89ca78",
       cyan = "#2bbac5",
       purple = "#d55fde",
+    },
+    options = {
+      transparency = true,
     },
   }
   require("onedarkpro").load()
