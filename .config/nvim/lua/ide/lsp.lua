@@ -1,9 +1,19 @@
 local M = {}
 
+local lsp_installer = require "nvim-lsp-installer"
 local lsp_installer_servers = require "nvim-lsp-installer.servers"
 local lspconfig = require "lspconfig"
 local cmp_nvim_lsp = require "cmp_nvim_lsp"
 local null_ls = require "null-ls"
+
+local capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+local on_attach = function(client, bufnr)
+  client.resolved_capabilities.document_formatting = false
+  client.resolved_capabilities.document_range_formatting = false
+
+  require("core.keymap").buf_register(bufnr)
+end
 
 local setup_lsp_installer = function()
   local lsp_servers = {
@@ -29,7 +39,6 @@ local setup_lsp_installer = function()
 
   local on_server_ready = function(server)
     local opts = {}
-    local capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
     if server.name == "sumneko_lua" then
       local runtime_path = vim.split(package.path, ";")
@@ -103,31 +112,31 @@ local setup_lsp_installer = function()
       }
     end
 
-    opts.on_attach = function(client, bufnr)
-      client.resolved_capabilities.document_formatting = false
-      client.resolved_capabilities.document_range_formatting = false
-
-      require("core.keymap").buf_register(bufnr)
-    end
-
+    opts.on_attach = on_attach
     opts.capabilities = capabilities
 
     server:setup(opts)
   end
 
+  lsp_installer.on_server_ready(function(server)
+    on_server_ready(server)
+  end)
+
   for _, lsp_name in ipairs(lsp_servers) do
     local server_available, requested_server = lsp_installer_servers.get_server(lsp_name)
 
     if server_available then
-      requested_server:on_ready(function()
-        on_server_ready(requested_server)
-      end)
-
       if not requested_server:is_installed() then
         requested_server:install()
       end
     end
   end
+end
+
+local function setup_lspconfig()
+  lspconfig.sourcekit.setup {
+    on_attach = on_attach,
+  }
 end
 
 local function setup_null_ls()
@@ -164,11 +173,12 @@ end
 
 function M.setup()
   setup_lsp_installer()
+  setup_lspconfig()
   setup_null_ls()
 
-  vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+  vim.diagnostic.config {
     update_in_insert = true,
-  })
+  }
 end
 
 return M
