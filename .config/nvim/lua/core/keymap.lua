@@ -31,7 +31,7 @@ function M.setup()
       name = "Buffer",
 
       b = { "<cmd>BufferLinePick<CR>", "BufferPick" },
-      O = { "<cmd>BufOnly<CR>", "BufferOnly" },
+      O = { "<cmd>silent! BufOnly<CR>", "BufferOnly" },
       c = {
         function()
           local explorerWindow = treeView.get_winnr()
