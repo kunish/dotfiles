@@ -200,7 +200,7 @@ function M.setup()
 
   -- custom
   wk.register {
-    ["<C-s>"] = { "<cmd>write<CR>", "Buffer Save" },
+    ["<C-s>"] = { "<cmd>silent! write<CR>", "Buffer Save" },
     ["<C-h>"] = { "<cmd>wincmd h<CR>", "Window Left" },
     ["<C-l>"] = { "<cmd>wincmd l<CR>", "Window Right" },
     ["<C-k>"] = { "<cmd>wincmd k<CR>", "Window Top" },
