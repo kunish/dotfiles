@@ -24,6 +24,7 @@ end
 local setup_lsp_installer = function()
   use "bashls"
   use "clangd"
+  use "dartls"
   use "dockerls"
   use "gopls"
   use "html"
@@ -32,9 +33,21 @@ local setup_lsp_installer = function()
   use "rust_analyzer"
   use "sorbet"
   use "svelte"
-  use "tailwindcss"
   use "terraformls"
   use "vimls"
+  use "volar"
+  use("ansiblels", {
+    autostart = false,
+  })
+  use("graphql", {
+    single_file_support = true,
+  })
+  use("tailwindcss", {
+    single_file_support = true,
+  })
+  use("emmet_ls", {
+    single_file_support = true,
+  })
   use("cssls", {
     settings = {
       css = {
