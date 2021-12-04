@@ -3,7 +3,6 @@ set -x fish_greeting
 set -x VISUAL nvim
 set -x EDITOR nvim
 
-set -x BAT_THEME gruvbox-dark
 set -x fzf_fd_opts -HE .git
 set -x GOPROXY https://goproxy.io,direct
 set -x GOPATH $HOME/.go
