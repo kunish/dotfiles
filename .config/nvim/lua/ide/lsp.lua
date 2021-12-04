@@ -105,9 +105,6 @@ local setup_lsp_installer = function()
         schemas = schemastore.json.schemas(),
       },
     },
-    get_language_id = function(_, filetype)
-      return filetype == "json" and "jsonc" or filetype
-    end,
   })
   use("yamlls", {
     disable_formatting = true,
