@@ -1,14 +1,17 @@
 local M = {}
 
 function M.setup()
-  vim.opt.completeopt = "menu,menuone,noselect"
+  vim.opt.completeopt = { "menu", "menuone", "noselect" }
   vim.opt.expandtab = true
   vim.opt.fillchars = "eob: "
   vim.opt.ignorecase = true
   vim.opt.lazyredraw = true
   vim.opt.mouse = "a"
   vim.opt.shiftwidth = 2
-  vim.opt.shortmess:append "Ic"
+  vim.opt.shortmess:append {
+    I = true,
+    c = true,
+  }
   vim.opt.showcmd = false
   vim.opt.showmode = false
   vim.opt.signcolumn = "yes"

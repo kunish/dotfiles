@@ -22,6 +22,7 @@ end
 
 function M.setup()
   setup_copilot()
+
   luasnip_loader_from_vscode.lazy_load()
 
   local cmp_snippet_sources = {

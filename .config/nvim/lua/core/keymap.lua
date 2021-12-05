@@ -3,7 +3,9 @@ local M = {}
 local wk = require "which-key"
 local hop = require "hop"
 local telescope_builtin = require "telescope.builtin"
-local treeView = require "nvim-tree.view"
+local tree = require "nvim-tree"
+local tree_lib = require "nvim-tree.lib"
+local tree_view = require "nvim-tree.view"
 local bufferline = require "bufferline"
 
 function M.setup()
@@ -34,7 +36,7 @@ function M.setup()
       O = { "<cmd>silent! BufOnly<CR>", "BufferOnly" },
       c = {
         function()
-          local explorerWindow = treeView.get_winnr()
+          local explorerWindow = tree_view.get_winnr()
           local wasExplorerOpen = vim.api.nvim_win_is_valid(explorerWindow)
 
           local bufferToDelete = vim.api.nvim_get_current_buf()
@@ -146,13 +148,13 @@ function M.setup()
   wk.register({
     ft = {
       function()
-        require("nvim-tree").toggle()
+        tree.toggle()
       end,
       "File Tree",
     },
     fT = {
       function()
-        require("nvim-tree.lib").collapse_all()
+        tree_lib.collapse_all()
       end,
       "File Tree Collapse",
     },

@@ -6,13 +6,14 @@ local lspconfig = require "lspconfig"
 local null_ls = require "null-ls"
 local schemastore = require "schemastore"
 local cmp_nvim_lsp = require "cmp_nvim_lsp"
+local keymap = require "core.keymap"
 local lsp_servers = require("utils.lsp").lsp_servers
 local use = require("utils.lsp").use
 local utils = require "utils.lsp"
 
 --- @diagnostic disable-next-line: unused-local
 local on_attach = function(client, bufnr)
-  require("core.keymap").buf_register(bufnr)
+  keymap.buf_register(bufnr)
 end
 
 local capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
