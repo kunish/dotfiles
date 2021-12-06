@@ -30,7 +30,7 @@ function M.setup()
       use "lewis6991/gitsigns.nvim"
       use "akinsho/bufferline.nvim"
       use "numToStr/BufOnly.nvim"
-      use { "kunish/nvim-tree.lua", branch = "fix-place-cursor-on-node" }
+      use "kyazdani42/nvim-tree.lua"
       use "nvim-lualine/lualine.nvim"
       use "norcalli/nvim-colorizer.lua"
       use "folke/todo-comments.nvim"

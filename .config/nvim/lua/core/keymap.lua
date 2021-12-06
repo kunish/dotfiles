@@ -229,25 +229,11 @@ function M.buf_register(bufnr)
         "LSP Rename",
       },
 
-      R = {
-        function()
-          vim.lsp.buf.references()
-        end,
-        "LSP References",
-      },
-
       i = {
         function()
           vim.lsp.buf.implementation()
         end,
         "LSP Implementations",
-      },
-
-      t = {
-        function()
-          vim.lsp.buf.type_definition()
-        end,
-        "LSP Type Definitions",
       },
 
       s = {
@@ -302,6 +288,18 @@ function M.buf_register(bufnr)
         vim.lsp.buf.declaration()
       end,
       "LSP Declaration",
+    },
+    gR = {
+      function()
+        vim.lsp.buf.references()
+      end,
+      "LSP References",
+    },
+    gt = {
+      function()
+        vim.lsp.buf.type_definition()
+      end,
+      "LSP Type Definitions",
     },
     K = {
       function()
