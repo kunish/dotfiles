@@ -1,12 +1,12 @@
 local M = {}
 
 function M.setup()
-  vim.opt.completeopt = { "menu", "menuone", "noselect" }
+  vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
   vim.opt.expandtab = true
-  vim.opt.fillchars = "eob: "
+  vim.opt.fillchars = 'eob: '
   vim.opt.ignorecase = true
   vim.opt.lazyredraw = true
-  vim.opt.mouse = "a"
+  vim.opt.mouse = 'a'
   vim.opt.shiftwidth = 2
   vim.opt.shortmess:append {
     I = true,
@@ -14,7 +14,7 @@ function M.setup()
   }
   vim.opt.showcmd = false
   vim.opt.showmode = false
-  vim.opt.signcolumn = "yes"
+  vim.opt.signcolumn = 'yes'
   vim.opt.splitbelow = true
   vim.opt.splitright = true
   vim.opt.swapfile = false
@@ -23,8 +23,8 @@ function M.setup()
   vim.opt.undofile = true
   vim.opt.updatetime = 250
 
-  vim.g.mapleader = " "
-  vim.g.maplocalleader = " "
+  vim.g.mapleader = ' '
+  vim.g.maplocalleader = ' '
 end
 
 return M

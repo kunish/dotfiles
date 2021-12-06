@@ -1,5 +1,5 @@
 return {
   shebang = {
-    ["/usr/bin/env node"] = "javascript",
+    ['/usr/bin/env node'] = 'javascript',
   },
 }

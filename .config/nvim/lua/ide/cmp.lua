@@ -1,10 +1,10 @@
 local M = {}
 
-local cmp = require "cmp"
-local lspkind = require "lspkind"
-local cmp_autopairs = require "nvim-autopairs.completion.cmp"
-local luasnip = require "luasnip"
-local luasnip_loader_from_vscode = require "luasnip.loaders.from_vscode"
+local cmp = require 'cmp'
+local lspkind = require 'lspkind'
+local cmp_autopairs = require 'nvim-autopairs.completion.cmp'
+local luasnip = require 'luasnip'
+local luasnip_loader_from_vscode = require 'luasnip.loaders.from_vscode'
 
 local setup_copilot = function()
   vim.g.copilot_filetypes = {
@@ -12,12 +12,12 @@ local setup_copilot = function()
   }
   vim.g.copilot_no_tab_map = true
   vim.g.copilot_assume_mapped = true
-  vim.g.copilot_tab_fallback = ""
+  vim.g.copilot_tab_fallback = ''
 end
 
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match "%s" == nil
+  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match '%s' == nil
 end
 
 function M.setup()
@@ -26,11 +26,11 @@ function M.setup()
   luasnip_loader_from_vscode.lazy_load()
 
   local cmp_snippet_sources = {
-    { name = "nvim_lsp" },
-    { name = "luasnip" },
-    { name = "buffer" },
-    { name = "path" },
-    { name = "nvim_lua" },
+    { name = 'nvim_lsp' },
+    { name = 'luasnip' },
+    { name = 'buffer' },
+    { name = 'path' },
+    { name = 'nvim_lua' },
   }
 
   cmp.setup {
@@ -38,11 +38,11 @@ function M.setup()
       format = lspkind.cmp_format {
         with_text = true,
         menu = {
-          nvim_lsp = "[LSP]",
-          luasnip = "[LuaSnip]",
-          buffer = "[Buffer]",
-          path = "[Path]",
-          nvim_lua = "[Lua]",
+          nvim_lsp = '[LSP]',
+          luasnip = '[LuaSnip]',
+          buffer = '[Buffer]',
+          path = '[Path]',
+          nvim_lua = '[Lua]',
         },
       },
     },
@@ -52,7 +52,7 @@ function M.setup()
       end,
     },
     mapping = {
-      ["<Tab>"] = cmp.mapping(function(fallback)
+      ['<Tab>'] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_next_item()
         elseif luasnip.expand_or_jumpable() then
@@ -62,8 +62,8 @@ function M.setup()
         else
           fallback()
         end
-      end, { "i", "s" }),
-      ["<S-Tab>"] = cmp.mapping(function(fallback)
+      end, { 'i', 's' }),
+      ['<S-Tab>'] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_prev_item()
         elseif luasnip.jumpable(-1) then
@@ -71,17 +71,17 @@ function M.setup()
         else
           fallback()
         end
-      end, { "i", "s" }),
-      ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-      ["<C-f>"] = cmp.mapping.scroll_docs(4),
-      ["<C-j>"] = cmp.mapping.complete(),
-      ["<C-e>"] = cmp.mapping.close(),
-      ["<CR>"] = cmp.mapping.confirm { select = true },
+      end, { 'i', 's' }),
+      ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+      ['<C-f>'] = cmp.mapping.scroll_docs(4),
+      ['<C-j>'] = cmp.mapping.complete(),
+      ['<C-e>'] = cmp.mapping.close(),
+      ['<CR>'] = cmp.mapping.confirm { select = true },
     },
     sources = cmp_snippet_sources,
   }
 
-  cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+  cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
 end
 
 return M

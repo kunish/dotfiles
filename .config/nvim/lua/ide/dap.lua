@@ -1,10 +1,10 @@
 local M = {}
 
-local dap_install = require "dap-install"
+local dap_install = require 'dap-install'
 
 function M.setup()
   dap_install.setup {
-    installation_path = vim.fn.stdpath "data" .. "/dapinstall",
+    installation_path = vim.fn.stdpath 'data' .. '/dapinstall',
   }
 end
 

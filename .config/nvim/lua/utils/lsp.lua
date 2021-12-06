@@ -8,7 +8,7 @@ M.setup = function(capabilities)
 end
 
 M.use = function(name, opts)
-  opts = type(opts) == "function" and opts() or type(opts) == "table" and opts or {}
+  opts = type(opts) == 'function' and opts() or type(opts) == 'table' and opts or {}
   opts.capabilities = M.capabilities
 
   M.lsp_servers[#M.lsp_servers + 1] = {

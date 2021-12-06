@@ -1,12 +1,12 @@
 local M = {}
 
-local wk = require "which-key"
-local hop = require "hop"
-local telescope_builtin = require "telescope.builtin"
-local tree = require "nvim-tree"
-local tree_lib = require "nvim-tree.lib"
-local tree_view = require "nvim-tree.view"
-local bufferline = require "bufferline"
+local wk = require 'which-key'
+local hop = require 'hop'
+local telescope_builtin = require 'telescope.builtin'
+local tree = require 'nvim-tree'
+local tree_lib = require 'nvim-tree.lib'
+local tree_view = require 'nvim-tree.view'
+local bufferline = require 'bufferline'
 
 function M.setup()
   wk.setup()
@@ -17,23 +17,23 @@ function M.setup()
       function()
         hop.hint_lines_skip_whitespace()
       end,
-      "HopLine",
+      'HopLine',
     },
     S = {
       function()
         hop.hint_char1()
       end,
-      "HopChar",
+      'HopChar',
     },
   }
 
   -- bufferline
   wk.register({
     b = {
-      name = "Buffer",
+      name = 'Buffer',
 
-      b = { "<cmd>BufferLinePick<CR>", "BufferPick" },
-      O = { "<cmd>silent! BufOnly<CR>", "BufferOnly" },
+      b = { '<cmd>BufferLinePick<CR>', 'BufferPick' },
+      O = { '<cmd>silent! BufOnly<CR>', 'BufferOnly' },
       c = {
         function()
           local explorerWindow = tree_view.get_winnr()
@@ -45,102 +45,102 @@ function M.setup()
             bufferline.cycle(-1)
           end
 
-          vim.cmd("bdelete! " .. bufferToDelete)
+          vim.cmd('bdelete! ' .. bufferToDelete)
         end,
-        "BufferClose",
+        'BufferClose',
       },
-      C = { "<cmd>BufferLinePickClose<CR>", "BufferPickClose" },
-      h = { "<cmd>BufferLineMovePrev<CR>", "BufferMove Previous" },
-      l = { "<cmd>BufferLineMoveNext<CR>", "BufferMove Next" },
-      H = { "<cmd>BufferLineCloseLeft<CR>", "BufferClose Left" },
-      L = { "<cmd>BufferLineCloseRight<CR>", "BufferClose Right" },
+      C = { '<cmd>BufferLinePickClose<CR>', 'BufferPickClose' },
+      h = { '<cmd>BufferLineMovePrev<CR>', 'BufferMove Previous' },
+      l = { '<cmd>BufferLineMoveNext<CR>', 'BufferMove Next' },
+      H = { '<cmd>BufferLineCloseLeft<CR>', 'BufferClose Left' },
+      L = { '<cmd>BufferLineCloseRight<CR>', 'BufferClose Right' },
     },
   }, {
-    prefix = "<Leader>",
+    prefix = '<Leader>',
   })
 
   wk.register {
-    ["<Tab>"] = { "<cmd>BufferLineCycleNext<CR>", "Buffer Next" },
-    ["<S-Tab>"] = { "<cmd>BufferLineCyclePrev<CR>", "Buffer Previous" },
+    ['<Tab>'] = { '<cmd>BufferLineCycleNext<CR>', 'Buffer Next' },
+    ['<S-Tab>'] = { '<cmd>BufferLineCyclePrev<CR>', 'Buffer Previous' },
   }
 
   -- telescope
   wk.register({
     f = {
-      name = "Find",
+      name = 'Find',
 
       a = {
         function()
           telescope_builtin.builtin()
         end,
-        "Telescope Builtin",
+        'Telescope Builtin',
       },
       b = {
         function()
           telescope_builtin.buffers()
         end,
-        "Telescope Buffers",
+        'Telescope Buffers',
       },
       f = {
         function()
           telescope_builtin.find_files()
         end,
-        "Telescope Find Files",
+        'Telescope Find Files',
       },
       g = {
         function()
           telescope_builtin.git_commits()
         end,
-        "Telescope Git Commits",
+        'Telescope Git Commits',
       },
       h = {
         function()
           telescope_builtin.help_tags()
         end,
-        "Telescope Help",
+        'Telescope Help',
       },
       j = {
         function()
           telescope_builtin.jumplist()
         end,
-        "Telescope Jump List",
+        'Telescope Jump List',
       },
       k = {
         function()
           telescope_builtin.keymaps()
         end,
-        "Telescope Keymaps",
+        'Telescope Keymaps',
       },
       l = {
         function()
-          require("telescope").extensions.file_browser.file_browser()
+          require('telescope').extensions.file_browser.file_browser()
         end,
-        "Telescope File Browser",
+        'Telescope File Browser',
       },
       m = {
         function()
           telescope_builtin.man_pages()
         end,
-        "Telescope Man Pages",
+        'Telescope Man Pages',
       },
       s = {
         function()
           telescope_builtin.live_grep()
         end,
-        "Telescope Live Grep",
+        'Telescope Live Grep',
       },
     },
   }, {
-    prefix = "<Leader>",
+    prefix = '<Leader>',
   })
 
   -- buffer fuzzy finder
   wk.register {
-    ["\\"] = {
+    ['\\'] = {
       function()
         telescope_builtin.current_buffer_fuzzy_find()
       end,
-      "Telescope Buffer Search",
+      'Telescope Buffer Search',
     },
   }
 
@@ -150,129 +150,129 @@ function M.setup()
       function()
         tree.toggle()
       end,
-      "File Tree",
+      'File Tree',
     },
     fT = {
       function()
         tree_lib.collapse_all()
       end,
-      "File Tree Collapse",
+      'File Tree Collapse',
     },
-  }, { prefix = "<Leader>" })
+  }, { prefix = '<Leader>' })
 
   -- fugitive
   wk.register({
     g = {
-      name = "Git",
+      name = 'Git',
 
-      g = { "<cmd>Git<CR>", "Git Status" },
-      p = { "<cmd>Git pull<CR>", "Git Pull" },
-      P = { "<cmd>Git push<CR>", "Git Push" },
+      g = { '<cmd>Git<CR>', 'Git Status' },
+      p = { '<cmd>Git pull<CR>', 'Git Pull' },
+      P = { '<cmd>Git push<CR>', 'Git Push' },
     },
   }, {
-    prefix = "<Leader>",
+    prefix = '<Leader>',
   })
 
   -- packer
   wk.register({
     P = {
       function()
-        require("packer").sync()
+        require('packer').sync()
       end,
-      "Package Sync",
+      'Package Sync',
     },
   }, {
-    prefix = "<Leader>",
+    prefix = '<Leader>',
   })
 
   -- undotree
   wk.register({
-    U = { "<cmd>UndotreeToggle<CR>", "UndoTree Toggle" },
-  }, { prefix = "<Leader>" })
+    U = { '<cmd>UndotreeToggle<CR>', 'UndoTree Toggle' },
+  }, { prefix = '<Leader>' })
 
   -- copilot
   wk.register({
-    ["<C-l>"] = {
+    ['<C-l>'] = {
       function()
-        vim.api.nvim_feedkeys(vim.fn["copilot#Accept"](), "i", true)
+        vim.api.nvim_feedkeys(vim.fn['copilot#Accept'](), 'i', true)
       end,
-      "Copilot",
+      'Copilot',
     },
-  }, { mode = "i" })
+  }, { mode = 'i' })
 
   -- custom
   wk.register {
-    ["<C-s>"] = { "<cmd>silent! write<CR>", "Buffer Save" },
-    ["<C-h>"] = { "<cmd>wincmd h<CR>", "Window Left" },
-    ["<C-l>"] = { "<cmd>wincmd l<CR>", "Window Right" },
-    ["<C-k>"] = { "<cmd>wincmd k<CR>", "Window Top" },
-    ["<C-j>"] = { "<cmd>wincmd j<CR>", "Window Bottom" },
+    ['<C-s>'] = { '<cmd>silent! write<CR>', 'Buffer Save' },
+    ['<C-h>'] = { '<cmd>wincmd h<CR>', 'Window Left' },
+    ['<C-l>'] = { '<cmd>wincmd l<CR>', 'Window Right' },
+    ['<C-k>'] = { '<cmd>wincmd k<CR>', 'Window Top' },
+    ['<C-j>'] = { '<cmd>wincmd j<CR>', 'Window Bottom' },
   }
 end
 
 function M.buf_register(bufnr)
   wk.register({
     l = {
-      name = "LSP",
+      name = 'LSP',
 
       a = {
         function()
           vim.lsp.buf.code_action()
         end,
-        "LSP Code Actions",
+        'LSP Code Actions',
       },
 
       r = {
         function()
           vim.lsp.buf.rename()
         end,
-        "LSP Rename",
+        'LSP Rename',
       },
 
       i = {
         function()
           vim.lsp.buf.implementation()
         end,
-        "LSP Implementations",
+        'LSP Implementations',
       },
 
       s = {
         function()
           telescope_builtin.lsp_document_symbols()
         end,
-        "LSP Document Symbols",
+        'LSP Document Symbols',
       },
 
       S = {
         function()
           vim.lsp.buf.workspace_symbol()
         end,
-        "LSP Workspace Symbols",
+        'LSP Workspace Symbols',
       },
 
       e = {
         function()
           vim.diagnostic.open_float()
         end,
-        "Diagnostics Show Line",
+        'Diagnostics Show Line',
       },
 
       E = {
         function()
           vim.diagnostic.setloclist()
         end,
-        "Diagnostics Show Document",
+        'Diagnostics Show Document',
       },
 
       f = {
         function()
           vim.lsp.buf.formatting()
         end,
-        "LSP Format",
+        'LSP Format',
       },
     },
   }, {
-    prefix = "<Leader>",
+    prefix = '<Leader>',
     buffer = bufnr,
   })
 
@@ -281,43 +281,43 @@ function M.buf_register(bufnr)
       function()
         vim.lsp.buf.definition()
       end,
-      "LSP Definitions",
+      'LSP Definitions',
     },
     gD = {
       function()
         vim.lsp.buf.declaration()
       end,
-      "LSP Declaration",
+      'LSP Declaration',
     },
     gR = {
       function()
         vim.lsp.buf.references()
       end,
-      "LSP References",
+      'LSP References',
     },
     gt = {
       function()
         vim.lsp.buf.type_definition()
       end,
-      "LSP Type Definitions",
+      'LSP Type Definitions',
     },
     K = {
       function()
         vim.lsp.buf.hover()
       end,
-      "LSP Hover",
+      'LSP Hover',
     },
-    ["[e"] = {
+    ['[e'] = {
       function()
         vim.diagnostic.goto_prev()
       end,
-      "LSP Diagnostic Prev",
+      'LSP Diagnostic Prev',
     },
-    ["]e"] = {
+    [']e'] = {
       function()
         vim.diagnostic.goto_next()
       end,
-      "LSP Diagnostic Next",
+      'LSP Diagnostic Next',
     },
   }, {
     buffer = bufnr,
