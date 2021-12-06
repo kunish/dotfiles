@@ -17,7 +17,7 @@ function M.setup()
 
   require("lualine").setup {
     options = {
-      disabled_filetypes = { "NvimTree" },
+      disabled_filetypes = { "", "packer", "NvimTree" },
     },
   }
 
