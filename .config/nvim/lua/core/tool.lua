@@ -48,6 +48,7 @@ function M.setup()
   require('better_escape').setup {
     timeout = 250,
   }
+  require('Navigator').setup()
 
   -- emmet
   vim.g.user_emmet_leader_key = '<C-z>'

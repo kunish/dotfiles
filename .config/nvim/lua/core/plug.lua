@@ -56,6 +56,7 @@ function M.setup()
       use 'wakatime/vim-wakatime'
       use 'mattn/emmet-vim'
       use 'max397574/better-escape.nvim'
+      use 'numToStr/Navigator.nvim'
 
       -- ide
       use 'github/copilot.vim'

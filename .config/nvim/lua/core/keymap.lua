@@ -7,6 +7,7 @@ local tree = require 'nvim-tree'
 local tree_lib = require 'nvim-tree.lib'
 local tree_view = require 'nvim-tree.view'
 local bufferline = require 'bufferline'
+local navigator = require 'Navigator'
 
 function M.setup()
   wk.setup()
@@ -203,10 +204,33 @@ function M.setup()
   -- custom
   wk.register {
     ['<C-s>'] = { '<cmd>silent! write<CR>', 'Buffer Save' },
-    ['<C-h>'] = { '<cmd>wincmd h<CR>', 'Window Left' },
-    ['<C-l>'] = { '<cmd>wincmd l<CR>', 'Window Right' },
-    ['<C-k>'] = { '<cmd>wincmd k<CR>', 'Window Top' },
-    ['<C-j>'] = { '<cmd>wincmd j<CR>', 'Window Bottom' },
+    ['<A-h>'] = {
+      function()
+        navigator.left()
+      end,
+      'Window Left',
+    },
+
+    ['<A-l>'] = {
+      function()
+        navigator.right()
+      end,
+      'Window Right',
+    },
+
+    ['<A-k>'] = {
+      function()
+        navigator.up()
+      end,
+      'Window Up',
+    },
+
+    ['<A-j>'] = {
+      function()
+        navigator.down()
+      end,
+      'Window Down',
+    },
   }
 end
 
@@ -227,13 +251,6 @@ function M.buf_register(bufnr)
           vim.lsp.buf.rename()
         end,
         'LSP Rename',
-      },
-
-      i = {
-        function()
-          vim.lsp.buf.implementation()
-        end,
-        'LSP Implementations',
       },
 
       s = {
@@ -282,6 +299,12 @@ function M.buf_register(bufnr)
         vim.lsp.buf.definition()
       end,
       'LSP Definitions',
+    },
+    gi = {
+      function()
+        vim.lsp.buf.implementation()
+      end,
+      'LSP Implementations',
     },
     gD = {
       function()
