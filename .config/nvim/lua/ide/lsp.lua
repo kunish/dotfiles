@@ -123,24 +123,27 @@ local setup_lsp_installer = function()
   })
 
   local on_server_ready = function(server)
-    for _, lsp in pairs(lsp_servers) do
-      if lsp.name == server.name then
-        local opts = lsp.opts
+    local configs = vim.tbl_filter(function(config)
+      return config.name == server.name
+    end, lsp_servers)
 
-        opts.on_attach = function(client, bufnr)
-          if opts.disable_formatting then
-            client.resolved_capabilities.document_formatting = false
-            client.resolved_capabilities.document_range_formatting = false
-          end
-
-          on_attach(client, bufnr)
-        end
-
-        server:setup(opts)
-
-        break
-      end
+    if #configs == 0 then
+      return
     end
+
+    local config = configs[1]
+    local opts = config.opts
+
+    opts.on_attach = function(client, bufnr)
+      if opts.disable_formatting then
+        client.resolved_capabilities.document_formatting = false
+        client.resolved_capabilities.document_range_formatting = false
+      end
+
+      on_attach(client, bufnr)
+    end
+
+    server:setup(opts)
   end
 
   lsp_installer.on_server_ready(on_server_ready)
