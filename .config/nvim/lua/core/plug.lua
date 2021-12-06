@@ -34,6 +34,8 @@ function M.setup()
       use 'nvim-lualine/lualine.nvim'
       use 'norcalli/nvim-colorizer.lua'
       use 'folke/todo-comments.nvim'
+      use 'stevearc/dressing.nvim'
+      use 'rcarriga/nvim-notify'
 
       -- tool
       use 'folke/which-key.nvim'
@@ -83,7 +85,7 @@ function M.setup()
       use 'rafamadriz/friendly-snippets'
 
       if M.packer_bootstrap then
-        require('packer').sync()
+        packer.sync()
       end
     end,
     config = {

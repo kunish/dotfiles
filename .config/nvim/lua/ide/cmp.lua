@@ -9,6 +9,7 @@ local luasnip_loader_from_vscode = require 'luasnip.loaders.from_vscode'
 local setup_copilot = function()
   vim.g.copilot_filetypes = {
     TelescopePrompt = false,
+    DressingInput = false,
   }
   vim.g.copilot_no_tab_map = true
   vim.g.copilot_assume_mapped = true

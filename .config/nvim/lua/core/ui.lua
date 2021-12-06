@@ -9,9 +9,6 @@ function M.setup()
       cyan = '#2bbac5',
       purple = '#d55fde',
     },
-    options = {
-      transparency = true,
-    },
   }
   require('onedarkpro').load()
 
@@ -20,6 +17,11 @@ function M.setup()
       disabled_filetypes = { '', 'packer', 'NvimTree' },
     },
   }
+
+  require('dressing').setup()
+  require('notify').setup()
+
+  vim.notify = require 'notify'
 
   require('colorizer').setup(nil, {
     RRGGBBAA = true,
