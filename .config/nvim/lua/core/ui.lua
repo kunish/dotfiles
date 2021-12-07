@@ -67,7 +67,7 @@ function M.setup()
       enable = true,
     },
     filters = {
-      custom = { '.git', 'node_modules' },
+      custom = { '.git', 'node_modules', 'dist' },
     },
   }
 end
