@@ -19,6 +19,7 @@ function M.setup()
   }
 
   require('dressing').setup()
+
   require('notify').setup()
 
   vim.notify = require 'notify'

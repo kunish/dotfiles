@@ -33,8 +33,15 @@ function M.setup()
     b = {
       name = 'Buffer',
 
-      b = { '<cmd>BufferLinePick<CR>', 'BufferPick' },
       O = { '<cmd>silent! BufOnly<CR>', 'BufferOnly' },
+
+      b = {
+        function()
+          bufferline.pick_buffer()
+        end,
+        'BufferPick',
+      },
+
       c = {
         function()
           local explorerWindow = tree_view.get_winnr()
@@ -50,19 +57,59 @@ function M.setup()
         end,
         'BufferClose',
       },
-      C = { '<cmd>BufferLinePickClose<CR>', 'BufferPickClose' },
-      h = { '<cmd>BufferLineMovePrev<CR>', 'BufferMove Previous' },
-      l = { '<cmd>BufferLineMoveNext<CR>', 'BufferMove Next' },
-      H = { '<cmd>BufferLineCloseLeft<CR>', 'BufferClose Left' },
-      L = { '<cmd>BufferLineCloseRight<CR>', 'BufferClose Right' },
+
+      C = {
+        function()
+          bufferline.close_buffer_with_pick()
+        end,
+        'BufferPickClose',
+      },
+
+      h = {
+        function()
+          bufferline.move(-1)
+        end,
+        'BufferMove Previous',
+      },
+
+      l = {
+        function()
+          bufferline.move(1)
+        end,
+        'BufferMove Next',
+      },
+
+      H = {
+        function()
+          bufferline.close_in_direction(-1)
+        end,
+        'BufferClose Left',
+      },
+
+      L = {
+        function()
+          bufferline.close_in_direction(1)
+        end,
+        'BufferClose Right',
+      },
     },
   }, {
     prefix = '<Leader>',
   })
 
   wk.register {
-    ['<Tab>'] = { '<cmd>BufferLineCycleNext<CR>', 'Buffer Next' },
-    ['<S-Tab>'] = { '<cmd>BufferLineCyclePrev<CR>', 'Buffer Previous' },
+    ['<Tab>'] = {
+      function()
+        bufferline.cycle(1)
+      end,
+      'Buffer Next',
+    },
+    ['<S-Tab>'] = {
+      function()
+        bufferline.cycle(-1)
+      end,
+      'Buffer Previous',
+    },
   }
 
   -- telescope
@@ -204,6 +251,7 @@ function M.setup()
   -- custom
   wk.register {
     ['<C-s>'] = { '<cmd>silent! write<CR>', 'Buffer Save' },
+
     ['<A-h>'] = {
       function()
         navigator.left()
@@ -241,7 +289,7 @@ function M.buf_register(bufnr)
 
       a = {
         function()
-          vim.lsp.buf.code_action()
+          telescope_builtin.lsp_code_actions()
         end,
         'LSP Code Actions',
       },
@@ -262,7 +310,7 @@ function M.buf_register(bufnr)
 
       S = {
         function()
-          vim.lsp.buf.workspace_symbol()
+          telescope_builtin.lsp_workspace_symbols()
         end,
         'LSP Workspace Symbols',
       },
@@ -276,7 +324,7 @@ function M.buf_register(bufnr)
 
       E = {
         function()
-          vim.diagnostic.setloclist()
+          telescope_builtin.lsp_document_diagnostics()
         end,
         'Diagnostics Show Document',
       },
@@ -296,31 +344,31 @@ function M.buf_register(bufnr)
   wk.register({
     gd = {
       function()
-        vim.lsp.buf.definition()
+        telescope_builtin.lsp_definitions()
       end,
       'LSP Definitions',
     },
     gi = {
       function()
-        vim.lsp.buf.implementation()
+        telescope_builtin.lsp_implementations()
       end,
       'LSP Implementations',
     },
     gD = {
       function()
-        vim.lsp.buf.declaration()
+        telescope_builtin.lsp_declarations()
       end,
       'LSP Declaration',
     },
     gR = {
       function()
-        vim.lsp.buf.references()
+        telescope_builtin.lsp_references()
       end,
       'LSP References',
     },
     gt = {
       function()
-        vim.lsp.buf.type_definition()
+        telescope_builtin.lsp_type_definitions()
       end,
       'LSP Type Definitions',
     },

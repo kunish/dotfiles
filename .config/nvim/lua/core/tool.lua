@@ -26,11 +26,16 @@ function M.setup()
     disable_filetype = { 'TelescopePrompt' },
   }
 
+  local telescope_defaults = require('telescope.themes').get_ivy()
+
+  telescope_defaults.initial_mode = 'normal'
+
   require('telescope').setup {
-    defaults = require('telescope.themes').get_ivy(),
+    defaults = telescope_defaults,
     pickers = {
       find_files = {
         hidden = true,
+        initial_mode = 'insert',
       },
     },
     extensions = {
