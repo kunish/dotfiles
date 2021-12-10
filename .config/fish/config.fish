@@ -24,10 +24,10 @@ fish_add_path $HOME/.yarn/bin
 fish_add_path $HOME/.local/bin
 fish_add_path $GOPATH/bin
 
-abbr t "trans :zh"
+abbr t 'trans :zh'
 
 alias d docker
-alias icat "kitty +kitten icat"
+alias icat 'kitty +kitten icat'
 alias k kubectl
 alias kx kubectx
 alias l 'ls -al'
@@ -36,6 +36,7 @@ alias lg lazygit
 alias ls exa
 alias n nvim
 alias v vim
+alias s 'kitty +kitten ssh'
 
 if status is-interactive
     if type -q fnm

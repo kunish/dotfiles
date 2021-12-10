@@ -47,7 +47,11 @@ function M.setup()
     },
   }
 
-  require('gitsigns').setup()
+  require('gitsigns').setup {
+    yadm = {
+      enable = true,
+    },
+  }
 
   require('nvim-web-devicons').setup { default = true }
 
