@@ -48,7 +48,6 @@ function M.setup()
       use 'numToStr/Comment.nvim'
       use 'tpope/vim-fugitive'
       use 'tpope/vim-repeat'
-      use 'vim-scripts/ReplaceWithRegister'
       use 'mbbill/undotree'
       use 'windwp/nvim-autopairs'
       use { 'iamcco/markdown-preview.nvim', run = 'cd app && yarn' }
