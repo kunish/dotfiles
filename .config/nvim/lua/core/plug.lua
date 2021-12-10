@@ -72,6 +72,7 @@ function M.setup()
       use 'b0o/schemastore.nvim'
       use 'mfussenegger/nvim-dap'
       use 'Pocco81/DAPInstall.nvim'
+      use 'nathom/filetype.nvim'
 
       -- cmp
       use 'onsails/lspkind-nvim'

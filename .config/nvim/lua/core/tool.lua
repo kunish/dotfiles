@@ -48,9 +48,6 @@ function M.setup()
   require('telescope').load_extension 'file_browser'
   require('telescope').load_extension 'fzf'
 
-  require('plenary.filetype').add_file 'json'
-  require('plenary.filetype').add_file 'javascript'
-
   require('better_escape').setup {
     timeout = 250,
   }
