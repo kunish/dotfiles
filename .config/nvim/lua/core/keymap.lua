@@ -301,6 +301,13 @@ function M.buf_register(bufnr)
         'LSP Rename',
       },
 
+      g = {
+        function()
+          require('neogen').generate()
+        end,
+        'Annotation Generate',
+      },
+
       s = {
         function()
           telescope_builtin.lsp_document_symbols()

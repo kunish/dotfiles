@@ -52,6 +52,7 @@ function M.setup()
     timeout = 250,
   }
   require('Navigator').setup()
+  require('neogen').setup()
 
   -- emmet
   vim.g.user_emmet_leader_key = '<C-z>'

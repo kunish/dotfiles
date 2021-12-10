@@ -56,6 +56,7 @@ function M.setup()
       use 'mattn/emmet-vim'
       use 'max397574/better-escape.nvim'
       use 'numToStr/Navigator.nvim'
+      use 'danymat/neogen'
 
       -- ide
       use 'github/copilot.vim'
