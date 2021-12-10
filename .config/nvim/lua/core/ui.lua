@@ -64,9 +64,6 @@ function M.setup()
       auto_resize = true,
     },
     hijack_cursor = true,
-    diagnostics = {
-      enable = true,
-    },
     update_focused_file = {
       enable = true,
     },
