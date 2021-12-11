@@ -331,7 +331,7 @@ function M.buf_register(bufnr)
 
       E = {
         function()
-          telescope_builtin.lsp_document_diagnostics()
+          telescope_builtin.diagnostics()
         end,
         'Diagnostics Show Document',
       },
