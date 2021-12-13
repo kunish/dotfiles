@@ -106,6 +106,9 @@ local setup_lsp_installer = function()
         schemas = schemastore.json.schemas(),
       },
     },
+    get_language_id = function()
+      return 'jsonc'
+    end,
   })
   use('yamlls', {
     disable_formatting = true,
@@ -180,7 +183,18 @@ local function setup_null_ls()
       },
       null_ls.builtins.formatting.fish_indent,
       null_ls.builtins.formatting.nginx_beautifier,
-      null_ls.builtins.diagnostics.eslint_d,
+      null_ls.builtins.diagnostics.eslint_d.with {
+        condition = function(null_utils)
+          return null_utils.root_has_file '.eslintrc'
+            or null_utils.root_has_file '.eslintrc.js'
+            or null_utils.root_has_file '.eslintrc.cjs'
+            or null_utils.root_has_file '.eslintrc.json'
+            or null_utils.root_has_file '.eslintrc.yml'
+            or null_utils.root_has_file '.eslintrc.yaml'
+        end,
+      },
+      null_ls.builtins.code_actions.eslint_d,
+      null_ls.builtins.code_actions.gitsigns,
     },
     on_attach = function(client)
       if client.resolved_capabilities.document_formatting then
