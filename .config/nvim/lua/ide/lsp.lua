@@ -165,7 +165,7 @@ local function setup_lspconfig()
 end
 
 local function setup_null_ls()
-  null_ls.config {
+  null_ls.setup {
     sources = {
       null_ls.builtins.formatting.trim_newlines,
       null_ls.builtins.formatting.trim_whitespace,
@@ -182,9 +182,6 @@ local function setup_null_ls()
       null_ls.builtins.formatting.nginx_beautifier,
       null_ls.builtins.diagnostics.eslint_d,
     },
-  }
-
-  lspconfig['null-ls'].setup {
     on_attach = function(client)
       if client.resolved_capabilities.document_formatting then
         vim.cmd 'autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()'
