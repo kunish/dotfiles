@@ -1,6 +1,6 @@
 local M = {}
 
-local dap_install = require 'dap-install'
+local dap_install = require('dap-install')
 local dbg_list = require('dap-install.api.debuggers').get_installed_debuggers()
 
 function M.setup()

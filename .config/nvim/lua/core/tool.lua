@@ -3,9 +3,9 @@ local M = {}
 function M.setup()
   require('hop').setup()
 
-  require('Comment').setup {
+  require('Comment').setup({
     pre_hook = function(ctx)
-      local U = require 'Comment.utils'
+      local U = require('Comment.utils')
 
       local location = nil
       if ctx.ctype == U.ctype.block then
@@ -14,23 +14,23 @@ function M.setup()
         location = require('ts_context_commentstring.utils').get_visual_start_location()
       end
 
-      return require('ts_context_commentstring.internal').calculate_commentstring {
+      return require('ts_context_commentstring.internal').calculate_commentstring({
         key = ctx.ctype == U.ctype.line and '__default' or '__multiline',
         location = location,
-      }
+      })
     end,
-  }
+  })
 
-  require('nvim-autopairs').setup {
+  require('nvim-autopairs').setup({
     check_ts = true,
     disable_filetype = { 'TelescopePrompt' },
-  }
+  })
 
   local telescope_defaults = require('telescope.themes').get_ivy()
 
   telescope_defaults.initial_mode = 'normal'
 
-  require('telescope').setup {
+  require('telescope').setup({
     defaults = telescope_defaults,
     pickers = {
       find_files = {
@@ -43,14 +43,14 @@ function M.setup()
         hidden = true,
       },
     },
-  }
-  require('telescope').load_extension 'notify'
-  require('telescope').load_extension 'file_browser'
-  require('telescope').load_extension 'fzf'
+  })
+  require('telescope').load_extension('notify')
+  require('telescope').load_extension('file_browser')
+  require('telescope').load_extension('fzf')
 
-  require('better_escape').setup {
+  require('better_escape').setup({
     timeout = 250,
-  }
+  })
   require('Navigator').setup()
   require('neogen').setup()
 

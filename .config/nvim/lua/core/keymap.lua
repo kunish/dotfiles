@@ -1,32 +1,34 @@
 local M = {}
 
-local wk = require 'which-key'
-local hop = require 'hop'
-local telescope_builtin = require 'telescope.builtin'
-local tree = require 'nvim-tree'
-local tree_lib = require 'nvim-tree.lib'
-local tree_view = require 'nvim-tree.view'
-local bufferline = require 'bufferline'
-local navigator = require 'Navigator'
+local wk = require('which-key')
+local hop = require('hop')
+local telescope_builtin = require('telescope.builtin')
+local tree = require('nvim-tree')
+local tree_lib = require('nvim-tree.lib')
+local tree_view = require('nvim-tree.view')
+local bufferline = require('bufferline')
+local navigator = require('Navigator')
 
 function M.setup()
   wk.setup()
 
   -- hop
-  wk.register {
-    s = {
+  wk.register({
+    l = {
       function()
         hop.hint_lines_skip_whitespace()
       end,
       'HopLine',
     },
-    S = {
+    s = {
       function()
         hop.hint_char1()
       end,
       'HopChar',
     },
-  }
+  }, {
+    prefix = '<Leader><Leader>',
+  })
 
   -- bufferline
   wk.register({
@@ -97,7 +99,7 @@ function M.setup()
     prefix = '<Leader>',
   })
 
-  wk.register {
+  wk.register({
     ['<Tab>'] = {
       function()
         bufferline.cycle(1)
@@ -110,7 +112,7 @@ function M.setup()
       end,
       'Buffer Previous',
     },
-  }
+  })
 
   -- telescope
   wk.register({
@@ -183,14 +185,14 @@ function M.setup()
   })
 
   -- buffer fuzzy finder
-  wk.register {
+  wk.register({
     ['\\'] = {
       function()
         telescope_builtin.current_buffer_fuzzy_find()
       end,
       'Telescope Buffer Search',
     },
-  }
+  })
 
   -- nvimtree
   wk.register({
@@ -249,7 +251,7 @@ function M.setup()
   }, { mode = 'i' })
 
   -- custom
-  wk.register {
+  wk.register({
     ['<C-s>'] = { '<cmd>silent! write<CR>', 'Buffer Save' },
 
     ['<A-h>'] = {
@@ -279,7 +281,7 @@ function M.setup()
       end,
       'Window Down',
     },
-  }
+  })
 end
 
 function M.buf_register(bufnr)

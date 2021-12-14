@@ -10,10 +10,10 @@ function M.setup()
   vim.opt.number = true
   vim.opt.relativenumber = true
   vim.opt.shiftwidth = 2
-  vim.opt.shortmess:append {
+  vim.opt.shortmess:append({
     I = true,
     c = true,
-  }
+  })
   vim.opt.showcmd = false
   vim.opt.showmode = false
   vim.opt.signcolumn = 'yes'

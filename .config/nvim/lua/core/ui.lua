@@ -1,7 +1,7 @@
 local M = {}
 
 function M.setup()
-  require('onedarkpro').setup {
+  require('onedarkpro').setup({
     theme = 'onedark',
     colors = {
       red = '#ef596f',
@@ -9,20 +9,20 @@ function M.setup()
       cyan = '#2bbac5',
       purple = '#d55fde',
     },
-  }
+  })
   require('onedarkpro').load()
 
-  require('lualine').setup {
+  require('lualine').setup({
     options = {
       disabled_filetypes = { '', 'packer', 'NvimTree' },
     },
-  }
+  })
 
   require('dressing').setup()
 
   require('notify').setup()
 
-  vim.notify = require 'notify'
+  vim.notify = require('notify')
 
   require('colorizer').setup(nil, {
     RRGGBBAA = true,
@@ -34,7 +34,7 @@ function M.setup()
 
   require('todo-comments').setup()
 
-  require('bufferline').setup {
+  require('bufferline').setup({
     options = {
       always_show_bufferline = false,
       offsets = {
@@ -46,20 +46,20 @@ function M.setup()
         },
       },
     },
-  }
+  })
 
-  require('gitsigns').setup {
+  require('gitsigns').setup({
     yadm = {
       enable = true,
     },
-  }
+  })
 
-  require('nvim-web-devicons').setup { default = true }
+  require('nvim-web-devicons').setup({ default = true })
 
   -- nvimtree
   vim.g.nvim_tree_git_hl = 1
 
-  require('nvim-tree').setup {
+  require('nvim-tree').setup({
     view = {
       width = 40,
       auto_resize = true,
@@ -71,7 +71,7 @@ function M.setup()
     filters = {
       custom = { '.git' },
     },
-  }
+  })
 end
 
 return M

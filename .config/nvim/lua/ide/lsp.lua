@@ -1,15 +1,15 @@
 local M = {}
 
-local lsp_installer = require 'nvim-lsp-installer'
-local lsp_installer_servers = require 'nvim-lsp-installer.servers'
-local lspconfig = require 'lspconfig'
-local null_ls = require 'null-ls'
-local schemastore = require 'schemastore'
-local cmp_nvim_lsp = require 'cmp_nvim_lsp'
-local keymap = require 'core.keymap'
+local lsp_installer = require('nvim-lsp-installer')
+local lsp_installer_servers = require('nvim-lsp-installer.servers')
+local lspconfig = require('lspconfig')
+local null_ls = require('null-ls')
+local schemastore = require('schemastore')
+local cmp_nvim_lsp = require('cmp_nvim_lsp')
+local keymap = require('core.keymap')
 local lsp_servers = require('utils.lsp').lsp_servers
 local use = require('utils.lsp').use
-local utils = require 'utils.lsp'
+local utils = require('utils.lsp')
 
 --- @diagnostic disable-next-line: unused-local
 local on_attach = function(client, bufnr)
@@ -23,21 +23,21 @@ local setup_utils = function()
 end
 
 local setup_lsp_installer = function()
-  use 'bashls'
-  use 'clangd'
-  use 'dartls'
-  use 'dockerls'
-  use 'eslint'
-  use 'gopls'
-  use 'html'
-  use 'kotlin_language_server'
-  use 'pyright'
-  use 'rust_analyzer'
-  use 'sorbet'
-  use 'svelte'
-  use 'terraformls'
-  use 'vimls'
-  use 'volar'
+  use('bashls')
+  use('clangd')
+  use('dartls')
+  use('dockerls')
+  use('eslint')
+  use('gopls')
+  use('html')
+  use('kotlin_language_server')
+  use('pyright')
+  use('rust_analyzer')
+  use('sorbet')
+  use('svelte')
+  use('terraformls')
+  use('vimls')
+  use('volar')
   use('ansiblels', {
     autostart = false,
   })
@@ -162,14 +162,14 @@ local setup_lsp_installer = function()
 end
 
 local function setup_lspconfig()
-  lspconfig.sourcekit.setup {
+  lspconfig.sourcekit.setup({
     capabilities = capabilities,
     on_attach = on_attach,
-  }
+  })
 end
 
 local function setup_null_ls()
-  null_ls.setup {
+  null_ls.setup({
     sources = {
       null_ls.builtins.formatting.trim_newlines,
       null_ls.builtins.formatting.trim_whitespace,
@@ -178,20 +178,20 @@ local function setup_null_ls()
       null_ls.builtins.formatting.taplo,
       null_ls.builtins.formatting.clang_format,
       null_ls.builtins.formatting.sqlformat,
-      null_ls.builtins.formatting.shfmt.with {
+      null_ls.builtins.formatting.shfmt.with({
         filetypes = { 'sh', 'zsh' },
         extra_args = { '-i', 2 },
-      },
+      }),
       null_ls.builtins.formatting.fish_indent,
       null_ls.builtins.formatting.nginx_beautifier,
       null_ls.builtins.code_actions.gitsigns,
     },
     on_attach = function(client)
       if client.resolved_capabilities.document_formatting then
-        vim.cmd 'autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()'
+        vim.cmd('autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()')
       end
     end,
-  }
+  })
 end
 
 function M.setup()
@@ -200,10 +200,10 @@ function M.setup()
   setup_lspconfig()
   setup_null_ls()
 
-  vim.diagnostic.config {
+  vim.diagnostic.config({
     update_in_insert = true,
     severity_sort = true,
-  }
+  })
 end
 
 return M
