@@ -25,6 +25,7 @@ end
 local setup_lsp_installer = function()
   use('bashls')
   use('clangd')
+  use('cssmodules_ls')
   use('dartls')
   use('dockerls')
   use('eslint')
