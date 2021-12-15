@@ -28,6 +28,7 @@ local setup_lsp_installer = function()
   use('cssmodules_ls')
   use('dartls')
   use('dockerls')
+  use('emmet_ls')
   use('eslint')
   use('gopls')
   use('html')
@@ -46,9 +47,6 @@ local setup_lsp_installer = function()
     single_file_support = true,
   })
   use('tailwindcss', {
-    single_file_support = true,
-  })
-  use('emmet_ls', {
     single_file_support = true,
   })
   use('cssls', {
