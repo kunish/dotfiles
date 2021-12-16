@@ -9,7 +9,9 @@ function M.setup()
 
   require('dressing').setup()
 
-  require('notify').setup()
+  require('notify').setup({
+    background_colour = '#000000',
+  })
 
   vim.notify = require('notify')
 
