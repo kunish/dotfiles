@@ -34,7 +34,6 @@ function M.setup()
     defaults = telescope_defaults,
     pickers = {
       find_files = {
-        hidden = true,
         initial_mode = 'insert',
       },
     },
