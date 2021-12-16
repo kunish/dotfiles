@@ -22,10 +22,11 @@ function M.setup()
       use('wbthomason/packer.nvim')
       use('nvim-lua/popup.nvim')
       use('nvim-lua/plenary.nvim')
+      use('rktjmp/lush.nvim')
 
       -- interface
       use('olimorris/onedarkpro.nvim')
-      use('gruvbox-community/gruvbox')
+      use('ellisonleao/gruvbox.nvim')
       use('kyazdani42/nvim-web-devicons')
       use('lewis6991/gitsigns.nvim')
       use('akinsho/bufferline.nvim')

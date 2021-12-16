@@ -1,17 +1,6 @@
 local M = {}
 
 function M.setup()
-  require('onedarkpro').setup({
-    theme = 'onedark',
-    colors = {
-      red = '#ef596f',
-      green = '#89ca78',
-      cyan = '#2bbac5',
-      purple = '#d55fde',
-    },
-  })
-  require('onedarkpro').load()
-
   require('lualine').setup({
     options = {
       disabled_filetypes = { '', 'packer', 'NvimTree' },
@@ -72,6 +61,8 @@ function M.setup()
       custom = { '.git' },
     },
   })
+
+  vim.cmd('colorscheme gruvbox')
 end
 
 return M
