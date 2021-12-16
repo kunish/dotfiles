@@ -2,7 +2,6 @@ local M = {}
 
 local lsp_installer = require('nvim-lsp-installer')
 local lsp_installer_servers = require('nvim-lsp-installer.servers')
-local lspconfig = require('lspconfig')
 local null_ls = require('null-ls')
 local schemastore = require('schemastore')
 local cmp_nvim_lsp = require('cmp_nvim_lsp')
@@ -37,6 +36,7 @@ local setup_lsp_installer = function()
   use('rust_analyzer')
   use('sorbet')
   use('svelte')
+  use('sourcekit')
   use('terraformls')
   use('vimls')
   use('volar')
@@ -160,13 +160,6 @@ local setup_lsp_installer = function()
   end
 end
 
-local function setup_lspconfig()
-  lspconfig.sourcekit.setup({
-    capabilities = capabilities,
-    on_attach = on_attach,
-  })
-end
-
 local function setup_null_ls()
   null_ls.setup({
     sources = {
@@ -194,7 +187,6 @@ end
 function M.setup()
   setup_utils()
   setup_lsp_installer()
-  setup_lspconfig()
   setup_null_ls()
 
   vim.diagnostic.config({
