@@ -176,13 +176,11 @@ local function setup_null_ls()
       null_ls.builtins.formatting.prettierd,
       null_ls.builtins.formatting.taplo,
       null_ls.builtins.formatting.clang_format,
-      null_ls.builtins.formatting.sqlformat,
       null_ls.builtins.formatting.shfmt.with({
         filetypes = { 'sh', 'zsh' },
         extra_args = { '-i', 2 },
       }),
       null_ls.builtins.formatting.fish_indent,
-      null_ls.builtins.formatting.nginx_beautifier,
       null_ls.builtins.code_actions.gitsigns,
     },
     on_attach = function(client)
