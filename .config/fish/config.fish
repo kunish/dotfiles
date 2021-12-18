@@ -4,7 +4,6 @@ set -x VISUAL nvim
 set -x EDITOR nvim
 
 set -x fzf_fd_opts -HE .git
-set -x GOPROXY https://goproxy.io,direct
 set -x GOPATH $HOME/.go
 set -x PUB_HOSTED_URL https://pub.flutter-io.cn
 set -x FLUTTER_STORAGE_BASE_URL https://storage.flutter-io.cn
