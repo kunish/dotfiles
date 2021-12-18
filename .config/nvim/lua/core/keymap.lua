@@ -303,13 +303,6 @@ function M.buf_register(bufnr)
         'LSP Rename',
       },
 
-      g = {
-        function()
-          require('neogen').generate()
-        end,
-        'Annotation Generate',
-      },
-
       s = {
         function()
           telescope_builtin.lsp_document_symbols()
@@ -353,34 +346,42 @@ function M.buf_register(bufnr)
   wk.register({
     gd = {
       function()
-        telescope_builtin.lsp_definitions()
+        vim.lsp.buf.definition()
       end,
       'LSP Definitions',
     },
     gi = {
       function()
-        telescope_builtin.lsp_implementations()
+        vim.lsp.buf.implementation()
       end,
       'LSP Implementations',
     },
     gD = {
       function()
-        telescope_builtin.lsp_declarations()
+        vim.lsp.buf.type_definition()
       end,
       'LSP Declaration',
     },
     gR = {
       function()
-        telescope_builtin.lsp_references()
+        vim.lsp.buf.references()
       end,
       'LSP References',
     },
     gt = {
       function()
-        telescope_builtin.lsp_type_definitions()
+        vim.lsp.buf.type_definition()
       end,
       'LSP Type Definitions',
     },
+
+    gG = {
+      function()
+        require('neogen').generate()
+      end,
+      'Annotation Generate',
+    },
+
     K = {
       function()
         vim.lsp.buf.hover()
