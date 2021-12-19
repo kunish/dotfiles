@@ -7,6 +7,7 @@ function M.setup()
     overrides = {
       extensions = {
         mdx = 'markdown',
+        tf = 'terraform',
       },
       literal = {
         ['.eslintcache'] = 'json',
