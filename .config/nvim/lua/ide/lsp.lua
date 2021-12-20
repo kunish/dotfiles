@@ -189,6 +189,15 @@ function M.setup()
   setup_lsp_installer()
   setup_null_ls()
 
+  local servers = { 'flow' }
+
+  for _, lsp in ipairs(servers) do
+    require('lspconfig')[lsp].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+  end
+
   vim.diagnostic.config({
     update_in_insert = true,
     severity_sort = true,
