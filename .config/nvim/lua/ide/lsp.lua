@@ -90,6 +90,7 @@ local setup_lsp_installer = function()
   end)
   use('tsserver', {
     disable_formatting = true,
+    disable_diagnostics = true,
     init_options = {
       preferences = {
         disableSuggestions = true,
@@ -136,6 +137,12 @@ local setup_lsp_installer = function()
 
     local config = configs[1]
     local opts = config.opts
+
+    if opts.disable_diagnostics then
+      opts.handlers = {
+        ['textDocument/publishDiagnostics'] = function() end,
+      }
+    end
 
     opts.on_attach = function(client, bufnr)
       if opts.disable_formatting then
