@@ -59,6 +59,9 @@ function M.setup()
     update_focused_file = {
       enable = true,
     },
+    git = {
+      ignore = false,
+    },
     filters = {
       custom = { '.git' },
     },
