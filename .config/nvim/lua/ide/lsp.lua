@@ -202,6 +202,7 @@ function M.setup()
     require('lspconfig')[lsp].setup({
       capabilities = capabilities,
       on_attach = on_attach,
+      autostart = false,
     })
   end
 
