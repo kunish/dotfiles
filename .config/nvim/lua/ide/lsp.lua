@@ -33,7 +33,6 @@ local setup_lsp_installer = function()
   use('html')
   use('kotlin_language_server')
   use('pyright')
-  use('rust_analyzer')
   use('sorbet')
   use('svelte')
   use('sourcekit')
@@ -62,32 +61,6 @@ local setup_lsp_installer = function()
       },
     },
   })
-  use('sumneko_lua', function()
-    local runtime_path = vim.split(package.path, ';')
-    table.insert(runtime_path, 'lua/?.lua')
-    table.insert(runtime_path, 'lua/?/init.lua')
-
-    return {
-      settings = {
-        Lua = {
-          runtime = {
-            version = 'LuaJIT',
-            path = runtime_path,
-          },
-          diagnostics = {
-            globals = { 'vim' },
-          },
-          workspace = {
-            library = vim.api.nvim_list_runtime_paths(),
-            preloadFileSize = 1024,
-          },
-          telemetry = {
-            enable = false,
-          },
-        },
-      },
-    }
-  end)
   use('tsserver', {
     disable_formatting = true,
     disable_diagnostics = true,
@@ -121,6 +94,43 @@ local setup_lsp_installer = function()
         schemaStore = {
           enable = true,
           url = 'https://www.schemastore.org/api/json/catalog.json',
+        },
+      },
+    },
+  })
+  use('sumneko_lua', function()
+    local runtime_path = vim.split(package.path, ';')
+    table.insert(runtime_path, 'lua/?.lua')
+    table.insert(runtime_path, 'lua/?/init.lua')
+
+    return {
+      settings = {
+        Lua = {
+          runtime = {
+            version = 'LuaJIT',
+            path = runtime_path,
+          },
+          diagnostics = {
+            globals = { 'vim' },
+          },
+          workspace = {
+            library = vim.api.nvim_list_runtime_paths(),
+            preloadFileSize = 1024,
+          },
+          telemetry = {
+            enable = false,
+          },
+        },
+      },
+    }
+  end)
+  use('rust_analyzer', {
+    settings = {
+      ['rust-analyzer'] = {
+        diagnostics = {
+          disabled = {
+            'incorrect-ident-case',
+          },
         },
       },
     },
