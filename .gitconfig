@@ -19,7 +19,6 @@
   show = delta
 [delta]
   syntax-theme = gruvbox-dark
-  side-by-side = true
   navigate = true
 [pull]
   rebase = true
