@@ -83,14 +83,14 @@ function M.setup()
 
       H = {
         function()
-          bufferline.close_in_direction(-1)
+          bufferline.close_in_direction('left')
         end,
         'BufferClose Left',
       },
 
       L = {
         function()
-          bufferline.close_in_direction(1)
+          bufferline.close_in_direction('right')
         end,
         'BufferClose Right',
       },
