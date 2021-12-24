@@ -20,6 +20,7 @@ function M.setup()
       end,
       'HopLine',
     },
+
     s = {
       function()
         hop.hint_char1()
@@ -106,6 +107,7 @@ function M.setup()
       end,
       'Buffer Next',
     },
+
     ['<S-Tab>'] = {
       function()
         bufferline.cycle(-1)
@@ -172,12 +174,6 @@ function M.setup()
           telescope_builtin.man_pages()
         end,
         'Telescope Man Pages',
-      },
-      s = {
-        function()
-          telescope_builtin.live_grep()
-        end,
-        'Telescope Live Grep',
       },
     },
   }, {
@@ -357,24 +353,28 @@ function M.buf_register(bufnr)
       end,
       'LSP Definitions',
     },
+
     gi = {
       function()
         vim.lsp.buf.implementation()
       end,
       'LSP Implementations',
     },
+
     gD = {
       function()
         vim.lsp.buf.type_definition()
       end,
       'LSP Declaration',
     },
+
     gR = {
       function()
         vim.lsp.buf.references()
       end,
       'LSP References',
     },
+
     gt = {
       function()
         vim.lsp.buf.type_definition()
@@ -395,12 +395,14 @@ function M.buf_register(bufnr)
       end,
       'LSP Hover',
     },
+
     ['[e'] = {
       function()
         vim.diagnostic.goto_prev()
       end,
       'LSP Diagnostic Prev',
     },
+
     [']e'] = {
       function()
         vim.diagnostic.goto_next()
