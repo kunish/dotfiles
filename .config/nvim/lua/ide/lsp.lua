@@ -23,7 +23,6 @@ end
 
 local setup_lsp_installer = function()
   use('bashls')
-  use('clangd')
   use('cssmodules_ls')
   use('dartls')
   use('dockerls')
@@ -36,10 +35,12 @@ local setup_lsp_installer = function()
   use('pyright')
   use('sorbet')
   use('svelte')
-  use('sourcekit')
   use('terraformls')
   use('vimls')
   use('volar')
+  use('sourcekit', {
+    single_file_support = true,
+  })
   use('ansiblels', {
     autostart = false,
   })
