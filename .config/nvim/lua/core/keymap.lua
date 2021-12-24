@@ -337,6 +337,13 @@ function M.buf_register(bufnr)
         end,
         'LSP Format',
       },
+
+      F = {
+        function()
+          vim.lsp.buf.formatting_seq_sync()
+        end,
+        'LSP Format',
+      },
     },
   }, {
     prefix = '<Leader>',
