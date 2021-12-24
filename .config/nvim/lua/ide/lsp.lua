@@ -142,11 +142,12 @@ local setup_lsp_installer = function()
       return config.name == server.name
     end, lsp_servers)
 
-    if #configs == 0 then
+    local config = #configs == 0 and nil or configs[1]
+
+    if not config then
       return
     end
 
-    local config = configs[1]
     local opts = config.opts
 
     if opts.disable_diagnostics then
