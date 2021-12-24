@@ -291,7 +291,7 @@ function M.buf_register(bufnr)
 
       a = {
         function()
-          telescope_builtin.lsp_code_actions()
+          vim.lsp.buf.code_action()
         end,
         'LSP Code Actions',
       },

@@ -26,17 +26,8 @@ function M.setup()
     disable_filetype = { 'TelescopePrompt' },
   })
 
-  local telescope_defaults = require('telescope.themes').get_ivy()
-
-  telescope_defaults.initial_mode = 'normal'
-
   require('telescope').setup({
-    defaults = telescope_defaults,
-    pickers = {
-      find_files = {
-        initial_mode = 'insert',
-      },
-    },
+    defaults = require('telescope.themes').get_ivy(),
     extensions = {
       file_browser = {
         hidden = true,
@@ -45,7 +36,6 @@ function M.setup()
   })
   require('telescope').load_extension('notify')
   require('telescope').load_extension('file_browser')
-  require('telescope').load_extension('fzf')
 
   require('better_escape').setup({
     timeout = 250,

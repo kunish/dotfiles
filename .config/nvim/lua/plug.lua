@@ -45,7 +45,6 @@ function M.setup()
       use('houtsnip/vim-emacscommandline')
       use('nvim-telescope/telescope.nvim')
       use('nvim-telescope/telescope-file-browser.nvim')
-      use({ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' })
       use('phaazon/hop.nvim')
       use('numToStr/Comment.nvim')
       use('tpope/vim-fugitive')
@@ -53,24 +52,26 @@ function M.setup()
       use('mbbill/undotree')
       use('windwp/nvim-autopairs')
       use({ 'iamcco/markdown-preview.nvim', run = 'cd app && yarn' })
-      use('williamboman/nvim-lsp-installer')
       use('mattn/emmet-vim')
       use('max397574/better-escape.nvim')
       use('numToStr/Navigator.nvim')
       use('danymat/neogen')
 
-      -- ide
-      use('github/copilot.vim')
-      use('neovim/nvim-lspconfig')
-      use('jose-elias-alvarez/null-ls.nvim')
+      -- treesitter
       use({
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate',
       })
       use('nvim-treesitter/nvim-treesitter-refactor')
-      use('nvim-treesitter/playground')
-      use('JoosepAlviste/nvim-ts-context-commentstring')
       use('p00f/nvim-ts-rainbow')
+      use('JoosepAlviste/nvim-ts-context-commentstring')
+      use('nvim-treesitter/playground')
+
+      -- ide
+      use('github/copilot.vim')
+      use('williamboman/nvim-lsp-installer')
+      use('neovim/nvim-lspconfig')
+      use('jose-elias-alvarez/null-ls.nvim')
       use('b0o/schemastore.nvim')
       use('mfussenegger/nvim-dap')
       use('Pocco81/DAPInstall.nvim')
