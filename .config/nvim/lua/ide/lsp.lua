@@ -161,16 +161,7 @@ local setup_lsp_installer = function()
   end)
 
   local on_server_ready = function(server)
-    local configs = vim.tbl_filter(function(config)
-      return config.name == server.name
-    end, lsp_servers)
-
-    local config = #configs == 0 and nil or configs[1]
-
-    if not config then
-      return
-    end
-
+    local config = require('utils.lsp').find(server.name)
     local opts = config.opts
 
     if config.setup then

@@ -31,6 +31,14 @@ M.use = function(name, opts, setup)
   }
 end
 
+M.find = function(name)
+  local configs = vim.tbl_filter(function(config)
+    return config.name == name
+  end, M.lsp_servers)
+
+  return #configs == 0 and nil or configs[1]
+end
+
 M.peek = function()
   local params = vim.lsp.util.make_position_params()
   return vim.lsp.buf_request(0, 'textDocument/definition', params, function(_, result)
