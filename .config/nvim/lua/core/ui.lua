@@ -27,7 +27,6 @@ function M.setup()
 
   require('bufferline').setup({
     options = {
-      always_show_bufferline = false,
       offsets = {
         {
           filetype = 'NvimTree',
