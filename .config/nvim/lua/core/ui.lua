@@ -1,11 +1,7 @@
 local M = {}
 
 function M.setup()
-  require('lualine').setup({
-    options = {
-      disabled_filetypes = { '', 'packer', 'NvimTree' },
-    },
-  })
+  require('lualine').setup()
 
   require('dressing').setup()
 
@@ -45,9 +41,6 @@ function M.setup()
   })
 
   require('nvim-web-devicons').setup({ default = true })
-
-  -- nvimtree
-  vim.g.nvim_tree_git_hl = 1
 
   require('nvim-tree').setup({
     view = {
