@@ -27,7 +27,6 @@ local setup_lsp_installer = function()
   use('dartls')
   use('dockerls')
   use('emmet_ls')
-  use('eslint')
   use('gopls')
   use('grammarly')
   use('html')
@@ -46,6 +45,13 @@ local setup_lsp_installer = function()
   })
   use('graphql', {
     single_file_support = true,
+  })
+  use('eslint', {
+    handlers = {
+      ['eslint/noLibrary'] = function()
+        return {}
+      end,
+    },
   })
   use('tailwindcss', {
     single_file_support = true,
