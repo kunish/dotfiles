@@ -56,6 +56,7 @@ function M.setup()
       use('max397574/better-escape.nvim')
       use('numToStr/Navigator.nvim')
       use('danymat/neogen')
+      use('famiu/bufdelete.nvim')
 
       -- treesitter
       use({

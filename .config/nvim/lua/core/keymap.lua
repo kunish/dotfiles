@@ -5,10 +5,10 @@ local hop = require('hop')
 local telescope_builtin = require('telescope.builtin')
 local tree = require('nvim-tree')
 local tree_lib = require('nvim-tree.lib')
-local tree_view = require('nvim-tree.view')
 local bufferline = require('bufferline')
 local navigator = require('Navigator')
 local lsp_utils = require('utils.lsp')
+local bufdelete = require('bufdelete')
 
 function M.setup()
   wk.setup()
@@ -42,16 +42,7 @@ function M.setup()
 
       c = {
         function()
-          local explorerWindow = tree_view.get_winnr()
-          local wasExplorerOpen = vim.api.nvim_win_is_valid(explorerWindow)
-
-          local bufferToDelete = vim.api.nvim_get_current_buf()
-
-          if wasExplorerOpen then
-            bufferline.cycle(-1)
-          end
-
-          vim.cmd('bdelete! ' .. bufferToDelete)
+          bufdelete.bufdelete(vim.api.nvim_get_current_buf())
         end,
         'BufferClose',
       },
