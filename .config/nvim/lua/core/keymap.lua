@@ -194,7 +194,7 @@ function M.setup()
   wk.register({
     ft = {
       function()
-        tree.toggle()
+        tree.focus()
       end,
       'File Tree',
     },
