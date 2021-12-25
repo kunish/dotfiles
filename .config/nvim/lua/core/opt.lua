@@ -4,6 +4,8 @@ function M.setup()
   vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
   vim.opt.expandtab = true
   vim.opt.fillchars = 'eob: '
+  vim.opt.number = true
+  vim.opt.relativenumber = true
   vim.opt.ignorecase = true
   vim.opt.lazyredraw = true
   vim.opt.mouse = 'a'
