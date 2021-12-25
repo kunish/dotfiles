@@ -76,6 +76,7 @@ function M.setup()
       use('mfussenegger/nvim-dap')
       use('Pocco81/DAPInstall.nvim')
       use('nathom/filetype.nvim')
+      use('simrat39/rust-tools.nvim')
 
       -- cmp
       use('onsails/lspkind-nvim')
