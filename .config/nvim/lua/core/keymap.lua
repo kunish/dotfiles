@@ -8,6 +8,7 @@ local tree_lib = require('nvim-tree.lib')
 local tree_view = require('nvim-tree.view')
 local bufferline = require('bufferline')
 local navigator = require('Navigator')
+local lsp_utils = require('utils.lsp')
 
 function M.setup()
   wk.setup()
@@ -15,16 +16,12 @@ function M.setup()
   -- hop
   wk.register({
     l = {
-      function()
-        hop.hint_lines_skip_whitespace()
-      end,
+      hop.hint_lines_skip_whitespace,
       'HopLine',
     },
 
     s = {
-      function()
-        hop.hint_char1()
-      end,
+      hop.hint_char1,
       'HopChar',
     },
   }, {
@@ -39,9 +36,7 @@ function M.setup()
       O = { '<cmd>silent! BufOnly<CR>', 'BufferOnly' },
 
       b = {
-        function()
-          bufferline.pick_buffer()
-        end,
+        bufferline.pick_buffer,
         'BufferPick',
       },
 
@@ -62,9 +57,7 @@ function M.setup()
       },
 
       C = {
-        function()
-          bufferline.close_buffer_with_pick()
-        end,
+        bufferline.close_buffer_with_pick,
         'BufferPickClose',
       },
 
@@ -122,57 +115,39 @@ function M.setup()
       name = 'Find',
 
       a = {
-        function()
-          telescope_builtin.builtin()
-        end,
+        telescope_builtin.builtin,
         'Telescope Builtin',
       },
       b = {
-        function()
-          telescope_builtin.buffers()
-        end,
+        telescope_builtin.buffers,
         'Telescope Buffers',
       },
       f = {
-        function()
-          telescope_builtin.find_files()
-        end,
+        telescope_builtin.find_files,
         'Telescope Find Files',
       },
       g = {
-        function()
-          telescope_builtin.git_commits()
-        end,
+        telescope_builtin.git_commits,
         'Telescope Git Commits',
       },
       h = {
-        function()
-          telescope_builtin.help_tags()
-        end,
+        telescope_builtin.help_tags,
         'Telescope Help',
       },
       j = {
-        function()
-          telescope_builtin.jumplist()
-        end,
+        telescope_builtin.jumplist,
         'Telescope Jump List',
       },
       k = {
-        function()
-          telescope_builtin.keymaps()
-        end,
+        telescope_builtin.keymaps,
         'Telescope Keymaps',
       },
       l = {
-        function()
-          require('telescope').extensions.file_browser.file_browser()
-        end,
+        require('telescope').extensions.file_browser.file_browser,
         'Telescope File Browser',
       },
       m = {
-        function()
-          telescope_builtin.man_pages()
-        end,
+        telescope_builtin.man_pages,
         'Telescope Man Pages',
       },
     },
@@ -183,9 +158,7 @@ function M.setup()
   -- buffer fuzzy finder
   wk.register({
     ['\\'] = {
-      function()
-        telescope_builtin.current_buffer_fuzzy_find()
-      end,
+      telescope_builtin.current_buffer_fuzzy_find,
       'Telescope Buffer Search',
     },
   })
@@ -193,15 +166,11 @@ function M.setup()
   -- nvimtree
   wk.register({
     ft = {
-      function()
-        tree.focus()
-      end,
+      tree.toggle,
       'File Tree',
     },
     fT = {
-      function()
-        tree_lib.collapse_all()
-      end,
+      tree_lib.collapse_all,
       'File Tree Collapse',
     },
   }, { prefix = '<Leader>' })
@@ -222,9 +191,7 @@ function M.setup()
   -- packer
   wk.register({
     P = {
-      function()
-        require('packer').sync()
-      end,
+      require('packer').sync,
       'Package Sync',
     },
   }, {
@@ -251,30 +218,22 @@ function M.setup()
     ['<C-s>'] = { '<cmd>silent! write<CR>', 'Buffer Save' },
 
     ['<A-h>'] = {
-      function()
-        navigator.left()
-      end,
+      navigator.left,
       'Window Left',
     },
 
     ['<A-l>'] = {
-      function()
-        navigator.right()
-      end,
+      navigator.right,
       'Window Right',
     },
 
     ['<A-k>'] = {
-      function()
-        navigator.up()
-      end,
+      navigator.up,
       'Window Up',
     },
 
     ['<A-j>'] = {
-      function()
-        navigator.down()
-      end,
+      navigator.down,
       'Window Down',
     },
   })
@@ -286,58 +245,42 @@ function M.buf_register(bufnr)
       name = 'LSP',
 
       a = {
-        function()
-          vim.lsp.buf.code_action()
-        end,
+        vim.lsp.buf.code_action,
         'LSP Code Actions',
       },
 
       r = {
-        function()
-          vim.lsp.buf.rename()
-        end,
+        vim.lsp.buf.rename,
         'LSP Rename',
       },
 
       s = {
-        function()
-          telescope_builtin.lsp_document_symbols()
-        end,
+        telescope_builtin.lsp_document_symbols,
         'LSP Document Symbols',
       },
 
       S = {
-        function()
-          telescope_builtin.lsp_workspace_symbols()
-        end,
+        telescope_builtin.lsp_workspace_symbols,
         'LSP Workspace Symbols',
       },
 
       e = {
-        function()
-          vim.diagnostic.open_float()
-        end,
+        vim.diagnostic.open_float,
         'Diagnostics Show Line',
       },
 
       E = {
-        function()
-          telescope_builtin.diagnostics()
-        end,
+        telescope_builtin.diagnostics,
         'Diagnostics Show Document',
       },
 
       f = {
-        function()
-          vim.lsp.buf.formatting()
-        end,
+        vim.lsp.buf.formatting,
         'LSP Format',
       },
 
       F = {
-        function()
-          vim.lsp.buf.formatting_seq_sync()
-        end,
+        vim.lsp.buf.formatting_seq_sync,
         'LSP Format',
       },
     },
@@ -348,66 +291,53 @@ function M.buf_register(bufnr)
 
   wk.register({
     gd = {
-      function()
-        vim.lsp.buf.definition()
-      end,
+      vim.lsp.buf.definition,
       'LSP Definitions',
     },
 
     gi = {
-      function()
-        vim.lsp.buf.implementation()
-      end,
+      vim.lsp.buf.implementation,
       'LSP Implementations',
     },
 
     gD = {
-      function()
-        vim.lsp.buf.type_definition()
-      end,
+      vim.lsp.buf.type_definition,
       'LSP Declaration',
     },
 
     gR = {
-      function()
-        vim.lsp.buf.references()
-      end,
+      vim.lsp.buf.references,
       'LSP References',
     },
 
     gt = {
-      function()
-        vim.lsp.buf.type_definition()
-      end,
+      vim.lsp.buf.type_definition,
       'LSP Type Definitions',
     },
 
     gG = {
-      function()
-        require('neogen').generate()
-      end,
+      require('neogen').generate,
       'Annotation Generate',
     },
 
     K = {
-      function()
-        vim.lsp.buf.hover()
-      end,
+      vim.lsp.buf.hover,
       'LSP Hover',
     },
 
     ['[e'] = {
-      function()
-        vim.diagnostic.goto_prev()
-      end,
+      vim.diagnostic.goto_prev,
       'LSP Diagnostic Prev',
     },
 
     [']e'] = {
-      function()
-        vim.diagnostic.goto_next()
-      end,
+      vim.diagnostic.goto_next,
       'LSP Diagnostic Next',
+    },
+
+    ['<C-k>'] = {
+      lsp_utils.peek,
+      'Lsp Peek',
     },
   }, {
     buffer = bufnr,
