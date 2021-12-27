@@ -162,6 +162,11 @@ local setup_lsp_installer = function()
 
   local on_server_ready = function(server)
     local config = require('utils.lsp').find(server.name)
+
+    if config == nil then
+      return
+    end
+
     local opts = config.opts
 
     if config.setup then
