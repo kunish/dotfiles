@@ -150,13 +150,10 @@ local setup_lsp_installer = function()
         },
       },
     }, function(server, opts)
+      local server_config = vim.tbl_extend('force', { cmd = server._default_options.cmd }, opts)
+
       rust_tools.setup({
-        server = {
-          cmd = server._default_options.cmd,
-          capabilities = opts.capabilities,
-          on_attach = opts.on_attach,
-          settings = opts.settings,
-        },
+        server = server_config,
       })
     end)
   end)

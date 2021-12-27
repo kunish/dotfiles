@@ -42,7 +42,7 @@ function M.setup()
 
       c = {
         function()
-          bufdelete.bufdelete(vim.api.nvim_get_current_buf())
+          bufdelete.bufdelete(0)
         end,
         'BufferClose',
       },
