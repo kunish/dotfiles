@@ -155,6 +155,7 @@ local setup_lsp_installer = function()
           cmd = server._default_options.cmd,
           capabilities = opts.capabilities,
           on_attach = opts.on_attach,
+          settings = opts.settings,
         },
       })
     end)
