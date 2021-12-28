@@ -33,7 +33,6 @@ local setup_lsp_installer = function()
     use('dartls')
     use('dockerls')
     use('emmet_ls')
-    use('flow')
     use('gopls')
     use('grammarly')
     use('html')
@@ -52,6 +51,9 @@ local setup_lsp_installer = function()
     })
     use('graphql', {
       single_file_support = true,
+    })
+    use('flow', {
+      autostart = false,
     })
     use('eslint', {
       handlers = {
@@ -184,11 +186,9 @@ local setup_lsp_installer = function()
         requested_server:install()
       end
     else
-      lspconfig[lsp.name].setup({
-        capabilities = capabilities,
-        on_attach = get_on_attach(),
-        autostart = false,
-      })
+      local config = require('helper.lsp').find(lsp.name)
+
+      lspconfig[lsp.name].setup(config.opts)
     end
   end
 end
