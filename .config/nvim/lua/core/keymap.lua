@@ -8,7 +8,7 @@ local tree_lib = require('nvim-tree.lib')
 local bufferline = require('bufferline')
 local navigator = require('Navigator')
 local lsp_utils = require('utils.lsp')
-local bufdelete = require('bufdelete')
+local buf_utils = require('utils.buf')
 
 function M.setup()
   wk.setup()
@@ -33,7 +33,8 @@ function M.setup()
     b = {
       name = 'Buffer',
 
-      O = { '<cmd>silent! BufOnly<CR>', 'BufferOnly' },
+      o = { buf_utils.buf_only, 'BufferOnly' },
+      k = { buf_utils.buf_clear, 'BufferClear' },
 
       b = {
         bufferline.pick_buffer,
@@ -41,9 +42,7 @@ function M.setup()
       },
 
       c = {
-        function()
-          bufdelete.bufdelete(0)
-        end,
+        buf_utils.buf_delete,
         'BufferClose',
       },
 

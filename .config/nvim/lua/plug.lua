@@ -30,7 +30,6 @@ function M.setup()
       use('kyazdani42/nvim-web-devicons')
       use('lewis6991/gitsigns.nvim')
       use('akinsho/bufferline.nvim')
-      use('numToStr/BufOnly.nvim')
       use('kyazdani42/nvim-tree.lua')
       use('nvim-lualine/lualine.nvim')
       use('norcalli/nvim-colorizer.lua')
@@ -56,7 +55,6 @@ function M.setup()
       use('max397574/better-escape.nvim')
       use('numToStr/Navigator.nvim')
       use('danymat/neogen')
-      use('famiu/bufdelete.nvim')
 
       -- treesitter
       use({
