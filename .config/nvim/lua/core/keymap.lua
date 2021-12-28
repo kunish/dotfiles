@@ -7,8 +7,8 @@ local tree = require('nvim-tree')
 local tree_lib = require('nvim-tree.lib')
 local bufferline = require('bufferline')
 local navigator = require('Navigator')
-local lsp_utils = require('utils.lsp')
-local buf_utils = require('utils.buf')
+local lsp_helper = require('helper.lsp')
+local buf_helper = require('helper.buf')
 
 function M.setup()
   wk.setup()
@@ -33,8 +33,8 @@ function M.setup()
     b = {
       name = 'Buffer',
 
-      o = { buf_utils.buf_only, 'BufferOnly' },
-      k = { buf_utils.buf_clear, 'BufferClear' },
+      o = { buf_helper.buf_only, 'BufferOnly' },
+      k = { buf_helper.buf_clear, 'BufferClear' },
 
       b = {
         bufferline.pick_buffer,
@@ -42,7 +42,7 @@ function M.setup()
       },
 
       c = {
-        buf_utils.buf_delete,
+        buf_helper.buf_delete,
         'BufferClose',
       },
 
@@ -326,7 +326,7 @@ function M.buf_register(bufnr)
     },
 
     ['<C-k>'] = {
-      lsp_utils.peek,
+      lsp_helper.peek,
       'Lsp Peek',
     },
   }, {
