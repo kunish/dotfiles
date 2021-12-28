@@ -1,8 +1,9 @@
 local M = {}
 
+local bufdelete = require('bufdelete')
+
 function M.buf_delete()
-  local cur = vim.api.nvim_get_current_buf()
-  vim.api.nvim_buf_delete(cur, {})
+  bufdelete.bufdelete(0)
 end
 
 function M.buf_only()

@@ -1,8 +1,6 @@
 local M = {}
 
 function M.setup()
-  require('hop').setup()
-
   require('Comment').setup({
     pre_hook = function(ctx)
       local U = require('Comment.utils')
@@ -21,11 +19,6 @@ function M.setup()
     end,
   })
 
-  require('nvim-autopairs').setup({
-    check_ts = true,
-    disable_filetype = { 'TelescopePrompt' },
-  })
-
   require('telescope').setup({
     defaults = require('telescope.themes').get_ivy(),
     extensions = {
@@ -36,22 +29,6 @@ function M.setup()
   })
   require('telescope').load_extension('notify')
   require('telescope').load_extension('file_browser')
-
-  require('better_escape').setup({
-    timeout = 250,
-  })
-  require('Navigator').setup()
-  require('neogen').setup()
-
-  -- emmet
-  vim.g.user_emmet_leader_key = '<C-z>'
-
-  -- markdown preview
-  vim.g.mkdp_auto_close = 0
-
-  -- undotree
-  vim.g.undotree_SetFocusWhenToggle = 1
-  vim.g.undotree_HelpLine = 0
 end
 
 return M

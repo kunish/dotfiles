@@ -11,8 +11,6 @@ local lsp_helper = require('helper.lsp')
 local buf_helper = require('helper.buf')
 
 function M.setup()
-  wk.setup()
-
   -- hop
   wk.register({
     l = {

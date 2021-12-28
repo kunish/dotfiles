@@ -6,24 +6,12 @@ local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 local luasnip = require('luasnip')
 local luasnip_loader_from_vscode = require('luasnip.loaders.from_vscode')
 
-local setup_copilot = function()
-  vim.g.copilot_filetypes = {
-    TelescopePrompt = false,
-    DressingInput = false,
-  }
-  vim.g.copilot_no_tab_map = true
-  vim.g.copilot_assume_mapped = true
-  vim.g.copilot_tab_fallback = ''
-end
-
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
 end
 
 function M.setup()
-  setup_copilot()
-
   luasnip_loader_from_vscode.lazy_load()
 
   local cmp_snippet_sources = {
