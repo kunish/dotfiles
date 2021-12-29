@@ -3,6 +3,7 @@ local M = {}
 local wk = require('which-key')
 local hop = require('hop')
 local dap = require('dap')
+local dap_ui = require('dapui')
 local telescope_builtin = require('telescope.builtin')
 local tree = require('nvim-tree')
 local tree_lib = require('nvim-tree.lib')
@@ -135,6 +136,11 @@ function M.setup()
     dr = {
       dap.repl.open,
       'Dap Open Repl',
+    },
+
+    du = {
+      dap_ui.toggle,
+      'Dap UI Toggle',
     },
   }, { prefix = '<Leader>' })
 

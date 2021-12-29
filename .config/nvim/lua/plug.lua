@@ -241,6 +241,7 @@ function M.setup()
         requires = {
           'Pocco81/DAPInstall.nvim',
           'rcarriga/nvim-dap-ui',
+          'theHamsta/nvim-dap-virtual-text',
         },
       })
 
