@@ -2,6 +2,7 @@ local M = {}
 
 local wk = require('which-key')
 local hop = require('hop')
+local dap = require('dap')
 local telescope_builtin = require('telescope.builtin')
 local tree = require('nvim-tree')
 local tree_lib = require('nvim-tree.lib')
@@ -96,6 +97,46 @@ function M.setup()
       'Buffer Previous',
     },
   })
+
+  -- dap
+  wk.register({
+    d = 'DAP',
+
+    dc = {
+      dap.continue,
+      'Dap Continue',
+    },
+
+    dC = {
+      dap.terminate,
+      'Dap Close',
+    },
+
+    dt = {
+      dap.toggle_breakpoint,
+      'Dap Toggle Breakpoint',
+    },
+
+    ['do'] = {
+      dap.step_over,
+      'Dap Step Over',
+    },
+
+    dO = {
+      dap.step_out,
+      'Dap Step Out',
+    },
+
+    di = {
+      dap.step_into,
+      'Dap Step Into',
+    },
+
+    dr = {
+      dap.repl.open,
+      'Dap Open Repl',
+    },
+  }, { prefix = '<Leader>' })
 
   -- telescope
   wk.register({
