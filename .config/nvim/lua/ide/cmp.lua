@@ -22,6 +22,7 @@ function M.setup()
     { name = 'nvim_lua' },
   }
 
+  ---@diagnostic disable-next-line
   cmp.setup({
     formatting = {
       format = lspkind.cmp_format({

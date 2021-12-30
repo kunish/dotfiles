@@ -80,7 +80,6 @@ local setup_lsp_installer = function()
     })
     use('tsserver', {
       disable_formatting = true,
-      disable_diagnostics = true,
       init_options = {
         preferences = {
           disableSuggestions = true,
