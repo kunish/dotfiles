@@ -21,7 +21,6 @@ function M.setup()
       use('wbthomason/packer.nvim')
       use('nvim-lua/popup.nvim')
       use('nvim-lua/plenary.nvim')
-      use('rktjmp/lush.nvim')
 
       -- interface
       use({
@@ -32,6 +31,9 @@ function M.setup()
       })
       use({
         'ellisonleao/gruvbox.nvim',
+        requires = {
+          'rktjmp/lush.nvim',
+        },
         config = function()
           vim.cmd('colorscheme gruvbox')
         end,
@@ -227,15 +229,18 @@ function M.setup()
       })
 
       -- ide
-      use('williamboman/nvim-lsp-installer')
-      use('neovim/nvim-lspconfig')
-      use('jose-elias-alvarez/null-ls.nvim')
-      use('b0o/schemastore.nvim')
-      use('nathom/filetype.nvim')
-      use('simrat39/rust-tools.nvim')
+      use({
+        'williamboman/nvim-lsp-installer',
+        requires = {
+          'neovim/nvim-lspconfig',
+          'jose-elias-alvarez/null-ls.nvim',
+          'b0o/schemastore.nvim',
+          'nathom/filetype.nvim',
+          'simrat39/rust-tools.nvim',
+        },
+      })
 
       -- dap
-
       use({
         'mfussenegger/nvim-dap',
         requires = {

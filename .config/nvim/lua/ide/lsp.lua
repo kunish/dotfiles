@@ -7,7 +7,8 @@ local null_ls = require('null-ls')
 local schemastore = require('schemastore')
 local cmp_nvim_lsp = require('cmp_nvim_lsp')
 local keymap = require('core.keymap')
-local lsp_servers = require('helper.lsp').lsp_servers
+local builtin_lsp = require('builtin.lsp')
+local lsp_servers = require('builtin.lsp').lsp_servers
 local rust_tools = require('rust-tools')
 
 local get_on_attach = function(disable_formatting)
@@ -24,7 +25,7 @@ end
 local capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 local setup_lsp_installer = function()
-  require('helper.lsp').setup({
+  builtin_lsp.setup({
     capabilities = capabilities,
     get_on_attach = get_on_attach,
   }).startup(function(use)
@@ -160,7 +161,7 @@ local setup_lsp_installer = function()
   end)
 
   local on_server_ready = function(server)
-    local config = require('helper.lsp').find(server.name)
+    local config = builtin_lsp.find(server.name)
 
     if config == nil then
       return
@@ -185,7 +186,7 @@ local setup_lsp_installer = function()
         requested_server:install()
       end
     else
-      local config = require('helper.lsp').find(lsp.name)
+      local config = builtin_lsp.find(lsp.name)
 
       lspconfig[lsp.name].setup(config.opts)
     end
