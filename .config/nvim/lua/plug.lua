@@ -173,7 +173,8 @@ function M.setup()
       use({
         'mattn/emmet-vim',
         config = function()
-          vim.g.user_emmet_leader_key = '<C-z>'
+          vim.g.user_emmet_expandabbr_key = '<C-z>'
+          vim.g.user_emmet_mode = 'i'
         end,
       })
       use({
