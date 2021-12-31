@@ -154,6 +154,9 @@ local setup_lsp_installer = function()
       local server_config = vim.tbl_extend('force', { cmd = server._default_options.cmd }, opts)
 
       rust_tools.setup({
+        tools = {
+          autoSetHints = false,
+        },
         server = server_config,
       })
     end)
