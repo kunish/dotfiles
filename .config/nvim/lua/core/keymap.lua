@@ -79,73 +79,51 @@ function M.setup()
         'BufferClose Right',
       },
     },
-  }, {
-    prefix = '<Leader>',
-  })
 
-  wk.register({
-    ['<Tab>'] = {
-      function()
-        bufferline.cycle(1)
-      end,
-      'Buffer Next',
+    d = {
+      name = 'DAP',
+
+      c = {
+        dap.continue,
+        'Dap Continue',
+      },
+
+      C = {
+        dap.terminate,
+        'Dap Close',
+      },
+
+      t = {
+        dap.toggle_breakpoint,
+        'Dap Toggle Breakpoint',
+      },
+
+      o = {
+        dap.step_over,
+        'Dap Step Over',
+      },
+
+      O = {
+        dap.step_out,
+        'Dap Step Out',
+      },
+
+      i = {
+        dap.step_into,
+        'Dap Step Into',
+      },
+
+      r = {
+        dap.repl.open,
+        'Dap Open Repl',
+      },
+
+      u = {
+        dap_ui.toggle,
+        'Dap UI Toggle',
+      },
     },
 
-    ['<S-Tab>'] = {
-      function()
-        bufferline.cycle(-1)
-      end,
-      'Buffer Previous',
-    },
-  })
-
-  -- dap
-  wk.register({
-    d = 'DAP',
-
-    dc = {
-      dap.continue,
-      'Dap Continue',
-    },
-
-    dC = {
-      dap.terminate,
-      'Dap Close',
-    },
-
-    dt = {
-      dap.toggle_breakpoint,
-      'Dap Toggle Breakpoint',
-    },
-
-    ['do'] = {
-      dap.step_over,
-      'Dap Step Over',
-    },
-
-    dO = {
-      dap.step_out,
-      'Dap Step Out',
-    },
-
-    di = {
-      dap.step_into,
-      'Dap Step Into',
-    },
-
-    dr = {
-      dap.repl.open,
-      'Dap Open Repl',
-    },
-
-    du = {
-      dap_ui.toggle,
-      'Dap UI Toggle',
-    },
-  }, { prefix = '<Leader>' })
-
-  -- telescope
-  wk.register({
     f = {
       name = 'Find',
 
@@ -186,6 +164,35 @@ function M.setup()
         'Telescope Man Pages',
       },
     },
+
+    g = {
+      name = 'Git',
+
+      g = { '<cmd>Git<CR>', 'Git Status' },
+      p = { '<cmd>Git pull<CR>', 'Git Pull' },
+      P = { '<cmd>Git push<CR>', 'Git Push' },
+    },
+
+    t = {
+      name = 'File Tree',
+
+      t = {
+        tree.toggle,
+        'File Tree Toggle',
+      },
+
+      T = {
+        tree_lib.collapse_all,
+        'File Tree Collapse',
+      },
+    },
+
+    P = {
+      require('packer').sync,
+      'Package Sync',
+    },
+
+    U = { '<cmd>UndotreeToggle<CR>', 'UndoTree Toggle' },
   }, {
     prefix = '<Leader>',
   })
@@ -198,47 +205,6 @@ function M.setup()
     },
   })
 
-  -- nvimtree
-  wk.register({
-    ft = {
-      tree.toggle,
-      'File Tree',
-    },
-    fT = {
-      tree_lib.collapse_all,
-      'File Tree Collapse',
-    },
-  }, { prefix = '<Leader>' })
-
-  -- fugitive
-  wk.register({
-    g = {
-      name = 'Git',
-
-      g = { '<cmd>Git<CR>', 'Git Status' },
-      p = { '<cmd>Git pull<CR>', 'Git Pull' },
-      P = { '<cmd>Git push<CR>', 'Git Push' },
-    },
-  }, {
-    prefix = '<Leader>',
-  })
-
-  -- packer
-  wk.register({
-    P = {
-      require('packer').sync,
-      'Package Sync',
-    },
-  }, {
-    prefix = '<Leader>',
-  })
-
-  -- undotree
-  wk.register({
-    U = { '<cmd>UndotreeToggle<CR>', 'UndoTree Toggle' },
-  }, { prefix = '<Leader>' })
-
-  -- copilot
   wk.register({
     ['<C-l>'] = {
       function()
@@ -248,8 +214,21 @@ function M.setup()
     },
   }, { mode = 'i' })
 
-  -- custom
   wk.register({
+    ['<Tab>'] = {
+      function()
+        bufferline.cycle(1)
+      end,
+      'Buffer Next',
+    },
+
+    ['<S-Tab>'] = {
+      function()
+        bufferline.cycle(-1)
+      end,
+      'Buffer Previous',
+    },
+
     ['<C-s>'] = { '<cmd>silent! write<CR>', 'Buffer Save' },
 
     ['<A-h>'] = {
