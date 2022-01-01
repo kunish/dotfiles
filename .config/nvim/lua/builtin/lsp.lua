@@ -1,11 +1,12 @@
 local M = {}
 
 M.lsp_servers = {}
-M.capabilities = {}
+M.defaults = {}
+M.extends = {}
 
-function M.setup(config)
-  M._capabilities = config.capabilities
-  M._get_on_attach = config.get_on_attach
+function M.setup(defaults, extends)
+  M.defaults = defaults
+  M.extends = extends
 
   return M
 end
@@ -16,9 +17,8 @@ end
 
 function M.use(name, opts, setup)
   opts = type(opts) == 'function' and opts() or type(opts) == 'table' and opts or {}
-  opts.capabilities = M._capabilities
-  opts.on_attach = M._get_on_attach(opts.disable_formatting)
-
+  opts = vim.tbl_deep_extend('force', M.defaults, opts)
+  opts.on_attach = M.extends.get_on_attach(opts.disable_formatting)
   opts.handlers = opts.handlers or {}
 
   if opts.disable_diagnostics then

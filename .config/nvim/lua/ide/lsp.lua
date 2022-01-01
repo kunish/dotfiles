@@ -22,11 +22,13 @@ local get_on_attach = function(disable_formatting)
   end
 end
 
-local capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
-
 local setup_lsp_installer = function()
   builtin_lsp.setup({
-    capabilities = capabilities,
+    capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+    flags = {
+      debounce_text_changes = 150,
+    },
+  }, {
     get_on_attach = get_on_attach,
   }).startup(function(use)
     use('bashls')
@@ -131,7 +133,7 @@ local setup_lsp_installer = function()
             },
             workspace = {
               library = vim.api.nvim_list_runtime_paths(),
-              preloadFileSize = 1024,
+              maxPreload = 10000,
             },
             telemetry = {
               enable = false,
