@@ -42,6 +42,7 @@ local setup_lsp_installer = function()
     use('pyright')
     use('sorbet')
     use('svelte')
+    use('taplo')
     use('terraformls')
     use('vimls')
     use('volar')
@@ -204,7 +205,6 @@ local function setup_null_ls()
       null_ls.builtins.formatting.trim_whitespace,
       null_ls.builtins.formatting.stylua,
       null_ls.builtins.formatting.prettierd,
-      null_ls.builtins.formatting.taplo,
       null_ls.builtins.formatting.clang_format,
       null_ls.builtins.formatting.shfmt.with({
         filetypes = { 'sh', 'zsh' },
