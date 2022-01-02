@@ -192,6 +192,13 @@ function M.setup()
       'Package Sync',
     },
 
+    R = {
+      function()
+        require('spectre').open()
+      end,
+      'Search And Replace',
+    },
+
     U = { '<cmd>UndotreeToggle<CR>', 'UndoTree Toggle' },
   }, {
     prefix = '<Leader>',

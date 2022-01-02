@@ -197,6 +197,17 @@ function M.setup()
           vim.g.mkdp_auto_close = 0
         end,
       })
+      use({
+        'nvim-pack/nvim-spectre',
+        requires = { 'nvim-lua/plenary.nvim' },
+        config = function()
+          require('spectre').setup()
+        end,
+      })
+      use({
+        'sindrets/diffview.nvim',
+        requires = 'nvim-lua/plenary.nvim',
+      })
       use('famiu/bufdelete.nvim')
       use('tpope/vim-surround')
       use('vim-scripts/ReplaceWithRegister')
