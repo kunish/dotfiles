@@ -245,9 +245,10 @@ function M.setup()
         requires = {
           'neovim/nvim-lspconfig',
           'jose-elias-alvarez/null-ls.nvim',
+          'folke/lua-dev.nvim',
+          'simrat39/rust-tools.nvim',
           'b0o/schemastore.nvim',
           'nathom/filetype.nvim',
-          'simrat39/rust-tools.nvim',
         },
       })
 

@@ -110,38 +110,17 @@ local setup_lsp_installer = function()
           validate = false,
           hover = true,
           completion = true,
-          schemaStore = {
-            enable = true,
-            url = 'https://www.schemastore.org/api/json/catalog.json',
-          },
         },
       },
     })
-    use('sumneko_lua', function()
-      local runtime_path = vim.split(package.path, ';')
-      table.insert(runtime_path, 'lua/?.lua')
-      table.insert(runtime_path, 'lua/?/init.lua')
+    use('sumneko_lua', nil, function(server, opts)
+      local config = vim.tbl_extend('force', server._default_options, opts)
 
-      return {
-        settings = {
-          Lua = {
-            runtime = {
-              version = 'LuaJIT',
-              path = runtime_path,
-            },
-            diagnostics = {
-              globals = { 'vim' },
-            },
-            workspace = {
-              library = vim.api.nvim_list_runtime_paths(),
-              maxPreload = 10000,
-            },
-            telemetry = {
-              enable = false,
-            },
-          },
-        },
-      }
+      local luadev = require('lua-dev').setup({
+        lspconfig = config,
+      })
+
+      lspconfig.sumneko_lua.setup(luadev)
     end)
     use('rust_analyzer', {
       settings = {
@@ -154,13 +133,13 @@ local setup_lsp_installer = function()
         },
       },
     }, function(server, opts)
-      local server_config = vim.tbl_extend('force', { cmd = server._default_options.cmd }, opts)
+      local config = vim.tbl_extend('force', server._default_options, opts)
 
       rust_tools.setup({
         tools = {
           autoSetHints = false,
         },
-        server = server_config,
+        server = config,
       })
     end)
   end)
