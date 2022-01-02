@@ -19,7 +19,6 @@ function M.setup()
     function(use)
       -- essential
       use('wbthomason/packer.nvim')
-      use('nvim-lua/popup.nvim')
       use('nvim-lua/plenary.nvim')
 
       -- interface
