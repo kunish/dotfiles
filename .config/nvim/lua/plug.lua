@@ -65,13 +65,6 @@ function M.setup()
         end,
       })
       use({
-        'folke/todo-comments.nvim',
-        requires = { 'nvim-lua/plenary.nvim' },
-        config = function()
-          require('todo-comments').setup()
-        end,
-      })
-      use({
         'kyazdani42/nvim-tree.lua',
         requires = { 'kyazdani42/nvim-web-devicons' },
         config = function()
@@ -177,7 +170,8 @@ function M.setup()
         end,
       })
       use({
-        'folke/which-key.nvim',
+        'zeertzjq/which-key.nvim',
+        branch = 'patch-1',
         config = function()
           require('which-key').setup()
         end,
