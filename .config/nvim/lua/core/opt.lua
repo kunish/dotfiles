@@ -25,6 +25,7 @@ function M.setup()
   vim.opt.undofile = true
   vim.opt.updatetime = 250
 
+  vim.g.do_filetype_lua = 1
   vim.g.mapleader = ' '
   vim.g.maplocalleader = ' '
 end

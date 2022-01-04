@@ -191,7 +191,8 @@ function M.setup()
         end,
       })
       use({
-        'nvim-pack/nvim-spectre',
+        'rafi/nvim-spectre',
+        branch = 'fix/close_preview_autocmd',
         requires = { 'nvim-lua/plenary.nvim' },
         config = function()
           require('spectre').setup()
@@ -235,14 +236,13 @@ function M.setup()
 
       -- ide
       use({
-        'williamboman/nvim-lsp-installer',
+        'neovim/nvim-lspconfig',
         requires = {
-          'neovim/nvim-lspconfig',
+          'williamboman/nvim-lsp-installer',
           'jose-elias-alvarez/null-ls.nvim',
           'folke/lua-dev.nvim',
           'simrat39/rust-tools.nvim',
           'b0o/schemastore.nvim',
-          'nathom/filetype.nvim',
         },
       })
 
