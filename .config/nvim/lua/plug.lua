@@ -191,8 +191,7 @@ function M.setup()
         end,
       })
       use({
-        'rafi/nvim-spectre',
-        branch = 'fix/close_preview_autocmd',
+        'nvim-pack/nvim-spectre',
         requires = { 'nvim-lua/plenary.nvim' },
         config = function()
           require('spectre').setup()
