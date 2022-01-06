@@ -50,21 +50,6 @@ function M.setup()
         end,
       })
       use({
-        'stevearc/dressing.nvim',
-        config = function()
-          require('dressing').setup()
-        end,
-      })
-      use({
-        'rcarriga/nvim-notify',
-        config = function()
-          require('notify').setup({
-            background_colour = '#000000',
-          })
-          vim.notify = require('notify')
-        end,
-      })
-      use({
         'kyazdani42/nvim-tree.lua',
         requires = { 'kyazdani42/nvim-web-devicons' },
         config = function()
@@ -274,7 +259,6 @@ function M.setup()
         config = function()
           vim.g.copilot_filetypes = {
             TelescopePrompt = false,
-            DressingInput = false,
           }
           vim.g.copilot_no_tab_map = true
           vim.g.copilot_assume_mapped = true
