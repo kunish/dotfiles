@@ -25,9 +25,6 @@ end
 local setup_lsp_installer = function()
   builtin_lsp.setup({
     capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities()),
-    flags = {
-      debounce_text_changes = 150,
-    },
   }, {
     get_on_attach = get_on_attach,
   }).startup(function(use)
