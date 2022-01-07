@@ -19,4 +19,13 @@ return {
 		bottom = 0,
 	},
 	use_ime = true,
+	keys = {
+		{ key = "b", mods = "OPT", action = wezterm.action({ SendString = "\x1bb" }) },
+		{ key = "f", mods = "OPT", action = wezterm.action({ SendString = "\x1bf" }) },
+		{ key = "h", mods = "OPT", action = wezterm.action({ SendString = "\x1bh" }) },
+		{ key = "j", mods = "OPT", action = wezterm.action({ SendString = "\x1bj" }) },
+		{ key = "k", mods = "OPT", action = wezterm.action({ SendString = "\x1bk" }) },
+		{ key = "l", mods = "OPT", action = wezterm.action({ SendString = "\x1bl" }) },
+		{ key = "x", mods = "OPT", action = wezterm.action({ SendString = "\x1bx" }) },
+	},
 }
