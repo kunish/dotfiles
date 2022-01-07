@@ -7,6 +7,7 @@ return {
 	}, {
 		bold = true,
 	}),
+	audible_bell = "Disabled",
 	font_size = 14,
 	color_scheme = "Gruvbox Dark",
 	enable_scroll_bar = false,
