@@ -155,10 +155,6 @@ function M.setup()
         telescope_builtin.keymaps,
         'Telescope Keymaps',
       },
-      l = {
-        require('telescope').extensions.file_browser.file_browser,
-        'Telescope File Browser',
-      },
       m = {
         telescope_builtin.man_pages,
         'Telescope Man Pages',
@@ -212,14 +208,14 @@ function M.setup()
     },
   })
 
-  wk.register({
-    ['<C-l>'] = {
-      function()
-        vim.api.nvim_feedkeys(vim.fn['copilot#Accept'](), 'i', true)
-      end,
-      'Copilot',
-    },
-  }, { mode = 'i' })
+  -- wk.register({
+  --   ['<C-l>'] = {
+  --     function()
+  --       vim.api.nvim_feedkeys(vim.fn['copilot#Accept'](), 'i', true)
+  --     end,
+  --     'Copilot',
+  --   },
+  -- }, { mode = 'i' })
 
   wk.register({
     ['<Tab>'] = {
@@ -334,11 +330,6 @@ function M.buf_register(bufnr)
     gt = {
       vim.lsp.buf.type_definition,
       'LSP Type Definitions',
-    },
-
-    gG = {
-      require('neogen').generate,
-      'Annotation Generate',
     },
 
     K = {

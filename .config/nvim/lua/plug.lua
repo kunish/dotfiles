@@ -20,6 +20,7 @@ function M.setup()
       -- essential
       use('wbthomason/packer.nvim')
       use('nvim-lua/plenary.nvim')
+      use('rktjmp/lush.nvim')
 
       -- interface
       use({
@@ -30,17 +31,12 @@ function M.setup()
       })
       use({
         'ellisonleao/gruvbox.nvim',
-        requires = {
-          'rktjmp/lush.nvim',
-        },
         config = function()
           vim.cmd('colorscheme gruvbox')
         end,
       })
-      use('olimorris/onedarkpro.nvim')
       use({
         'lewis6991/gitsigns.nvim',
-        requires = { 'nvim-lua/plenary.nvim' },
         config = function()
           require('gitsigns').setup({
             yadm = {
@@ -51,7 +47,6 @@ function M.setup()
       })
       use({
         'kyazdani42/nvim-tree.lua',
-        requires = { 'kyazdani42/nvim-web-devicons' },
         config = function()
           require('nvim-tree').setup({
             view = {
@@ -73,7 +68,6 @@ function M.setup()
       })
       use({
         'nvim-lualine/lualine.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons' },
         config = function()
           require('lualine').setup({
             extensions = { 'nvim-tree', 'fugitive', 'quickfix' },
@@ -82,7 +76,6 @@ function M.setup()
       })
       use({
         'akinsho/bufferline.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons' },
         config = function()
           require('bufferline').setup({
             options = {
@@ -119,17 +112,10 @@ function M.setup()
         end,
       })
       use({
-        'danymat/neogen',
-        config = function()
-          require('neogen').setup()
-        end,
-      })
-      use({
         'windwp/nvim-autopairs',
         config = function()
           require('nvim-autopairs').setup({
             check_ts = true,
-            disable_filetype = { 'TelescopePrompt' },
           })
         end,
       })
@@ -169,42 +155,36 @@ function M.setup()
         end,
       })
       use({
-        'iamcco/markdown-preview.nvim',
-        run = 'cd app && yarn',
-        config = function()
-          vim.g.mkdp_auto_close = 0
-        end,
-      })
-      use({
         'nvim-pack/nvim-spectre',
-        requires = { 'nvim-lua/plenary.nvim' },
         config = function()
           require('spectre').setup()
         end,
-      })
-      use({
-        'sindrets/diffview.nvim',
-        requires = 'nvim-lua/plenary.nvim',
       })
       use('famiu/bufdelete.nvim')
       use('tpope/vim-surround')
       use('vim-scripts/ReplaceWithRegister')
       use('houtsnip/vim-emacscommandline')
-      use('nvim-telescope/telescope.nvim')
-      use('nvim-telescope/telescope-file-browser.nvim')
       use('numToStr/Comment.nvim')
       use('tpope/vim-fugitive')
       use('tpope/vim-repeat')
+
+      -- telescope
+      use({
+        'nvim-telescope/telescope.nvim',
+        config = function()
+          require('telescope').setup({
+            defaults = require('telescope.themes').get_ivy(),
+          })
+        end,
+      })
 
       -- treesitter
       use({
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate',
         requires = {
-          'nvim-treesitter/nvim-treesitter-refactor',
           'p00f/nvim-ts-rainbow',
           'JoosepAlviste/nvim-ts-context-commentstring',
-          'nvim-treesitter/playground',
         },
         config = function()
           require('nvim-treesitter.configs').setup({
@@ -248,23 +228,22 @@ function M.setup()
           'hrsh7th/cmp-buffer',
           'hrsh7th/cmp-path',
           'hrsh7th/cmp-nvim-lsp',
-          'hrsh7th/cmp-nvim-lua',
           'L3MON4D3/LuaSnip',
           'saadparwaiz1/cmp_luasnip',
           'rafamadriz/friendly-snippets',
         },
       })
-      use({
-        'github/copilot.vim',
-        config = function()
-          vim.g.copilot_filetypes = {
-            TelescopePrompt = false,
-          }
-          vim.g.copilot_no_tab_map = true
-          vim.g.copilot_assume_mapped = true
-          vim.g.copilot_tab_fallback = ''
-        end,
-      })
+      -- use({
+      --   'github/copilot.vim',
+      --   config = function()
+      --     vim.g.copilot_filetypes = {
+      --       TelescopePrompt = false,
+      --     }
+      --     vim.g.copilot_no_tab_map = true
+      --     vim.g.copilot_assume_mapped = true
+      --     vim.g.copilot_tab_fallback = ''
+      --   end,
+      -- })
 
       if M.packer_bootstrap then
         packer.sync()

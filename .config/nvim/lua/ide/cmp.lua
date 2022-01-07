@@ -19,7 +19,6 @@ function M.setup()
     { name = 'luasnip' },
     { name = 'buffer' },
     { name = 'path' },
-    { name = 'nvim_lua' },
   }
 
   ---@diagnostic disable-next-line
@@ -32,7 +31,6 @@ function M.setup()
           luasnip = '[LuaSnip]',
           buffer = '[Buffer]',
           path = '[Path]',
-          nvim_lua = '[Lua]',
         },
       }),
     },

@@ -18,16 +18,6 @@ function M.setup()
       })
     end,
   })
-
-  require('telescope').setup({
-    defaults = require('telescope.themes').get_ivy(),
-    extensions = {
-      file_browser = {
-        hidden = true,
-      },
-    },
-  })
-  require('telescope').load_extension('file_browser')
 end
 
 return M
