@@ -183,8 +183,9 @@ function M.setup()
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate',
         requires = {
-          'p00f/nvim-ts-rainbow',
+          'nvim-treesitter/nvim-treesitter-textobjects',
           'JoosepAlviste/nvim-ts-context-commentstring',
+          'p00f/nvim-ts-rainbow',
         },
         config = function()
           require('nvim-treesitter.configs').setup({
@@ -194,6 +195,18 @@ function M.setup()
             indent = { enable = true },
             rainbow = { enable = true, extended_mode = true },
             context_commentstring = { enable = true, enable_autocmd = false },
+            textobjects = {
+              select = {
+                enable = true,
+                lookahead = true,
+                keymaps = {
+                  ['af'] = '@function.outer',
+                  ['if'] = '@function.inner',
+                  ['ac'] = '@class.outer',
+                  ['ic'] = '@class.inner',
+                },
+              },
+            },
           })
         end,
       })
