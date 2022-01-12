@@ -188,6 +188,7 @@ function M.setup()
           'p00f/nvim-ts-rainbow',
         },
         config = function()
+          require('nvim-treesitter.install').prefer_git = true
           require('nvim-treesitter.configs').setup({
             ensure_installed = 'maintained',
             autopairs = { enable = true },
