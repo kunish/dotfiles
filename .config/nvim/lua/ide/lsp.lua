@@ -182,6 +182,7 @@ local function setup_null_ls()
       null_ls.builtins.formatting.stylua,
       null_ls.builtins.formatting.prettierd,
       null_ls.builtins.formatting.clang_format,
+      null_ls.builtins.formatting.yapf,
       null_ls.builtins.formatting.shfmt.with({
         filetypes = { 'sh', 'zsh' },
         extra_args = { '-i', 2 },
