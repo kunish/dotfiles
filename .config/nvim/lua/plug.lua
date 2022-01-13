@@ -141,8 +141,7 @@ function M.setup()
         end,
       })
       use({
-        'zeertzjq/which-key.nvim',
-        branch = 'patch-1',
+        'folke/which-key.nvim',
         config = function()
           require('which-key').setup()
         end,
