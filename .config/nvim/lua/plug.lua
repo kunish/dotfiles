@@ -174,6 +174,11 @@ function M.setup()
         config = function()
           require('telescope').setup({
             defaults = require('telescope.themes').get_ivy(),
+            pickers = {
+              find_files = {
+                find_command = { 'fd', '--type', 'f', '--strip-cwd-prefix' },
+              },
+            },
           })
         end,
       })
