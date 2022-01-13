@@ -125,6 +125,7 @@ local setup_lsp_installer = function()
           diagnostics = {
             disabled = {
               'incorrect-ident-case',
+              'inactive-code',
             },
           },
         },
