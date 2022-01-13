@@ -223,7 +223,7 @@ function M.setup()
           'williamboman/nvim-lsp-installer',
           'jose-elias-alvarez/null-ls.nvim',
           'folke/lua-dev.nvim',
-          'simrat39/rust-tools.nvim',
+          { 'kunish/rust-tools.nvim', branch = 'fix-offset-encoding' },
           'b0o/schemastore.nvim',
         },
       })

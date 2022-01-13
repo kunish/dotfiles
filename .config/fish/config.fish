@@ -32,7 +32,6 @@ alias ld lazydocker
 alias lg lazygit
 alias ls exa
 alias n nvim
-alias s 'kitty +kitten ssh'
 alias t 'trans :zh'
 alias v vim
 
