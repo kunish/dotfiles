@@ -19,5 +19,4 @@ return {
 		top = 0,
 		bottom = 0,
 	},
-	use_ime = true,
 }
