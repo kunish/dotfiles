@@ -196,6 +196,16 @@ function M.setup()
     },
 
     U = { '<cmd>UndotreeToggle<CR>', 'UndoTree Toggle' },
+
+    e = {
+      vim.diagnostic.open_float,
+      'Diagnostics Show Line',
+    },
+
+    E = {
+      telescope_builtin.diagnostics,
+      'Diagnostics Show Document',
+    },
   }, {
     prefix = '<Leader>',
   })
@@ -253,6 +263,16 @@ function M.setup()
       navigator.down,
       'Window Down',
     },
+
+    ['[e'] = {
+      vim.diagnostic.goto_prev,
+      'LSP Diagnostic Prev',
+    },
+
+    [']e'] = {
+      vim.diagnostic.goto_next,
+      'LSP Diagnostic Next',
+    },
   })
 end
 
@@ -279,16 +299,6 @@ function M.buf_register(bufnr)
       S = {
         telescope_builtin.lsp_workspace_symbols,
         'LSP Workspace Symbols',
-      },
-
-      e = {
-        vim.diagnostic.open_float,
-        'Diagnostics Show Line',
-      },
-
-      E = {
-        telescope_builtin.diagnostics,
-        'Diagnostics Show Document',
       },
 
       f = {
@@ -335,16 +345,6 @@ function M.buf_register(bufnr)
     K = {
       vim.lsp.buf.hover,
       'LSP Hover',
-    },
-
-    ['[e'] = {
-      vim.diagnostic.goto_prev,
-      'LSP Diagnostic Prev',
-    },
-
-    [']e'] = {
-      vim.diagnostic.goto_next,
-      'LSP Diagnostic Next',
     },
 
     ['<C-k>'] = {
