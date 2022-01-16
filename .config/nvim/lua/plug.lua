@@ -29,10 +29,11 @@ function M.setup()
           require('nvim-web-devicons').setup({ default = true })
         end,
       })
+      use('ellisonleao/gruvbox.nvim')
       use({
-        'ellisonleao/gruvbox.nvim',
+        'Shatur/neovim-ayu',
         config = function()
-          vim.cmd('colorscheme gruvbox')
+          require('ayu').colorscheme()
         end,
       })
       use({
@@ -251,17 +252,6 @@ function M.setup()
           'rafamadriz/friendly-snippets',
         },
       })
-      -- use({
-      --   'github/copilot.vim',
-      --   config = function()
-      --     vim.g.copilot_filetypes = {
-      --       TelescopePrompt = false,
-      --     }
-      --     vim.g.copilot_no_tab_map = true
-      --     vim.g.copilot_assume_mapped = true
-      --     vim.g.copilot_tab_fallback = ''
-      --   end,
-      -- })
 
       if M.packer_bootstrap then
         packer.sync()

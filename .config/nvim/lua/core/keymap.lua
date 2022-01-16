@@ -218,15 +218,6 @@ function M.setup()
     },
   })
 
-  -- wk.register({
-  --   ['<C-l>'] = {
-  --     function()
-  --       vim.api.nvim_feedkeys(vim.fn['copilot#Accept'](), 'i', true)
-  --     end,
-  --     'Copilot',
-  --   },
-  -- }, { mode = 'i' })
-
   wk.register({
     ['<Tab>'] = {
       function()
