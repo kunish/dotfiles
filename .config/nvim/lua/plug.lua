@@ -229,16 +229,6 @@ function M.setup()
         },
       })
 
-      -- dap
-      use({
-        'mfussenegger/nvim-dap',
-        requires = {
-          'Pocco81/DAPInstall.nvim',
-          'rcarriga/nvim-dap-ui',
-          'theHamsta/nvim-dap-virtual-text',
-        },
-      })
-
       -- cmp
       use({
         'hrsh7th/nvim-cmp',

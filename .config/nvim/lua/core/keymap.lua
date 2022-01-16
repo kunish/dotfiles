@@ -2,8 +2,6 @@ local M = {}
 
 local wk = require('which-key')
 local hop = require('hop')
-local dap = require('dap')
-local dap_ui = require('dapui')
 local telescope_builtin = require('telescope.builtin')
 local tree = require('nvim-tree')
 local tree_lib = require('nvim-tree.lib')
@@ -77,50 +75,6 @@ function M.setup()
           bufferline.close_in_direction('right')
         end,
         'BufferClose Right',
-      },
-    },
-
-    d = {
-      name = 'DAP',
-
-      c = {
-        dap.continue,
-        'Dap Continue',
-      },
-
-      C = {
-        dap.terminate,
-        'Dap Close',
-      },
-
-      t = {
-        dap.toggle_breakpoint,
-        'Dap Toggle Breakpoint',
-      },
-
-      o = {
-        dap.step_over,
-        'Dap Step Over',
-      },
-
-      O = {
-        dap.step_out,
-        'Dap Step Out',
-      },
-
-      i = {
-        dap.step_into,
-        'Dap Step Into',
-      },
-
-      r = {
-        dap.repl.open,
-        'Dap Open Repl',
-      },
-
-      u = {
-        dap_ui.toggle,
-        'Dap UI Toggle',
       },
     },
 
