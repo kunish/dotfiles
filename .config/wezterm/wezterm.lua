@@ -1,12 +1,7 @@
 local wezterm = require("wezterm")
 
 return {
-	font = wezterm.font_with_fallback({
-		"Dank Mono",
-		"DroidSansMono Nerd Font",
-	}, {
-		bold = true,
-	}),
+	font = wezterm.font({ "Dank Mono" }, { bold = true }),
 	audible_bell = "Disabled",
 	font_size = 14,
 	color_scheme = "ayu",
