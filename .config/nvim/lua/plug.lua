@@ -190,7 +190,6 @@ function M.setup()
         requires = {
           'nvim-treesitter/nvim-treesitter-textobjects',
           'JoosepAlviste/nvim-ts-context-commentstring',
-          'p00f/nvim-ts-rainbow',
         },
         config = function()
           require('nvim-treesitter.install').prefer_git = true
@@ -199,7 +198,6 @@ function M.setup()
             autopairs = { enable = true },
             highlight = { enable = true },
             indent = { enable = true, disable = { 'python' } },
-            rainbow = { enable = true, extended_mode = true },
             context_commentstring = { enable = true, enable_autocmd = false },
             textobjects = {
               select = {
