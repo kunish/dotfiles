@@ -9,7 +9,6 @@ local cmp_nvim_lsp = require('cmp_nvim_lsp')
 local keymap = require('core.keymap')
 local builtin_lsp = require('builtin.lsp')
 local lsp_servers = require('builtin.lsp').lsp_servers
-local rust_tools = require('rust-tools')
 
 local get_on_attach = function(disable_formatting)
   return function(client, bufnr)
@@ -130,16 +129,7 @@ local setup_lsp_installer = function()
           },
         },
       },
-    }, function(server, opts)
-      local config = vim.tbl_extend('force', server._default_options, opts)
-
-      rust_tools.setup({
-        tools = {
-          autoSetHints = false,
-        },
-        server = config,
-      })
-    end)
+    })
   end)
 
   local on_server_ready = function(server)
