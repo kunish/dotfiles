@@ -1,4 +1,7 @@
 add_newline = false
 
+[cmd_duration]
+disabled = true
+
 [nodejs]
 disabled = true

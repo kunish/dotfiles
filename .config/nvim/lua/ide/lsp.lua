@@ -33,7 +33,6 @@ local setup_lsp_installer = function()
     use('dockerls')
     use('emmet_ls')
     use('gopls')
-    use('html')
     use('kotlin_language_server')
     use('pyright')
     use('sorbet')
@@ -60,6 +59,9 @@ local setup_lsp_installer = function()
           return {}
         end,
       },
+    })
+    use('html', {
+      disable_formatting = true,
     })
     use('tailwindcss', {
       single_file_support = true,
