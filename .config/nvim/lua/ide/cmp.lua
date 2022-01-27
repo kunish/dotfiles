@@ -21,7 +21,6 @@ function M.setup()
     { name = 'path' },
   }
 
-  ---@diagnostic disable-next-line
   cmp.setup({
     formatting = {
       format = lspkind.cmp_format({

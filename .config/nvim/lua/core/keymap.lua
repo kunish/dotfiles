@@ -22,6 +22,11 @@ function M.setup()
       hop.hint_char1,
       'HopChar',
     },
+
+    w = {
+      hop.hint_words,
+      'HopWords',
+    },
   }, {
     prefix = '<Leader><Leader>',
   })
