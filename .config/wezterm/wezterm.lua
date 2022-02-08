@@ -4,7 +4,7 @@ return {
 	font = wezterm.font({ "Dank Mono" }, { bold = true }),
 	audible_bell = "Disabled",
 	font_size = 14,
-	color_scheme = "ayu",
+	color_scheme = "Gruvbox Dark",
 	enable_scroll_bar = false,
 	hide_tab_bar_if_only_one_tab = true,
 	window_decorations = "RESIZE",

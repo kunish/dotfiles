@@ -29,13 +29,13 @@ function M.setup()
           require('nvim-web-devicons').setup({ default = true })
         end,
       })
-      use('ellisonleao/gruvbox.nvim')
       use({
-        'Shatur/neovim-ayu',
+        'ellisonleao/gruvbox.nvim',
         config = function()
-          require('ayu').colorscheme()
+          vim.cmd([[colorscheme gruvbox]])
         end,
       })
+      use('Shatur/neovim-ayu')
       use({
         'lewis6991/gitsigns.nvim',
         config = function()
@@ -53,6 +53,7 @@ function M.setup()
             view = {
               width = 40,
               auto_resize = true,
+              hide_root_folder = true,
             },
             hijack_cursor = true,
             update_focused_file = {
