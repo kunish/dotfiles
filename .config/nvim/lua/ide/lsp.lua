@@ -17,7 +17,7 @@ local get_on_attach = function(disable_formatting)
       client.resolved_capabilities.document_range_formatting = false
     end
 
-    keymap.buf_register(bufnr)
+    keymap.lsp_buf_register(bufnr)
   end
 end
 

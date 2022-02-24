@@ -22,6 +22,9 @@ function M.setup()
   }
 
   cmp.setup({
+    view = {
+      entries = 'native',
+    },
     formatting = {
       format = lspkind.cmp_format({
         with_text = true,

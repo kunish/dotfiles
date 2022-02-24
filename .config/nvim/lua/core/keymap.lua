@@ -226,7 +226,7 @@ function M.setup()
   })
 end
 
-function M.buf_register(bufnr)
+function M.lsp_buf_register(bufnr)
   wk.register({
     l = {
       name = 'LSP',
