@@ -1,7 +1,7 @@
 local wezterm = require("wezterm")
 
 return {
-	font = wezterm.font({ "Dank Mono" }, { bold = true }),
+	font = wezterm.font({ "UbuntuMono Nerd Font" }, { bold = true }),
 	audible_bell = "Disabled",
 	font_size = 14,
 	color_scheme = "Gruvbox Dark",

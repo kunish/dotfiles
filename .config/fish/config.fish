@@ -30,7 +30,6 @@ alias kx kubectx
 alias l 'ls -al'
 alias ld lazydocker
 alias lg lazygit
-alias ls exa
 alias n nvim
 alias t 'trans :zh'
 alias v vim

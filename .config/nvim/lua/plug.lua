@@ -52,8 +52,12 @@ function M.setup()
           require('nvim-tree').setup({
             view = {
               width = 40,
-              auto_resize = true,
               hide_root_folder = true,
+            },
+            actions = {
+              open_file = {
+                resize_window = true,
+              },
             },
             hijack_cursor = true,
             update_focused_file = {
@@ -195,7 +199,8 @@ function M.setup()
         config = function()
           require('nvim-treesitter.install').prefer_git = true
           require('nvim-treesitter.configs').setup({
-            ensure_installed = 'maintained',
+            ensure_installed = 'all',
+            ignore_install = { 'swift' },
             autopairs = { enable = true },
             highlight = { enable = true },
             indent = { enable = true, disable = { 'python' } },

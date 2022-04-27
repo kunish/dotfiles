@@ -1,12 +1,11 @@
 local M = {}
 
 function M.setup()
-  vim.cmd([[
-    augroup yank
-      autocmd!
-      autocmd TextYankPost * silent! lua vim.highlight.on_yank({ timeout = 500, on_visual = true })
-    augroup end
-  ]])
+  vim.api.nvim_create_autocmd('TextYankPost', {
+    callback = function()
+      vim.highlight.on_yank({ timeout = 500, on_visual = true })
+    end,
+  })
 end
 
 return M

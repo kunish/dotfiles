@@ -3,8 +3,8 @@
 [core]
   ignorecase = false
 [user]
-  name = kunish
-  email = kunish.butt@gmail.com
+  name = shikun
+  email = shikun@huohua.cn
 [interactive]
   diffFilter = delta --color-only
 [filter "lfs"]
