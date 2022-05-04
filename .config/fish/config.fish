@@ -23,19 +23,11 @@ fish_add_path $HOME/.yarn/bin
 fish_add_path $HOME/.local/bin
 fish_add_path $GOPATH/bin
 
-alias d docker
-alias icat 'kitty +kitten icat'
 alias k kubectl
 alias kx kubectx
-alias l 'ls -al'
 alias ld lazydocker
 alias lg lazygit
 alias n nvim
-alias t 'trans :zh'
-alias v vim
-
-# bind <C-z> to fg (put background job to front)
-bind \cz 'fg 2>/dev/null; commandline -f repaint'
 
 if status is-interactive
     if type -q fnm

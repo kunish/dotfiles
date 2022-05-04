@@ -4,7 +4,7 @@
   ignorecase = false
 [user]
   name = shikun
-  email = shikun@huohua.cn
+  email = kunish.butt@gmail.com
 [interactive]
   diffFilter = delta --color-only
 [filter "lfs"]
