@@ -5,6 +5,7 @@
 [user]
   name = shikun
   email = kunish.butt@gmail.com
+	signingkey = 2C564E822E7477FC4F6FF2F067D3ACD788F3A7CD
 [interactive]
   diffFilter = delta --color-only
 [filter "lfs"]
@@ -20,5 +21,7 @@
 [delta]
   syntax-theme = gruvbox-dark
   navigate = true
+[commit]
+	gpgsign = true
 [pull]
   rebase = true
