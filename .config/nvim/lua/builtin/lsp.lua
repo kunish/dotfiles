@@ -32,6 +32,12 @@ function M.use(name, opts, setup)
   }
 end
 
+function M.all()
+  return vim.tbl_map(function(lsp_server)
+    return lsp_server.name
+  end, M.lsp_servers)
+end
+
 function M.find(name)
   local configs = vim.tbl_filter(function(config)
     return config.name == name

@@ -2,7 +2,6 @@ local M = {}
 
 local lspconfig = require('lspconfig')
 local lsp_installer = require('nvim-lsp-installer')
-local lsp_installer_servers = require('nvim-lsp-installer.servers')
 local null_ls = require('null-ls')
 local schemastore = require('schemastore')
 local cmp_nvim_lsp = require('cmp_nvim_lsp')
@@ -111,11 +110,9 @@ local setup_lsp_installer = function()
         },
       },
     })
-    use('sumneko_lua', nil, function(server, opts)
-      local config = vim.tbl_extend('force', server._default_options, opts)
-
+    use('sumneko_lua', nil, function(opts)
       local luadev = require('lua-dev').setup({
-        lspconfig = config,
+        lspconfig = opts,
       })
 
       lspconfig.sumneko_lua.setup(luadev)
@@ -134,34 +131,17 @@ local setup_lsp_installer = function()
     })
   end)
 
-  local on_server_ready = function(server)
-    local config = builtin_lsp.find(server.name)
-
-    if config == nil then
-      return
-    end
-
-    local opts = config.opts
-
-    if config.setup then
-      config.setup(server, opts)
-    else
-      server:setup(opts)
-    end
-  end
-
-  lsp_installer.on_server_ready(on_server_ready)
+  lsp_installer.setup({
+    ensure_installed = builtin_lsp.all(),
+    automatic_installation = true,
+  })
 
   for _, lsp in pairs(lsp_servers) do
-    local server_available, requested_server = lsp_installer_servers.get_server(lsp.name)
+    local config = builtin_lsp.find(lsp.name)
 
-    if server_available then
-      if not requested_server:is_installed() then
-        requested_server:install()
-      end
+    if config.setup then
+      config.setup(config.opts)
     else
-      local config = builtin_lsp.find(lsp.name)
-
       lspconfig[lsp.name].setup(config.opts)
     end
   end
