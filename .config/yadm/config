@@ -1,2 +1,2 @@
 [yadm]
-	cipher = openssl
+	gpg-recipient = kunish.butt@gmail.com
