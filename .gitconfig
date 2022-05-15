@@ -22,6 +22,6 @@
   syntax-theme = gruvbox-dark
   navigate = true
 [commit]
-	gpgsign = true
+  gpgsign = true
 [pull]
   rebase = true
