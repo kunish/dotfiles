@@ -54,11 +54,6 @@ function M.setup()
               width = 40,
               hide_root_folder = true,
             },
-            actions = {
-              open_file = {
-                resize_window = true,
-              },
-            },
             hijack_cursor = true,
             update_focused_file = {
               enable = true,
