@@ -28,6 +28,25 @@ function M.setup()
   vim.g.do_filetype_lua = 1
   vim.g.mapleader = ' '
   vim.g.maplocalleader = ' '
+
+  require('ayu').colorscheme()
+
+  require('nvim-tree').setup({
+    view = {
+      width = 40,
+      hide_root_folder = true,
+    },
+    hijack_cursor = true,
+    update_focused_file = {
+      enable = true,
+    },
+    git = {
+      ignore = false,
+    },
+    filters = {
+      custom = { '.git' },
+    },
+  })
 end
 
 return M

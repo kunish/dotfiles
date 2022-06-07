@@ -29,13 +29,13 @@ function M.setup()
           require('nvim-web-devicons').setup({ default = true })
         end,
       })
+      use('ellisonleao/gruvbox.nvim')
       use({
-        'ellisonleao/gruvbox.nvim',
+        'Shatur/neovim-ayu',
         config = function()
-          vim.cmd([[colorscheme gruvbox]])
+          require('ayu').setup({})
         end,
       })
-      use('Shatur/neovim-ayu')
       use({
         'lewis6991/gitsigns.nvim',
         config = function()
@@ -46,27 +46,7 @@ function M.setup()
           })
         end,
       })
-      use({
-        'kyazdani42/nvim-tree.lua',
-        config = function()
-          require('nvim-tree').setup({
-            view = {
-              width = 40,
-              hide_root_folder = true,
-            },
-            hijack_cursor = true,
-            update_focused_file = {
-              enable = true,
-            },
-            git = {
-              ignore = false,
-            },
-            filters = {
-              custom = { '.git' },
-            },
-          })
-        end,
-      })
+      use('kyazdani42/nvim-tree.lua')
       use({
         'nvim-lualine/lualine.nvim',
         config = function()
