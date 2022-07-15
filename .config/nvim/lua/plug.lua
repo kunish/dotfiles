@@ -175,7 +175,7 @@ function M.setup()
           require('nvim-treesitter.install').prefer_git = true
           require('nvim-treesitter.configs').setup({
             ensure_installed = 'all',
-            ignore_install = { 'swift' },
+            ignore_install = { 'swift', 'phpdoc', 'beancount' },
             autopairs = { enable = true },
             highlight = { enable = true },
             indent = { enable = true, disable = { 'python' } },

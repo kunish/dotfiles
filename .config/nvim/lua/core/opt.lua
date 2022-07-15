@@ -14,6 +14,7 @@ function M.setup()
     I = true,
     c = true,
   })
+  vim.opt.laststatus = 3
   vim.opt.showcmd = false
   vim.opt.showmode = false
   vim.opt.signcolumn = 'yes'

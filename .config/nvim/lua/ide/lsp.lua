@@ -43,9 +43,6 @@ local setup_lsp_installer = function()
     use('sourcekit', {
       single_file_support = true,
     })
-    use('ansiblels', {
-      autostart = false,
-    })
     use('graphql', {
       single_file_support = true,
     })
