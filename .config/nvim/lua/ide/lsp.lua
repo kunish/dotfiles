@@ -1,7 +1,6 @@
 local M = {}
 
 local lspconfig = require('lspconfig')
-local lsp_installer = require('nvim-lsp-installer')
 local null_ls = require('null-ls')
 local schemastore = require('schemastore')
 local cmp_nvim_lsp = require('cmp_nvim_lsp')
@@ -21,114 +20,118 @@ local get_on_attach = function(disable_formatting)
 end
 
 local setup_lsp_installer = function()
-  builtin_lsp.setup({
-    capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities()),
-  }, {
-    get_on_attach = get_on_attach,
-  }).startup(function(use)
-    use('bashls')
-    use('cssmodules_ls')
-    use('dartls')
-    use('dockerls')
-    use('emmet_ls')
-    use('gopls')
-    use('kotlin_language_server')
-    use('pyright')
-    use('sorbet')
-    use('svelte')
-    use('taplo')
-    use('terraformls')
-    use('vimls')
-    use('volar')
-    use('sourcekit', {
-      single_file_support = true,
+  builtin_lsp
+    .setup({
+      capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+    }, {
+      get_on_attach = get_on_attach,
     })
-    use('graphql', {
-      single_file_support = true,
-    })
-    use('flow', {
-      autostart = false,
-    })
-    use('eslint', {
-      handlers = {
-        ['eslint/noLibrary'] = function()
-          return {}
-        end,
-      },
-    })
-    use('html', {
-      disable_formatting = true,
-    })
-    use('tailwindcss', {
-      single_file_support = true,
-    })
-    use('cssls', {
-      settings = {
-        css = {
-          validate = false,
-        },
-        less = {
-          validate = false,
-        },
-        scss = {
-          validate = false,
-        },
-      },
-    })
-    use('tsserver', {
-      disable_formatting = true,
-      init_options = {
-        preferences = {
-          disableSuggestions = true,
-          includeCompletionsForImportStatements = true,
-          importModuleSpecifierPreference = 'shortest',
-          lazyConfiguredProjectsFromExternalProject = true,
-        },
-      },
-    })
-    use('jsonls', {
-      disable_formatting = true,
-      settings = {
-        json = {
-          schemas = schemastore.json.schemas(),
-        },
-      },
-      get_language_id = function()
-        return 'jsonc'
-      end,
-    })
-    use('yamlls', {
-      disable_formatting = true,
-      settings = {
-        yaml = {
-          validate = false,
-          hover = true,
-          completion = true,
-        },
-      },
-    })
-    use('sumneko_lua', nil, function(opts)
-      local luadev = require('lua-dev').setup({
-        lspconfig = opts,
+    .startup(function(use)
+      use('bashls')
+      use('cssmodules_ls')
+      use('dartls')
+      use('dockerls')
+      use('emmet_ls')
+      use('gopls')
+      use('kotlin_language_server')
+      use('pyright')
+      use('sorbet')
+      use('svelte')
+      use('taplo')
+      use('terraformls')
+      use('vimls')
+      use('volar')
+      use('sourcekit', {
+        single_file_support = true,
       })
+      use('graphql', {
+        single_file_support = true,
+      })
+      use('flow', {
+        autostart = false,
+      })
+      use('eslint', {
+        handlers = {
+          ['eslint/noLibrary'] = function()
+            return {}
+          end,
+        },
+      })
+      use('html', {
+        disable_formatting = true,
+      })
+      use('tailwindcss', {
+        single_file_support = true,
+      })
+      use('cssls', {
+        settings = {
+          css = {
+            validate = false,
+          },
+          less = {
+            validate = false,
+          },
+          scss = {
+            validate = false,
+          },
+        },
+      })
+      use('tsserver', {
+        disable_formatting = true,
+        init_options = {
+          preferences = {
+            disableSuggestions = true,
+            includeCompletionsForImportStatements = true,
+            importModuleSpecifierPreference = 'shortest',
+            lazyConfiguredProjectsFromExternalProject = true,
+          },
+        },
+      })
+      use('jsonls', {
+        disable_formatting = true,
+        settings = {
+          json = {
+            schemas = schemastore.json.schemas(),
+          },
+        },
+        get_language_id = function()
+          return 'jsonc'
+        end,
+      })
+      use('yamlls', {
+        disable_formatting = true,
+        settings = {
+          yaml = {
+            validate = false,
+            hover = true,
+            completion = true,
+          },
+        },
+      })
+      use('sumneko_lua', nil, function(opts)
+        local luadev = require('lua-dev').setup({
+          lspconfig = opts,
+        })
 
-      lspconfig.sumneko_lua.setup(luadev)
-    end)
-    use('rust_analyzer', {
-      settings = {
-        ['rust-analyzer'] = {
-          diagnostics = {
-            disabled = {
-              'incorrect-ident-case',
-              'inactive-code',
+        lspconfig.sumneko_lua.setup(luadev)
+      end)
+      use('rust_analyzer', {
+        settings = {
+          ['rust-analyzer'] = {
+            diagnostics = {
+              disabled = {
+                'incorrect-ident-case',
+                'inactive-code',
+              },
             },
           },
         },
-      },
-    })
-  end)
+      })
+    end)
 
-  lsp_installer.setup({
+  require('mason').setup()
+
+  require('mason-lspconfig').setup({
     ensure_installed = builtin_lsp.all(),
     automatic_installation = true,
   })

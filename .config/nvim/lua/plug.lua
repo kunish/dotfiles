@@ -2,6 +2,7 @@ local M = {}
 
 function M.setup()
   local install_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+  ---@diagnostic disable-next-line
   if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
     M.packer_bootstrap = vim.fn.system({
       'git',
@@ -111,7 +112,7 @@ function M.setup()
       use({
         'numToStr/Navigator.nvim',
         config = function()
-          require('Navigator').setup()
+          require('Navigator').setup({})
         end,
       })
       use({
@@ -140,8 +141,13 @@ function M.setup()
           require('spectre').setup()
         end,
       })
+      use({
+        'kylechui/nvim-surround',
+        config = function()
+          require('nvim-surround').setup({})
+        end,
+      })
       use('famiu/bufdelete.nvim')
-      use('tpope/vim-surround')
       use('vim-scripts/ReplaceWithRegister')
       use('houtsnip/vim-emacscommandline')
       use('numToStr/Comment.nvim')
@@ -200,7 +206,8 @@ function M.setup()
       use({
         'neovim/nvim-lspconfig',
         requires = {
-          'williamboman/nvim-lsp-installer',
+          'williamboman/mason.nvim',
+          'williamboman/mason-lspconfig.nvim',
           'jose-elias-alvarez/null-ls.nvim',
           'folke/lua-dev.nvim',
           'b0o/schemastore.nvim',
