@@ -7,7 +7,6 @@ set -x fzf_fd_opts -HE .git
 set -x GOPATH $HOME/.go
 set -x PUB_HOSTED_URL https://pub.flutter-io.cn
 set -x FLUTTER_STORAGE_BASE_URL https://storage.flutter-io.cn
-set -x KUBECONFIG $HOME/.kube/kubeconfig.yml
 set -x GPG_TTY (tty)
 
 set -x HOMEBREW_NO_ENV_HINTS 1
