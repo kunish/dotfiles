@@ -22,6 +22,7 @@ function M.setup()
       use('wbthomason/packer.nvim')
       use('nvim-lua/plenary.nvim')
       use('rktjmp/lush.nvim')
+      use('lewis6991/impatient.nvim')
 
       -- interface
       use({

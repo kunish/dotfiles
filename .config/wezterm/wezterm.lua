@@ -1,7 +1,7 @@
 local wezterm = require("wezterm")
 
 return {
-	font = wezterm.font("JetBrains Mono", { bold = true }),
+	font = wezterm.font("Monaco", { bold = true }),
 	audible_bell = "Disabled",
 	font_size = 12,
 	color_scheme = "ayu",

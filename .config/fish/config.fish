@@ -10,6 +10,7 @@ set -x FLUTTER_STORAGE_BASE_URL https://storage.flutter-io.cn
 set -x GPG_TTY (tty)
 
 set -x HOMEBREW_NO_ENV_HINTS 1
+set -x USE_GKE_GCLOUD_AUTH_PLUGIN True
 
 fish_add_path /usr/local/sbin
 fish_add_path /usr/local/opt/gnu-tar/libexec/gnubin
@@ -23,6 +24,8 @@ fish_add_path $HOME/.yarn/bin
 fish_add_path $HOME/.local/bin
 fish_add_path $GOPATH/bin
 fish_add_path $HOME/.bun/bin
+
+source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc"
 
 alias k kubectl
 alias kx kubectx
