@@ -12,7 +12,6 @@ pip3 install --user --upgrade powerline-status lookatme yapf
 
 # rust
 rustup-init
-cargo install stylua taplo-cli cargo-modules cargo-edit
 
 # node
 NODE_VERSION=$(cat $HOME/.nvmrc)
