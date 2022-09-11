@@ -15,9 +15,9 @@ set -x USE_GKE_GCLOUD_AUTH_PLUGIN True
 fish_add_path /usr/local/sbin
 fish_add_path /usr/local/opt/gnu-tar/libexec/gnubin
 fish_add_path /usr/local/opt/openssl/bin
-fish_add_path /opt/homebrew/sbin
-fish_add_path /opt/homebrew/bin
-fish_add_path /opt/homebrew/opt/gnu-tar/libexec/gnubin
+fish_add_path (brew --prefix)/sbin
+fish_add_path (brew --prefix)/bin
+fish_add_path (brew --prefix)/opt/gnu-tar/libexec/gnubin
 fish_add_path $HOME/.krew/bin
 fish_add_path $HOME/.cargo/bin
 fish_add_path $HOME/.yarn/bin
@@ -25,7 +25,7 @@ fish_add_path $HOME/.local/bin
 fish_add_path $GOPATH/bin
 fish_add_path $HOME/.bun/bin
 
-source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc"
+source (brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc
 
 alias k kubectl
 alias kx kubectx
