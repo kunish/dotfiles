@@ -5,3 +5,6 @@ disabled = true
 
 [nodejs]
 disabled = true
+
+[gcloud]
+disabled = true
