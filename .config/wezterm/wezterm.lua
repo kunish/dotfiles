@@ -9,6 +9,11 @@ return {
 	hide_tab_bar_if_only_one_tab = true,
 	keys = {
 		{
+			key = "q",
+			mods = "CTRL|SHIFT",
+			action = wezterm.action.QuickSelect,
+		},
+		{
 			key = "w",
 			mods = "SUPER",
 			action = wezterm.action.CloseCurrentPane({ confirm = true }),
