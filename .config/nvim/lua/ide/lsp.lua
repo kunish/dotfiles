@@ -11,8 +11,8 @@ local lsp_servers = require('builtin.lsp').lsp_servers
 local get_on_attach = function(disable_formatting)
   return function(client, bufnr)
     if disable_formatting then
-      client.resolved_capabilities.document_formatting = false
-      client.resolved_capabilities.document_range_formatting = false
+      client.server_capabilities.document_formatting = false
+      client.server_capabilities.document_range_formatting = false
     end
 
     keymap.lsp_buf_register(bufnr)
@@ -164,7 +164,7 @@ local function setup_null_ls()
       null_ls.builtins.code_actions.gitsigns,
     },
     on_attach = function(client)
-      if client.resolved_capabilities.document_formatting then
+      if client.server_capabilities.document_formatting then
         vim.cmd('autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()')
       end
     end,
