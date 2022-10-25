@@ -1,4 +1,3 @@
-require('impatient')
 require('plug').setup()
 require('core.opt').setup()
 require('core.tool').setup()

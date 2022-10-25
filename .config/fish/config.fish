@@ -27,11 +27,9 @@ fish_add_path $HOME/.bun/bin
 
 source (brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc
 
-alias k kubectl
-alias kx kubectx
-alias ld lazydocker
-alias lg lazygit
-alias n nvim
+function kubectl
+  kubecolor $argv
+end
 
 if status is-interactive
     if type -q fnm
@@ -46,3 +44,10 @@ if status is-interactive
         starship init fish | source
     end
 end
+
+alias k kubectl
+alias kx kubectx
+alias ld lazydocker
+alias lg lazygit
+alias n nvim
+alias ipmi "ipmitool -I lanplus -H 10.10.0.10 -U shikun -P (gopass cat personal/common)"

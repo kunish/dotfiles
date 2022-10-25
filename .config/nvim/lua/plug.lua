@@ -22,7 +22,6 @@ function M.setup()
       use('wbthomason/packer.nvim')
       use('nvim-lua/plenary.nvim')
       use('rktjmp/lush.nvim')
-      use('lewis6991/impatient.nvim')
 
       -- interface
       use({
@@ -210,7 +209,7 @@ function M.setup()
           'williamboman/mason.nvim',
           'williamboman/mason-lspconfig.nvim',
           'jose-elias-alvarez/null-ls.nvim',
-          'folke/lua-dev.nvim',
+          'folke/neodev.nvim',
           'b0o/schemastore.nvim',
         },
       })

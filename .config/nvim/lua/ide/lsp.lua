@@ -22,14 +22,13 @@ end
 local setup_lsp_installer = function()
   builtin_lsp
     .setup({
-      capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+      capabilities = cmp_nvim_lsp.default_capabilities(vim.lsp.protocol.make_client_capabilities()),
     }, {
       get_on_attach = get_on_attach,
     })
     .startup(function(use)
       use('bashls')
       use('cssmodules_ls')
-      use('dartls')
       use('dockerls')
       use('emmet_ls')
       use('gopls')
@@ -40,14 +39,8 @@ local setup_lsp_installer = function()
       use('terraformls')
       use('vimls')
       use('volar')
-      use('sourcekit', {
-        single_file_support = true,
-      })
       use('graphql', {
         single_file_support = true,
-      })
-      use('flow', {
-        autostart = false,
       })
       use('eslint', {
         handlers = {
@@ -107,12 +100,9 @@ local setup_lsp_installer = function()
           },
         },
       })
-      use('sumneko_lua', nil, function(opts)
-        local luadev = require('lua-dev').setup({
-          lspconfig = opts,
-        })
-
-        lspconfig.sumneko_lua.setup(luadev)
+      use('sumneko_lua', {}, function(opts)
+        require('neodev').setup({})
+        lspconfig.sumneko_lua.setup(opts)
       end)
       use('rust_analyzer', {
         settings = {
