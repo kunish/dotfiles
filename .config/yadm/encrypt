@@ -1,2 +1,4 @@
 .npmrc
 .ssh
+.mc
+.s3cfg
