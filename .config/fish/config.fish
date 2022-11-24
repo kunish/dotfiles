@@ -23,7 +23,6 @@ fish_add_path $HOME/.cargo/bin
 fish_add_path $HOME/.yarn/bin
 fish_add_path $HOME/.local/bin
 fish_add_path $GOPATH/bin
-fish_add_path $HOME/.bun/bin
 
 source (brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc
 
@@ -33,15 +32,19 @@ end
 
 if status is-interactive
     if type -q fnm
-        fnm env | source
+    fnm env | source
     end
 
     if type -q pyenv
-        pyenv init --path | source
+    pyenv init --path | source
     end
 
     if type -q starship
-        starship init fish | source
+    starship init fish | source
+    end
+
+    if type -q zoxide
+    zoxide init fish | source
     end
 end
 
@@ -50,4 +53,3 @@ alias kx kubectx
 alias ld lazydocker
 alias lg lazygit
 alias n nvim
-alias ipmi "ipmitool -I lanplus -H 10.10.0.10 -U shikun -P (gopass cat personal/common)"
