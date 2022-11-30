@@ -36,7 +36,6 @@ function M.setup()
     b = {
       name = 'Buffer',
 
-      o = { builtin_buf.buf_only, 'BufferOnly' },
       k = { builtin_buf.buf_clear, 'BufferClear' },
 
       b = {

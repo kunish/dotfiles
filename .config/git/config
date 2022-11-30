@@ -3,7 +3,7 @@
 [core]
   ignorecase = false
 [user]
-  name = shikun
+  name = kunish
   email = kunish.butt@gmail.com
 	signingkey = 2C564E822E7477FC4F6FF2F067D3ACD788F3A7CD
 [interactive]
