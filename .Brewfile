@@ -87,6 +87,7 @@ brew "libidn2"
 brew "libnghttp2"
 brew "curl"
 brew "deno"
+brew "dog"
 brew "dosfstools"
 brew "editorconfig"
 brew "etcd", restart_service: true
@@ -305,3 +306,11 @@ cask "wine-stable"
 cask "wireshark"
 cask "yubico-yubikey-manager"
 cask "zerotier-one"
+mas "Infuse", id: 1136220934
+mas "iStatistica Pro", id: 1447778660
+mas "Keynote", id: 409183694
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "Speedtest", id: 1153157709
+mas "WireGuard", id: 1451685025
+mas "Xcode", id: 497799835
