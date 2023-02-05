@@ -1,11 +1,21 @@
 local wezterm = require("wezterm")
 
 return {
-	font = wezterm.font("Inconsolata Nerd Font Mono", { bold = true, italic = false }),
-	audible_bell = "Disabled",
-	font_size = 15,
-  line_height = 1.2,
+	font = wezterm.font_with_fallback({
+		{
+			family = "Comic Code Ligatures",
+			weight = "Bold",
+		},
+		{
+			family = "LXGW WenKai Mono",
+			weight = "Bold",
+			scale = 1.1,
+		},
+	}),
+	font_size = 12,
+	line_height = 1.1,
 	color_scheme = "OneHalfBlack (Gogh)",
+	audible_bell = "Disabled",
 	enable_scroll_bar = false,
 	hide_tab_bar_if_only_one_tab = true,
 	keys = {
