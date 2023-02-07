@@ -5,6 +5,7 @@ return {
 		{
 			family = "Comic Code Ligatures",
 			weight = "Bold",
+			harfbuzz_features = { "liga=0" },
 		},
 		{
 			family = "LXGW WenKai Mono",
