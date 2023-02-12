@@ -100,9 +100,9 @@ local setup_lsp_installer = function()
           },
         },
       })
-      use('sumneko_lua', {}, function(opts)
+      use('lua_ls', {}, function(opts)
         require('neodev').setup({})
-        lspconfig.sumneko_lua.setup(opts)
+        lspconfig.lua_ls.setup(opts)
       end)
       use('rust_analyzer', {
         settings = {
