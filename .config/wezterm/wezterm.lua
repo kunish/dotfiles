@@ -10,7 +10,6 @@ return {
 		{
 			family = "LXGW WenKai Mono",
 			weight = "Bold",
-			scale = 1.1,
 		},
 	}),
 	font_size = 12,
