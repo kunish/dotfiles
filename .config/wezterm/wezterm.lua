@@ -13,7 +13,7 @@ return {
 		},
 	}),
 	font_size = 12,
-	line_height = 1.1,
+	line_height = 1.5,
 	color_scheme = "OneHalfBlack (Gogh)",
 	audible_bell = "Disabled",
 	enable_scroll_bar = false,
