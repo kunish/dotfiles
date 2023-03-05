@@ -191,7 +191,12 @@ function M.setup()
       'Buffer Previous',
     },
 
-    ['<C-s>'] = { '<cmd>silent! write<CR>', 'Buffer Save' },
+    ['<C-s>'] = {
+      function()
+        vim.api.nvim_command('write')
+      end,
+      'Buffer Save',
+    },
 
     ['<A-h>'] = {
       navigator.left,
