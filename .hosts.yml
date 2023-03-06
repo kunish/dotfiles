@@ -1,0 +1,39 @@
+archlinux:
+  hosts:
+    bypass:
+    cluster:
+    core:
+    dns:
+    downloader:
+    exit-node:
+    gateway:
+    grafana:
+    lxd:
+    media:
+    minio:
+    mysql:
+    postgresql:
+    powerdns:
+    proxy:
+    redis:
+    runner:
+    test:
+    work:
+
+vps:
+  children:
+    vps_ubuntu:
+      hosts:
+        aws:
+        gcp:
+        oracle-large:
+        oracle1:
+        oracle:
+
+remote_lzf:
+  hosts:
+    lzf:
+
+all:
+  vars:
+    ansible_ssh_user: shikun

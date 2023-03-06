@@ -8,7 +8,7 @@ return {
 			harfbuzz_features = { "liga=0" },
 		},
 		{
-			family = "LXGW WenKai Mono",
+			family = "小賴字體 等寬 SC",
 			weight = "Bold",
 		},
 	}),
