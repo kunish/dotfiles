@@ -1,8 +1,15 @@
 switches:
   - name: ascii_mode
-    reset: 0
     states: [中文, 西文]
+    reset: 0
   - name: full_shape
     states: [半角, 全角]
+    reset: 0
   - name: simplification
-    states: [漢字, 汉字]
+    states: [汉字, 漢字]
+    reset: 0
+
+engine:
+  filters:
+    - simplifier
+    - uniquifier
