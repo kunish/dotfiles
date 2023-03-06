@@ -4,6 +4,7 @@ set -x VISUAL nvim
 set -x EDITOR nvim
 
 set -x fzf_fd_opts -HE .git
+set -x PNPM_HOME $HOME/Library/pnpm
 set -x GOPATH $HOME/.go
 set -x PUB_HOSTED_URL https://pub.flutter-io.cn
 set -x FLUTTER_STORAGE_BASE_URL https://storage.flutter-io.cn
@@ -23,29 +24,30 @@ fish_add_path $HOME/.krew/bin
 fish_add_path $HOME/.cargo/bin
 fish_add_path $HOME/.yarn/bin
 fish_add_path $HOME/.local/bin
+fish_add_path $PNPM_HOME
 fish_add_path $GOPATH/bin
 
 source (brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc
 
 function kubectl
-  kubecolor $argv
+    kubecolor $argv
 end
 
 if status is-interactive
     if type -q fnm
-    fnm env | source
+        fnm env | source
     end
 
     if type -q pyenv
-    pyenv init --path | source
+        pyenv init --path | source
     end
 
     if type -q starship
-    starship init fish | source
+        starship init fish | source
     end
 
     if type -q zoxide
-    zoxide init fish | source
+        zoxide init fish | source
     end
 end
 
@@ -54,3 +56,4 @@ alias kx kubectx
 alias ld lazydocker
 alias lg lazygit
 alias n nvim
+alias lv lvim
