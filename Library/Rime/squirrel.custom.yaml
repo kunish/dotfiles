@@ -1,2 +1,5 @@
 patch:
   style/font_point: 16
+
+  app_options:
+    ascii_mode: false
