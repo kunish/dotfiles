@@ -1,4 +1,8 @@
-.npmrc
-.ssh
+.config/totp-cli/credentials
+.kube/config
 .mc
+.my.cnf
+.npmrc
+.pgpass
 .s3cfg
+.ssh
