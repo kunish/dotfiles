@@ -18,7 +18,6 @@ archlinux:
     redis:
     runner:
     test:
-    warp:
     work:
 
 vps:
