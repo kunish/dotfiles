@@ -24,8 +24,10 @@ vps:
   children:
     vps_ubuntu:
       hosts:
-        aws:
-        gcp:
+        aws-sg:
+        gcp-hk:
+        gcp-sg:
+        gcp-us:
         oracle-large:
         oracle1:
         oracle:
