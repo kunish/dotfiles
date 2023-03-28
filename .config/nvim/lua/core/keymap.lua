@@ -3,8 +3,7 @@ local M = {}
 local wk = require('which-key')
 local hop = require('hop')
 local telescope_builtin = require('telescope.builtin')
-local tree = require('nvim-tree')
-local tree_lib = require('nvim-tree.lib')
+local tree = require('nvim-tree.api')
 local bufferline = require('bufferline')
 local navigator = require('Navigator')
 local builtin_lsp = require('builtin.lsp')
@@ -136,7 +135,7 @@ function M.setup()
       },
 
       T = {
-        tree_lib.collapse_all,
+        tree.collapse_all,
         'File Tree Collapse',
       },
     },
