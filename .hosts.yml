@@ -2,7 +2,6 @@ archlinux:
   hosts:
     bypass:
     cluster:
-    core:
     dns:
     downloader:
     exit-node:
