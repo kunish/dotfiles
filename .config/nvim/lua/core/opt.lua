@@ -35,7 +35,9 @@ function M.setup()
   require('nvim-tree').setup({
     view = {
       width = 40,
-      hide_root_folder = true,
+    },
+    renderer = {
+      root_folder_label = false,
     },
     hijack_cursor = true,
     update_focused_file = {
