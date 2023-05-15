@@ -1,5 +1,5 @@
-require('plug').setup()
 require('core.opt').setup()
+require('plug').setup()
 require('core.tool').setup()
 require('core.keymap').setup()
 require('core.au').setup()

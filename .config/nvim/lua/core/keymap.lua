@@ -130,12 +130,12 @@ function M.setup()
       name = 'File Tree',
 
       t = {
-        tree.toggle,
+        tree.tree.toggle,
         'File Tree Toggle',
       },
 
       T = {
-        tree.collapse_all,
+        tree.tree.collapse_all,
         'File Tree Collapse',
       },
     },

@@ -31,10 +31,6 @@ vps:
         oracle1:
         oracle:
 
-remote_lzf:
-  hosts:
-    lzf:
-
 all:
   vars:
     ansible_ssh_user: shikun

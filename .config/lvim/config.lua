@@ -8,22 +8,24 @@ lvim.keys.normal_mode["<Tab>"] = ":BufferLineCycleNext<CR>"
 lvim.keys.normal_mode["<S-Tab>"] = ":BufferLineCyclePrev<CR>"
 
 lvim.builtin.alpha.active = false
-lvim.builtin.nvimtree.setup.view.side = "left"
+lvim.builtin.nvimtree.setup.view.side = "right"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 lvim.builtin.treesitter.highlight.enable = true
 
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
   {
-    name = "prettier",
-    filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+    name = "prettierd",
+    filetypes = {
+      "javascript",
+      "javascriptreact",
+      "typescript",
+      "typescriptreact",
+      "html",
+      "css",
+      "markdown",
+      "yaml",
+      "json"
+    },
   }
-}
-
-local linters = require "lvim.lsp.null-ls.linters"
-linters.setup {
-  {
-    name = "eslint",
-    filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
-  },
 }
