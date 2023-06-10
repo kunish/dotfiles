@@ -140,11 +140,6 @@ function M.setup()
       },
     },
 
-    P = {
-      require('packer').sync,
-      'Package Sync',
-    },
-
     R = {
       function()
         require('spectre').open()
