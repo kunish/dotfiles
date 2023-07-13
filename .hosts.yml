@@ -24,12 +24,14 @@ vps:
     vps_ubuntu:
       hosts:
         aws-sg:
-        gcp-hk:
-        gcp-sg:
-        gcp-us:
-        oracle-large:
-        oracle1:
-        oracle:
+        hk01-gcp:
+        hk02-gcp:
+        jp01-oracle:
+        jp02-oracle:
+        sg01-gcp:
+        sg02-gcp:
+        us01-gcp:
+        us02-gcp:
 
 all:
   vars:
