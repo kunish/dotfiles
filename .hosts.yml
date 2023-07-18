@@ -29,6 +29,8 @@ vps:
         jp02-oracle:
         sg01-gcp:
         sg02-gcp:
+        tw01-gcp:
+        tw02-gcp:
         us01-gcp:
         us02-gcp:
 
