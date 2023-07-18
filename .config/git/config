@@ -2,25 +2,17 @@
   defaultBranch = main
 [core]
   ignorecase = false
+  pager = delta
 [user]
   name = kunish
   email = kunish.butt@gmail.com
-	signingkey = 2C564E822E7477FC4F6FF2F067D3ACD788F3A7CD
+	signingkey = "B7E167F7572CB50777E2B5A7FADAB7A4BB685C63"
 [interactive]
   diffFilter = delta --color-only
-[filter "lfs"]
-  clean = git-lfs clean -- %f
-  smudge = git-lfs smudge -- %f
-  process = git-lfs filter-process
-  required = true
-[pager]
-  diff = delta
-  log = delta
-  reflog = delta
-  show = delta
 [delta]
   syntax-theme = gruvbox-dark
   navigate = true
+  light = false
 [commit]
   gpgsign = true
 [pull]
