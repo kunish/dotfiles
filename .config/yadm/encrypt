@@ -1,6 +1,6 @@
 .config/totp-cli/credentials
 .kube/config
-.mc
+.mc/config.json
 .my.cnf
 .npmrc
 .pgpass
