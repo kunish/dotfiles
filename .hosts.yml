@@ -22,7 +22,6 @@ vps:
   children:
     vps_ubuntu:
       hosts:
-        aws-sg:
         hk01-gcp:
         hk02-gcp:
         jp01-oracle:
