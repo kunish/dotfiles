@@ -35,7 +35,7 @@ end
 
 if status is-interactive
     if type -q fnm
-        fnm env | source
+        fnm env --use-on-cd | source > /dev/null
     end
 
     if type -q pyenv
@@ -55,5 +55,6 @@ alias k kubectl
 alias kx kubectx
 alias ld lazydocker
 alias lg lazygit
-alias n nvim
 alias lv lvim
+alias n nvim
+alias s s3cmd
