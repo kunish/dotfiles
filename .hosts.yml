@@ -1,26 +1,34 @@
 archlinux:
-  hosts:
-    bypass:
-    cluster:
-    dns:
-    downloader:
-    exit-node:
-    grafana:
-    lxd:
-    media:
-    minio:
-    mysql:
-    postgresql:
-    powerdns:
-    proxy:
-    redis:
-    runner:
-    test:
-    work:
+  children:
+    group_homelab:
+      hosts:
+        bypass:
+        cluster:
+        dns:
+        downloader:
+        exit-node:
+        grafana:
+        lxd:
+        media:
+        minio:
+        mysql:
+        postgresql:
+        powerdns:
+        proxy:
+        redis:
+        runner:
+        test:
+        work:
+
+    group_onion:
+      hosts:
+        groot:
+        ironman:
+        spiderman:
 
 vps:
   children:
-    vps_ubuntu:
+    group_bypass:
       hosts:
         hk01-gcp:
         hk02-gcp:

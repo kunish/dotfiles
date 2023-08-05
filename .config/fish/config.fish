@@ -29,28 +29,6 @@ fish_add_path $GOPATH/bin
 
 source (brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc
 
-function kubectl
-    kubecolor $argv
-end
-
-if status is-interactive
-    if type -q fnm
-        fnm env --use-on-cd | source > /dev/null
-    end
-
-    if type -q pyenv
-        pyenv init --path | source
-    end
-
-    if type -q starship
-        starship init fish | source
-    end
-
-    if type -q zoxide
-        zoxide init fish | source
-    end
-end
-
 alias k kubectl
 alias kx kubectx
 alias ld lazydocker
@@ -58,3 +36,27 @@ alias lg lazygit
 alias lv lvim
 alias n nvim
 alias s s3cmd
+
+function kubectl
+    kubecolor $argv
+end
+
+if type -q fnm
+    fnm env --use-on-cd | source >/dev/null
+end
+
+if type -q pyenv
+    pyenv init --path | source
+end
+
+if type -q starship
+    starship init fish | source
+end
+
+if type -q zoxide
+    zoxide init fish | source
+end
+
+if type -q kubectl
+    kubectl completion fish | source
+end
