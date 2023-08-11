@@ -6,3 +6,4 @@
 .pgpass
 .s3cfg
 .ssh
+.swaksrc
