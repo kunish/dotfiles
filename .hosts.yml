@@ -22,24 +22,21 @@ archlinux:
 
     group_onion:
       hosts:
+        galactus:
         groot:
         ironman:
         spiderman:
+        wakanda:
 
 vps:
   children:
     group_bypass:
       hosts:
-        hk01-gcp:
-        hk02-gcp:
         jp01-oracle:
         jp02-oracle:
-        sg01-gcp:
-        sg02-gcp:
-        tw01-gcp:
-        tw02-gcp:
-        us01-gcp:
-        us02-gcp:
+        sg-gcp:
+        hk-gcp:
+        tw-gcp:
 
 all:
   vars:

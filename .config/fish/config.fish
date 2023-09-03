@@ -18,8 +18,9 @@ fish_add_path /usr/local/opt/gnu-tar/libexec/gnubin
 fish_add_path /usr/local/opt/openssl/bin
 fish_add_path (brew --prefix)/sbin
 fish_add_path (brew --prefix)/bin
-fish_add_path (brew --prefix)/opt/gnu-tar/libexec/gnubin
+fish_add_path (brew --prefix)/opt/make/libexec/gnubin
 fish_add_path (brew --prefix)/opt/llvm/bin
+fish_add_path (brew --prefix)/opt/gnu-tar/libexec/gnubin
 fish_add_path $HOME/.krew/bin
 fish_add_path $HOME/.cargo/bin
 fish_add_path $HOME/.yarn/bin
@@ -42,7 +43,7 @@ function kubectl
 end
 
 if type -q fnm
-    fnm env --use-on-cd | source >/dev/null
+    fnm env --use-on-cd --log-level quiet | source
 end
 
 if type -q pyenv
