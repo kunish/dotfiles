@@ -1,0 +1,12 @@
+Plug 'easymotion/vim-easymotion'
+Plug 'kana/vim-textobj-entire'
+Plug 'machakann/vim-highlightedyank'
+Plug 'preservim/nerdtree'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'vim-scripts/ReplaceWithRegister'
+
+set clipboard=ideaput
+set ignorecase
+set visualbell
