@@ -8,5 +8,6 @@ Plug 'tpope/vim-surround'
 Plug 'vim-scripts/ReplaceWithRegister'
 
 set clipboard=ideaput
+set ideajoin
 set ignorecase
 set visualbell

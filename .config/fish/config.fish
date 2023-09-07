@@ -25,6 +25,7 @@ fish_add_path $HOME/.krew/bin
 fish_add_path $HOME/.cargo/bin
 fish_add_path $HOME/.yarn/bin
 fish_add_path $HOME/.local/bin
+fish_add_path $HOME/Library/Application\ Support/JetBrains/Toolbox/scripts
 fish_add_path $PNPM_HOME
 fish_add_path $GOPATH/bin
 
