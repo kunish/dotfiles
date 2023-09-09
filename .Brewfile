@@ -190,7 +190,9 @@ brew "perl"
 brew "picocom"
 brew "picotool"
 brew "pinentry-mac"
-brew "postgresql@14"
+brew "pocketbase"
+brew "postgresql@15"
+brew "potrace"
 brew "progress"
 brew "pup"
 brew "pwgen"
@@ -204,6 +206,7 @@ brew "rustup-init"
 brew "s3cmd"
 brew "screen"
 brew "sevenzip"
+brew "shellcheck"
 brew "shfmt"
 brew "sipcalc"
 brew "socat"
@@ -268,6 +271,7 @@ cask "gcc-arm-embedded"
 cask "google-chrome"
 cask "google-cloud-sdk"
 cask "iina"
+cask "jetbrains-toolbox"
 cask "microsoft-edge"
 cask "notion"
 cask "nrlquaker-winbox"
@@ -305,6 +309,7 @@ mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Speedtest", id: 1153157709
+mas "Twingate", id: 1501592214
 mas "WireGuard", id: 1451685025
 mas "Xcode", id: 497799835
 vscode "astro-build.astro-vscode"
