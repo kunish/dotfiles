@@ -2,11 +2,11 @@ local wezterm = require("wezterm")
 
 return {
   font = wezterm.font_with_fallback({
-    { family = "Ubuntu Mono Ligaturized", weight = "Bold" },
-    { family = "小賴字體 等寬 SC" },
+    { family = "JetBrains Mono", weight = "Bold" },
+    { family = "小賴字體 等寬 SC", weight = "Bold" },
   }),
-  font_size = 13.6,
-  line_height = 1.2,
+  font_size = 12,
+  line_height = 1.1,
   color_scheme = "OneHalfBlack (Gogh)",
   audible_bell = "Disabled",
   enable_scroll_bar = false,

@@ -256,6 +256,7 @@ brew "surrealdb/tap/surreal"
 cask "1password"
 cask "adrive"
 cask "anydesk"
+cask "arc"
 cask "arduino-ide"
 cask "baidunetdisk"
 cask "cloudflare-warp"
@@ -270,7 +271,9 @@ cask "fork"
 cask "gcc-arm-embedded"
 cask "google-chrome"
 cask "google-cloud-sdk"
+cask "graphql-playground"
 cask "iina"
+cask "insomnia"
 cask "jetbrains-toolbox"
 cask "microsoft-edge"
 cask "notion"
@@ -302,16 +305,7 @@ cask "wine-stable"
 cask "wireshark"
 cask "yubico-yubikey-manager"
 cask "zerotier-one"
-mas "Disk Speed Test", id: 425264550
-mas "Infuse", id: 1136220934
-mas "iStatistica Pro", id: 1447778660
-mas "Keynote", id: 409183694
-mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
-mas "Speedtest", id: 1153157709
-mas "Twingate", id: 1501592214
-mas "WireGuard", id: 1451685025
-mas "Xcode", id: 497799835
+vscode "antfu.unocss"
 vscode "astro-build.astro-vscode"
 vscode "bradlc.vscode-tailwindcss"
 vscode "christian-kohler.npm-intellisense"
@@ -324,6 +318,7 @@ vscode "dsznajder.es7-react-js-snippets"
 vscode "ecmel.vscode-html-css"
 vscode "esbenp.prettier-vscode"
 vscode "GitHub.copilot"
+vscode "GitHub.copilot-chat"
 vscode "github.vscode-github-actions"
 vscode "golang.go"
 vscode "GraphQL.vscode-graphql-syntax"

@@ -26,7 +26,6 @@ archlinux:
         groot:
         ironman:
         spiderman:
-        wakanda:
 
 vps:
   children:
