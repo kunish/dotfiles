@@ -31,10 +31,11 @@ vps:
   children:
     group_bypass:
       hosts:
+        hk-gcp:
         jp01-oracle:
         jp02-oracle:
         sg-gcp:
-        hk-gcp:
+        toybox:
         tw-gcp:
 
 all:
