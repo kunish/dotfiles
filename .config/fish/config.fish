@@ -11,6 +11,7 @@ set -x FLUTTER_STORAGE_BASE_URL https://storage.flutter-io.cn
 set -x GPG_TTY (tty)
 
 set -x HOMEBREW_NO_ENV_HINTS 1
+set -x HOMEBREW_DEVELOPER 1
 set -x USE_GKE_GCLOUD_AUTH_PLUGIN True
 
 fish_add_path /usr/local/sbin
