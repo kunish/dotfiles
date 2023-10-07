@@ -6,23 +6,16 @@ brew bundle --global
 # python
 PYTHON_VERSION=$(cat $HOME/.pyenv/version)
 pyenv install $PYTHON_VERSION
-pyenv global $PYTHON_VERSION
-python3 -m pip install --user --upgrade pip
-pip3 install --user --upgrade powerline-status lookatme yapf
 
 # rust
 rustup-init
 
 # node
 NODE_VERSION=$(cat $HOME/.nvmrc)
-fnm use $NODE_VERSION
-npm install -g npm yarn
-yarn global add eslint eslint_d prettier @fsouza/prettierd
-
-# neovim
-nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+fnm use --install-if-missing $NODE_VERSION
+corepack enable && corepack prepare pnpm@latest --activate
 
 # shell
 chsh -s $(which fish) $(whoami)
-curl -s https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
-curl -sL https://git.io/fisher | fish
+curl -sL https://git.io/fisher | source
+fisher update
