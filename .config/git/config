@@ -8,7 +8,7 @@
 [user]
   name = kunish
   email = kunish.butt@gmail.com
-  signingkey = "EE7ACD2BDEB722EFED5C2BA27BFB91EF0FBDB6BE"
+  signingkey = "2C564E822E7477FC4F6FF2F067D3ACD788F3A7CD"
 
 [interactive]
   diffFilter = delta --color-only
