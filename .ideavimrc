@@ -1,13 +1,36 @@
-Plug 'easymotion/vim-easymotion'
-Plug 'kana/vim-textobj-entire'
-Plug 'machakann/vim-highlightedyank'
-Plug 'preservim/nerdtree'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-surround'
-Plug 'vim-scripts/ReplaceWithRegister'
+let mapleader=","
 
 set clipboard=ideaput
 set ideajoin
 set ignorecase
 set visualbell
+
+set easymotion
+set sneak
+set NERDTree
+set surround
+set multiple-cursors
+set commentary
+set ReplaceWithRegister
+set highlightedyank
+
+sethandler <C-A> a:ide
+sethandler <C-B> a:ide
+sethandler <C-D> a:vim
+sethandler <C-E> a:ide
+sethandler <C-F> a:ide
+sethandler <C-G> a:ide
+sethandler <C-H> a:ide
+sethandler <C-I> a:vim
+sethandler <C-J> a:ide
+sethandler <C-K> a:ide
+sethandler <C-L> a:ide
+sethandler <C-M> a:ide
+sethandler <C-N> a:ide
+sethandler <C-O> a:vim
+sethandler <C-P> a:ide
+sethandler <C-R> a:ide
+sethandler <C-S> a:ide
+sethandler <C-T> a:ide
+sethandler <C-V> a:vim
+sethandler <C-W> a:vim
