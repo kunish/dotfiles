@@ -14,6 +14,7 @@ set -x HOMEBREW_NO_ENV_HINTS 1
 set -x HOMEBREW_DEVELOPER 1
 set -x USE_GKE_GCLOUD_AUTH_PLUGIN True
 
+fish_add_path /opt/homebrew/bin
 fish_add_path /usr/local/sbin
 fish_add_path /usr/local/opt/gnu-tar/libexec/gnubin
 fish_add_path /usr/local/opt/openssl/bin
