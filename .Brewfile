@@ -264,6 +264,7 @@ cask "font-ubuntu-mono-nerd-font"
 cask "google-chrome"
 cask "google-cloud-sdk"
 cask "iina"
+cask "intellij-idea"
 cask "jetbrains-toolbox"
 cask "notion"
 cask "nrlquaker-winbox"
@@ -291,9 +292,6 @@ cask "wine-stable"
 cask "wireshark"
 cask "yubico-yubikey-manager"
 cask "zerotier-one"
-mas "GarageBand", id: 682658836
-mas "iMovie", id: 408981434
-mas "Infuse", id: 1136220934
 mas "iStatistica Pro", id: 1447778660
 mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
