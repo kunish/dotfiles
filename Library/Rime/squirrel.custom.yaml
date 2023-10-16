@@ -1,7 +1,0 @@
-patch:
-  style:
-    font_point: 16
-    color_scheme: mojave_dark
-
-  app_options:
-    ascii_mode: false
