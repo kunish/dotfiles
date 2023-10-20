@@ -1,7 +1,7 @@
 set -x fish_greeting
 
-set -x VISUAL vim
-set -x EDITOR vim
+set -x VISUAL nvim
+set -x EDITOR nvim
 
 set -x fzf_fd_opts -HE .git
 set -x PNPM_HOME $HOME/Library/pnpm
