@@ -1,0 +1,3 @@
+[submodule "/Users/shikun/.config/nvim"]
+	path = /Users/shikun/.config/nvim
+	url = https://github.com/NvChad/NvChad
