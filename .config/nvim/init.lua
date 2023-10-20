@@ -1,7 +1,0 @@
-require('core.opt').setup()
-require('plug').setup()
-require('core.tool').setup()
-require('core.keymap').setup()
-require('core.au').setup()
-require('ide.lsp').setup()
-require('ide.cmp').setup()

@@ -1,7 +1,7 @@
 set -x fish_greeting
 
-set -x VISUAL nvim
-set -x EDITOR nvim
+set -x VISUAL vim
+set -x EDITOR vim
 
 set -x fzf_fd_opts -HE .git
 set -x PNPM_HOME $HOME/Library/pnpm
@@ -41,6 +41,8 @@ alias lg lazygit
 alias lv lvim
 alias n nvim
 alias s s3cmd
+
+abbr t trans :zh
 
 function kubectl
     kubecolor $argv
