@@ -40,8 +40,7 @@ alias ld lazydocker
 alias lg lazygit
 alias lv lvim
 alias n nvim
-alias s s3cmd
-alias ssh "kitten ssh"
+alias s "kitten ssh"
 
 abbr t trans :zh
 
