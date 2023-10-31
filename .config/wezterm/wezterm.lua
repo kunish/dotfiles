@@ -2,11 +2,9 @@ local wezterm = require("wezterm")
 
 return {
   font = wezterm.font_with_fallback({
-    { family = "JetBrains Mono", weight = "Bold" },
+    { family = "Comic Code Ligatures", weight = "Bold" },
     { family = "小賴字體 等寬 SC", weight = "Bold" },
   }),
-  font_size = 12,
-  line_height = 1.1,
   color_scheme = "OneHalfBlack (Gogh)",
   audible_bell = "Disabled",
   enable_scroll_bar = false,
