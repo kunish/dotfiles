@@ -34,6 +34,8 @@ vps:
         jp01-oracle:
         jp02-oracle:
         toybox:
+        yorkshire-vps1:
+        yorkshire-vps2:
 
 all:
   vars:
