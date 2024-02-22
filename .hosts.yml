@@ -8,7 +8,7 @@ archlinux:
         downloader:
         exit-node:
         grafana:
-        lxd:
+        incus:
         media:
         minio:
         mysql:
