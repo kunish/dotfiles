@@ -16,6 +16,7 @@ set highlightedyank
 
 sethandler <C-A> a:ide
 sethandler <C-B> a:ide
+sethandler <C-C> a:ide
 sethandler <C-D> a:vim
 sethandler <C-E> a:ide
 sethandler <C-F> a:ide
