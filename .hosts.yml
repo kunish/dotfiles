@@ -22,7 +22,6 @@ archlinux:
 
     group_onion:
       hosts:
-        galactus:
         groot:
         ironman:
         spiderman:

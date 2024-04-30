@@ -18,6 +18,7 @@ fish_add_path /opt/homebrew/bin
 fish_add_path /usr/local/sbin
 fish_add_path /usr/local/opt/gnu-tar/libexec/gnubin
 fish_add_path /usr/local/opt/openssl/bin
+fish_add_path /usr/libexec/java_home/bin
 fish_add_path (brew --prefix)/sbin
 fish_add_path (brew --prefix)/bin
 fish_add_path (brew --prefix)/opt/make/libexec/gnubin

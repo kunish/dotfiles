@@ -2,7 +2,7 @@ local wezterm = require("wezterm")
 
 return {
   font = wezterm.font_with_fallback({
-    { family = "Comic Code Ligatures", weight = "Bold" },
+    { family = "Ubuntu Mono Ligaturized", weight = "Bold" },
     { family = "小賴字體 等寬 SC", weight = "Bold" },
   }),
   color_scheme = "OneHalfBlack (Gogh)",
