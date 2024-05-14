@@ -32,6 +32,7 @@ fish_add_path $HOME/.yarn/bin
 fish_add_path $HOME/.local/bin
 fish_add_path $HOME/.pyenv/bin
 fish_add_path $HOME/.jenv/bin
+fish_add_path $HOME/Developer/flutter/bin
 fish_add_path $PNPM_HOME
 fish_add_path $GOPATH/bin
 
