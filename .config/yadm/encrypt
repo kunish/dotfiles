@@ -1,3 +1,4 @@
+.config/git
 .config/totp-cli/credentials
 .kube/config
 .mc/config.json
