@@ -1,0 +1,10 @@
+live_config_reload = true
+
+[font]
+size = 14
+
+[font.normal]
+family = "Ubuntu Mono Ligaturized"
+
+[window]
+option_as_alt = "Both"
