@@ -8,3 +8,4 @@
 .s3cfg
 .ssh
 .swaksrc
+.hosts.yml
