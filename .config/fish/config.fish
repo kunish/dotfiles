@@ -23,7 +23,7 @@ fish_add_path (brew --prefix)/bin
 fish_add_path (brew --prefix)/opt/make/libexec/gnubin
 fish_add_path (brew --prefix)/opt/llvm/bin
 fish_add_path (brew --prefix)/opt/gnu-tar/libexec/gnubin
-fish_add_path (brew --prefix)/opt/postgresql@15/bin
+fish_add_path (brew --prefix)/opt/postgresql@16/bin
 fish_add_path $HOME/.krew/bin
 fish_add_path $HOME/.cargo/bin
 fish_add_path $HOME/.yarn/bin
