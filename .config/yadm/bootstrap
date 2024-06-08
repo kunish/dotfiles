@@ -3,6 +3,8 @@
 # homebrew
 brew bundle --global
 
+mkdir Developer
+
 # python
 PYTHON_VERSION=$(cat $HOME/.pyenv/version)
 pyenv install $PYTHON_VERSION
@@ -14,6 +16,9 @@ rustup-init
 NODE_VERSION=$(cat $HOME/.nvmrc)
 fnm use --install-if-missing $NODE_VERSION
 corepack enable && corepack prepare pnpm@latest --activate
+
+# flutter
+git clone git@github.com:flutter/flutter.git Developer/flutter
 
 # shell
 chsh -s $(which fish) $(whoami)
