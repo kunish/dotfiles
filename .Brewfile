@@ -293,7 +293,6 @@ cask "postman"
 cask "proxyman"
 cask "qqmusic"
 cask "raycast"
-cask "rectangle"
 cask "remoteviewer"
 cask "reqable"
 cask "steam"
@@ -315,7 +314,6 @@ cask "wireshark"
 cask "yubico-yubikey-manager"
 cask "zed"
 cask "zerotier-one"
-mas "Infuse", id: 1136220934
 mas "iStatistica Pro", id: 1447778660
 mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
