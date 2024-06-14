@@ -74,3 +74,11 @@ end
 if type -q jenv
   jenv init - | source
 end
+
+if type -q tailscale
+  tailscale completion fish | source
+end
+
+if type -q netbird
+  netbird completion fish | source
+end
