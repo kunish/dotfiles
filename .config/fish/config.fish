@@ -51,34 +51,36 @@ function kubectl
     kubecolor $argv
 end
 
-if type -q fnm
-    fnm env --use-on-cd --log-level quiet | source
-end
+if status is-interactive
+  if type -q fnm
+      fnm env --use-on-cd --log-level quiet | source
+  end
 
-if type -q pyenv
-    pyenv init --path | source
-end
+  if type -q pyenv
+      pyenv init --path | source
+  end
 
-if type -q starship
-    starship init fish | source
-end
+  if type -q starship
+      starship init fish | source
+  end
 
-if type -q zoxide
-    zoxide init fish | source
-end
+  if type -q zoxide
+      zoxide init fish | source
+  end
 
-if type -q kubectl
-    kubectl completion fish | source
-end
+  if type -q kubectl
+      kubectl completion fish | source
+  end
 
-if type -q jenv
-  jenv init - | source
-end
+  if type -q jenv
+    jenv init - | source
+  end
 
-if type -q tailscale
-  tailscale completion fish | source
-end
+  if type -q tailscale
+    tailscale completion fish | source
+  end
 
-if type -q netbird
-  netbird completion fish | source
+  if type -q netbird
+    netbird completion fish | source
+  end
 end
