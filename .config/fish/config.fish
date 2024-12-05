@@ -10,7 +10,6 @@ set -x ANDROID_HOME $HOME/Library/Android/sdk
 set -x GPG_TTY (tty)
 
 set -x HOMEBREW_NO_ENV_HINTS 1
-set -x HOMEBREW_DEVELOPER 1
 set -x USE_GKE_GCLOUD_AUTH_PLUGIN True
 
 fish_add_path /opt/homebrew/bin
