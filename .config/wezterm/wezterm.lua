@@ -5,7 +5,7 @@ return {
     { family = "Iosevka Term", weight = "Bold" },
     { family = "小賴字體 等寬 SC", weight = "Bold" },
   }),
-  color_scheme = "OneHalfBlack (Gogh)",
+  color_scheme = "Catppuccin Mocha",
   audible_bell = "Disabled",
   enable_scroll_bar = false,
   hide_tab_bar_if_only_one_tab = true,
